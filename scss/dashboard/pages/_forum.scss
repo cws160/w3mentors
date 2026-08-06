@@ -1,0 +1,29 @@
+.container {
+    &--small {
+        max-width: 1000px;
+    }
+}
+
+.field-icon {
+    position: relative;
+
+    & .icon {
+        position: absolute;
+        #{theme('direction.left','value')}: 1rem;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+    & input[type="text"] {
+        height: 50px;
+        padding-#{theme('direction.left','value')}: 4rem;
+    }
+}
+
+@media (max-width:theme('breakpoints.sm', 'value')) {
+    .rm_btn {
+        margin: 1rem 0 0 !important;
+    }
+}

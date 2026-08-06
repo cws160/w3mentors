@@ -1,0 +1,120 @@
+.log-icon {
+  width: 52px;
+  height: 52px;
+  position: relative;
+  border-radius: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 5px solid #fff;
+  & svg {
+    width: 24px;
+    height: 24px;
+    display: block;
+  }
+}
+
+.log-item {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  position: relative;
+  justify-content: space-between;
+  padding: 1rem 0 0.5rem;
+  font-size: 13px;
+  &:before {
+    position: absolute;
+    #{$start-direction}: 28px;
+    top: 0;
+    bottom: 0;
+    content: "";
+    width: 2px;
+    background-color: #ddd;
+    @include media-breakpoint-up(sm) {
+      & {
+        #{$start-direction}: 45px;
+      }
+    }
+  }
+  &:first-child:before {
+    top: 1rem;
+  }
+  &:last-child:before {
+    bottom: 1rem;
+  }
+  &__media {
+    width: 56px;
+    position: relative;
+    @include media-breakpoint-up(sm) {
+      & {
+        width: 90px;
+      }
+    }
+  }
+  &__content {
+    width: calc(100% - 56px);
+    padding: 0 1rem;
+    padding-top: 6px;
+    @include media-breakpoint-up(sm) {
+      & {
+        width: calc(100% - 90px);
+      }
+    }
+  }
+
+  & .log-date {
+    font-size: 12px;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+  & .log-title {
+    display: block;
+  }
+  & .log-author {
+    font-weight: 600;
+  }
+  &.is-inprogress {
+    .log-icon {
+      background-color: #e8f0ff;
+      & svg {
+        fill: $info-color;
+      }
+    }
+  }
+  &.is-rejected {
+    .log-icon {
+      background-color: #fae8e9;
+      & svg {
+        fill: $danger-color;
+      }
+    }
+  }
+
+  &.is-approved {
+    .log-icon {
+      background-color: #dbece7;
+      & svg {
+        fill: $success-color;
+      }
+    }
+  }
+
+  & .repeat-element {
+    font-size: 90%;
+    padding: 0.5rem;
+    &__title {
+      font-weight: 700;
+    }
+  }
+
+  & .log-comments {
+    position: relative;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    padding: 0.5rem;
+    margin: 1rem 0 0;
+  }
+}

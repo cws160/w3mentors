@@ -1,0 +1,619 @@
+/* Configuration forms preserve the legacy w3mentors admin appearance even
+   when the active marketplace theme uses different brand tints. */
+.admin-configurations-page .form__heading {
+  background-color: #f0f3fb !important;
+}
+
+.admin-configurations-page .tab-vertical a.active {
+  background-color: #f0f3fb !important;
+}
+
+.admin-configurations-page .btn-brand {
+  background-color: #0756d9 !important;
+  border-color: #0756d9 !important;
+}
+
+.admin-configurations-page .btn-brand:hover,
+.admin-configurations-page .btn-brand:focus {
+  background-color: #0649b8 !important;
+  border-color: #0649b8 !important;
+}
+
+.admin-slides-page .breadcrumb-wrap {
+  align-items: center;
+}
+
+.admin-slides-page .action-toolbar .btn-primary {
+  background-color: #ff4b0b;
+  border-color: #ff4b0b;
+}
+
+.admin-slides-page .action-toolbar .btn-primary:hover,
+.admin-slides-page .action-toolbar .btn-primary:focus {
+  background-color: #e84200;
+  border-color: #e84200;
+}
+
+.admin-slides-page #slideList th,
+.admin-slides-page #slideList td {
+  vertical-align: middle;
+}
+
+.admin-slides-page #slideList .dragHandle {
+  cursor: move;
+}
+
+.admin-navigations-page .breadcrumb-wrap {
+  margin-bottom: 26px;
+}
+
+.admin-navigations-table-card {
+  overflow: hidden;
+  border-color: #d9dde5;
+  border-radius: 6px;
+}
+
+.admin-navigations-table-card .card-table,
+.admin-navigations-table-card .table-responsive {
+  overflow: visible;
+}
+
+.admin-navigations-table-card .table {
+  margin-bottom: 0;
+}
+
+.admin-navigations-table-card .table th,
+.admin-navigations-table-card .table td {
+  height: 49px;
+  padding: 13px 22px;
+  vertical-align: middle;
+}
+
+.admin-navigations-table-card .table th:nth-child(1),
+.admin-navigations-table-card .table td:nth-child(1) {
+  width: 14%;
+}
+
+.admin-navigations-table-card .table th:nth-child(2),
+.admin-navigations-table-card .table td:nth-child(2) {
+  width: 21%;
+}
+
+.admin-navigations-table-card .table th:nth-child(3),
+.admin-navigations-table-card .table td:nth-child(3) {
+  width: 30%;
+}
+
+.admin-navigations-table-card .table th:nth-child(4),
+.admin-navigations-table-card .table td:nth-child(4) {
+  width: 17%;
+  text-align: left;
+}
+
+.admin-navigations-table-card .table th:nth-child(5),
+.admin-navigations-table-card .table td:nth-child(5) {
+  width: 18%;
+}
+
+.admin-navigations-table-card .statustab {
+  margin: 0;
+}
+
+.admin-navigation-pages-page .breadcrumb-wrap {
+  align-items: center;
+  margin-bottom: 26px;
+}
+
+.admin-navigation-pages-page .action-toolbar {
+  display: flex;
+  gap: 14px;
+}
+
+.admin-navigation-pages-page .action-toolbar .btn-primary {
+  min-width: 74px;
+  background-color: #ff4b0b;
+  border-color: #ff4b0b;
+}
+
+.admin-navigation-pages-page .action-toolbar .btn-primary:hover,
+.admin-navigation-pages-page .action-toolbar .btn-primary:focus {
+  background-color: #e84200;
+  border-color: #e84200;
+}
+
+.admin-navigation-pages-page .card {
+  overflow: hidden;
+  border-color: #d9dde5;
+  border-radius: 6px;
+}
+
+.admin-navigation-pages-page #pageList {
+  margin-bottom: 0;
+}
+
+.admin-navigation-pages-page #pageList th,
+.admin-navigation-pages-page #pageList td {
+  height: 49px;
+  padding: 13px 22px;
+  vertical-align: middle;
+}
+
+.admin-navigation-pages-page #pageList th:nth-child(1),
+.admin-navigation-pages-page #pageList td:nth-child(1) {
+  width: 5%;
+  text-align: center;
+}
+
+.admin-navigation-pages-page #pageList th:nth-child(2),
+.admin-navigation-pages-page #pageList td:nth-child(2) {
+  width: 12%;
+}
+
+.admin-navigation-pages-page #pageList th:nth-child(3),
+.admin-navigation-pages-page #pageList td:nth-child(3) {
+  width: 27%;
+}
+
+.admin-navigation-pages-page #pageList th:nth-child(4),
+.admin-navigation-pages-page #pageList td:nth-child(4) {
+  width: 27%;
+}
+
+.admin-navigation-pages-page #pageList th:nth-child(5),
+.admin-navigation-pages-page #pageList td:nth-child(5) {
+  width: 14%;
+}
+
+.admin-navigation-pages-page #pageList th:nth-child(6),
+.admin-navigation-pages-page #pageList td:nth-child(6) {
+  width: 15%;
+}
+
+.admin-navigation-pages-page .dragHandle {
+  cursor: move;
+}
+
+.admin-navigation-pages-page .statustab {
+  margin: 0;
+}
+
+.admin-countries-page .breadcrumb-wrap {
+  margin-bottom: 26px;
+}
+
+.admin-countries-search-card {
+  margin-bottom: 18px;
+  overflow: hidden;
+  border-color: #d9dde5;
+  border-radius: 6px;
+}
+
+.admin-countries-search-form {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.admin-countries-search-form .search-input {
+  height: 62px;
+  padding: 0 58px 0 22px;
+  border: 0;
+  border-radius: 6px;
+  color: #111827;
+  font-size: 16px;
+  box-shadow: none;
+}
+
+.admin-countries-search-form .search-input::placeholder {
+  color: #8d99a8;
+}
+
+.admin-countries-search-button {
+  position: absolute;
+  top: 50%;
+  right: 22px;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  transform: translateY(-50%);
+}
+
+.admin-countries-search-icon {
+  position: absolute;
+  top: 5px;
+  left: 4px;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #8d99a8;
+  border-radius: 50%;
+}
+
+.admin-countries-search-icon::after {
+  position: absolute;
+  right: -7px;
+  bottom: -6px;
+  width: 9px;
+  height: 2px;
+  background: #8d99a8;
+  content: "";
+  transform: rotate(45deg);
+  transform-origin: left center;
+}
+
+.admin-countries-table-card {
+  overflow: hidden;
+  border-color: #d9dde5;
+  border-radius: 6px;
+}
+
+.admin-countries-table-card .table {
+  margin-bottom: 0;
+}
+
+.admin-countries-table-card .table th,
+.admin-countries-table-card .table td {
+  height: 47px;
+  padding: 13px 22px;
+  vertical-align: middle;
+}
+
+.admin-countries-table-card .table th:nth-child(1),
+.admin-countries-table-card .table td:nth-child(1) {
+  width: 9%;
+}
+
+.admin-countries-table-card .table th:nth-child(2),
+.admin-countries-table-card .table td:nth-child(2) {
+  width: 9%;
+}
+
+.admin-countries-table-card .table th:nth-child(3),
+.admin-countries-table-card .table td:nth-child(3) {
+  width: 18%;
+}
+
+.admin-countries-table-card .table th:nth-child(4),
+.admin-countries-table-card .table td:nth-child(4) {
+  width: 18%;
+}
+
+.admin-countries-table-card .table th:nth-child(5),
+.admin-countries-table-card .table td:nth-child(5) {
+  width: 10%;
+}
+
+.admin-countries-table-card .table th:nth-child(6),
+.admin-countries-table-card .table td:nth-child(6) {
+  width: 13%;
+}
+
+.admin-countries-table-card .table th:nth-child(7),
+.admin-countries-table-card .table td:nth-child(7) {
+  width: 11%;
+}
+
+.admin-countries-table-card .table th:nth-child(8),
+.admin-countries-table-card .table td:nth-child(8) {
+  width: 12%;
+}
+
+.admin-countries-table-card .statustab {
+  margin: 0;
+}
+
+.admin-countries-page .action-toolbar .btn-primary {
+  min-width: 82px;
+  background-color: #ff4b0b;
+  border-color: #ff4b0b;
+}
+
+.admin-countries-page .action-toolbar .btn-primary:hover,
+.admin-countries-page .action-toolbar .btn-primary:focus {
+  background-color: #e84200;
+  border-color: #e84200;
+}
+
+.admin-states-page .breadcrumb-wrap {
+  margin-bottom: 26px;
+}
+
+.admin-states-search-card {
+  margin-bottom: 18px;
+  overflow: hidden;
+  border-color: #d9dde5;
+  border-radius: 6px;
+}
+
+.admin-states-search-form {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.admin-states-search-form .search-input {
+  height: 62px;
+  padding: 0 58px 0 22px;
+  border: 0;
+  border-radius: 6px;
+  color: #111827;
+  font-size: 16px;
+  box-shadow: none;
+}
+
+.admin-states-search-form .search-input::placeholder {
+  color: #8d99a8;
+}
+
+.admin-states-search-button {
+  position: absolute;
+  top: 50%;
+  right: 22px;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  transform: translateY(-50%);
+}
+
+.admin-states-search-icon {
+  position: absolute;
+  top: 5px;
+  left: 4px;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #8d99a8;
+  border-radius: 50%;
+}
+
+.admin-states-search-icon::after {
+  position: absolute;
+  right: -7px;
+  bottom: -6px;
+  width: 9px;
+  height: 2px;
+  background: #8d99a8;
+  content: "";
+  transform: rotate(45deg);
+  transform-origin: left center;
+}
+
+.admin-states-table-card {
+  overflow: hidden;
+  border-color: #d9dde5;
+  border-radius: 6px;
+}
+
+.admin-states-table-card .table {
+  margin-bottom: 0;
+}
+
+.admin-states-table-card .table th,
+.admin-states-table-card .table td {
+  height: 49px;
+  padding: 13px 22px;
+  vertical-align: middle;
+}
+
+.admin-states-table-card .table th:nth-child(1),
+.admin-states-table-card .table td:nth-child(1) {
+  width: 8%;
+}
+
+.admin-states-table-card .table th:nth-child(2),
+.admin-states-table-card .table td:nth-child(2) {
+  width: 25%;
+}
+
+.admin-states-table-card .table th:nth-child(3),
+.admin-states-table-card .table td:nth-child(3) {
+  width: 8%;
+}
+
+.admin-states-table-card .table th:nth-child(4),
+.admin-states-table-card .table td:nth-child(4) {
+  width: 25%;
+}
+
+.admin-states-table-card .table th:nth-child(5),
+.admin-states-table-card .table td:nth-child(5) {
+  width: 19%;
+}
+
+.admin-states-table-card .table th:nth-child(6),
+.admin-states-table-card .table td:nth-child(6) {
+  width: 8%;
+}
+
+.admin-states-table-card .table th:nth-child(7),
+.admin-states-table-card .table td:nth-child(7) {
+  width: 7%;
+}
+
+.admin-states-table-card .statustab {
+  margin: 0;
+}
+
+.admin-states-page .action-toolbar {
+  display: flex;
+  gap: 14px;
+}
+
+.admin-states-page .action-toolbar .btn-primary {
+  min-width: 82px;
+  background-color: #ff4b0b;
+  border-color: #ff4b0b;
+}
+
+.admin-states-page .action-toolbar .btn-primary:hover,
+.admin-states-page .action-toolbar .btn-primary:focus {
+  background-color: #e84200;
+  border-color: #e84200;
+}
+
+.admin-video-content-page .breadcrumb-wrap {
+  align-items: center;
+  margin-bottom: 26px;
+}
+
+.admin-video-content-page .action-toolbar {
+  display: flex;
+  gap: 14px;
+}
+
+.admin-video-content-page .action-toolbar .btn-primary {
+  min-width: 92px;
+  background-color: #ff4b0b;
+  border-color: #ff4b0b;
+}
+
+.admin-video-content-page .action-toolbar .btn-primary:hover,
+.admin-video-content-page .action-toolbar .btn-primary:focus {
+  background-color: #e84200;
+  border-color: #e84200;
+}
+
+.admin-video-content-table-card {
+  overflow: hidden;
+  border-color: #d9dde5;
+  border-radius: 6px;
+}
+
+.admin-video-content-table-card .table {
+  margin-bottom: 0;
+}
+
+.admin-video-content-table-card .table th,
+.admin-video-content-table-card .table td {
+  height: 49px;
+  padding: 13px 22px;
+  vertical-align: middle;
+}
+
+.admin-video-content-table-card .table th:nth-child(1),
+.admin-video-content-table-card .table td:nth-child(1) {
+  width: 5%;
+  text-align: center;
+}
+
+.admin-video-content-table-card .table th:nth-child(2),
+.admin-video-content-table-card .table td:nth-child(2) {
+  width: 7%;
+}
+
+.admin-video-content-table-card .table th:nth-child(3),
+.admin-video-content-table-card .table td:nth-child(3) {
+  width: 21%;
+}
+
+.admin-video-content-table-card .table th:nth-child(4),
+.admin-video-content-table-card .table td:nth-child(4) {
+  width: 21%;
+}
+
+.admin-video-content-table-card .table th:nth-child(5),
+.admin-video-content-table-card .table td:nth-child(5) {
+  width: 29%;
+}
+
+.admin-video-content-table-card .table th:nth-child(6),
+.admin-video-content-table-card .table td:nth-child(6) {
+  width: 8%;
+}
+
+.admin-video-content-table-card .table th:nth-child(7),
+.admin-video-content-table-card .table td:nth-child(7) {
+  width: 9%;
+}
+
+.admin-video-content-table-card .dragHandle {
+  cursor: move;
+}
+
+.admin-video-content-table-card .statustab {
+  margin: 0;
+}
+
+.admin-video-content-table-card tr.inactive {
+  opacity: 0.58;
+}
+
+.admin-testimonials-page .breadcrumb-wrap {
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.admin-testimonials-page .action-toolbar {
+  display: flex;
+  gap: 14px;
+}
+
+.admin-testimonials-page .action-toolbar .btn-primary {
+  min-width: 92px;
+  background-color: #ff4b0b;
+  border-color: #ff4b0b;
+}
+
+.admin-testimonials-page .action-toolbar .btn-primary:hover,
+.admin-testimonials-page .action-toolbar .btn-primary:focus {
+  background-color: #e84200;
+  border-color: #e84200;
+}
+
+.admin-testimonials-table-card {
+  overflow: hidden;
+  border-color: #d9dde5;
+  border-radius: 6px;
+}
+
+.admin-testimonials-table-card .table {
+  margin-bottom: 0;
+}
+
+.admin-testimonials-table-card .table th,
+.admin-testimonials-table-card .table td {
+  padding: 14px 22px;
+  vertical-align: top;
+}
+
+.admin-testimonials-table-card .table th:nth-child(1),
+.admin-testimonials-table-card .table td:nth-child(1) {
+  width: 6%;
+}
+
+.admin-testimonials-table-card .table th:nth-child(2),
+.admin-testimonials-table-card .table td:nth-child(2) {
+  width: 10%;
+}
+
+.admin-testimonials-table-card .table th:nth-child(3),
+.admin-testimonials-table-card .table td:nth-child(3) {
+  width: 10%;
+}
+
+.admin-testimonials-table-card .table th:nth-child(4),
+.admin-testimonials-table-card .table td:nth-child(4) {
+  width: 58%;
+}
+
+.admin-testimonials-table-card .table th:nth-child(5),
+.admin-testimonials-table-card .table td:nth-child(5) {
+  width: 8%;
+  vertical-align: middle;
+}
+
+.admin-testimonials-table-card .table th:nth-child(6),
+.admin-testimonials-table-card .table td:nth-child(6) {
+  width: 8%;
+  vertical-align: middle;
+}
+
+.admin-testimonials-table-card .statustab {
+  margin: 0;
+}
+
+body.modal-open #root .wrap .table-processing.loaderJs {
+  display: none !important;
+}

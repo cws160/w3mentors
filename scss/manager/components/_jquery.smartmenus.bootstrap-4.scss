@@ -1,0 +1,130 @@
+.navbar-nav {
+    &.sm-collapsible {
+        .sub-arrow {
+            position: absolute;
+            top: 50%;
+            #{$end-direction}: 0;
+            margin: -0.7em 0.5em 0 0;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 0.25rem;
+            padding: 0;
+            width: 2em;
+            height: 1.4em;
+            font-size: 1.25rem;
+            line-height: 1.2em;
+            text-align: center;
+            &:before {
+                content: "+";
+            }
+        }
+        .show {
+            > a {
+                > .sub-arrow {
+                    &:before {
+                        content: "-";
+                    }
+                }
+            }
+        }
+        .navbar-dark & {
+            .nav-link {
+                .sub-arrow {
+                    border-color: rgba(255, 255, 255, 0.1);
+                }
+            }
+        }
+    }
+}
+
+.navbar-nav.sm-collapsible .has-submenu {
+    padding-#{$end-direction}: 3em;
+}
+
+.navbar-nav.sm-collapsible .nav-link,
+.navbar-nav.sm-collapsible .dropdown-item {
+    position: relative;
+}
+
+.navbar-nav:not(.sm-collapsible) .nav-link .sub-arrow {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-#{$start-direction}: 0.255em;
+    vertical-align: 0.255em;
+    border-top: 0.3em solid;
+    border-#{$end-direction}: 0.3em solid transparent;
+    border-#{$start-direction}: 0.3em solid transparent;
+}
+
+.fixed-bottom .navbar-nav:not(.sm-collapsible) .nav-link .sub-arrow,
+.fixed-bottom .navbar-nav:not(.sm-collapsible):not([data-sm-skip]) .dropdown-toggle::after {
+    border-top: 0;
+    border-bottom: 0.3em solid;
+}
+
+.navbar-nav:not(.sm-collapsible) .dropdown-item .sub-arrow,
+.navbar-nav:not(.sm-collapsible):not([data-sm-skip]) .dropdown-menu .dropdown-toggle::after {
+    position: absolute;
+    top: 50%;
+    #{$end-direction}: 0;
+    width: 0;
+    height: 0;
+    margin-top: -0.3em;
+    margin-#{$end-direction}: 1em;
+    border-top: 0.3em solid transparent;
+    border-bottom: 0.3em solid transparent;
+    border-#{$start-direction}: 0.3em solid;
+}
+
+/* make sure there's room for the carets */
+
+.navbar-nav:not(.sm-collapsible) .dropdown-item.has-submenu {
+    padding-#{$end-direction}: 2em;
+}
+
+/* Scrolling arrows for tall menus */
+
+.navbar-nav .scroll-up,
+.navbar-nav .scroll-down {
+    position: absolute;
+    display: none;
+    visibility: hidden;
+    height: 20px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.navbar-nav .scroll-up-arrow,
+.navbar-nav .scroll-down-arrow {
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    margin-#{$start-direction}: -8px;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    border-top: 7px solid transparent;
+    border-#{$end-direction}: 7px solid transparent;
+    border-bottom: 7px solid;
+    border-#{$start-direction}: 7px solid transparent;
+}
+
+.navbar-nav .scroll-down-arrow {
+    top: 6px;
+    border-top: 7px solid;
+    border-#{$end-direction}: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-#{$start-direction}: 7px solid transparent;
+}
+
+.navbar-nav.sm-collapsible .dropdown-menu .dropdown-menu {
+    margin: 0.5em;
+}
+
+.navbar-nav:not([data-sm-skip]) .dropdown-item {
+    white-space: normal;
+}
+
+.navbar-nav:not(.sm-collapsible) .sm-nowrap > li > .dropdown-item {
+    white-space: nowrap;
+}

@@ -1,0 +1,16 @@
+.ratings {
+    &__star {
+        img {
+            display: inline-block;
+            vertical-align: top;
+        }
+    }
+
+    &__count {
+        margin-#{theme('direction.left','value')}: 10px;
+    }
+
+    h6 {
+        margin: 10px 0 0;
+    }
+}

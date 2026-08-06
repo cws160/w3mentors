@@ -1,0 +1,1072 @@
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    font-weight: 600;
+    line-height: 1.4;
+    color: inherit
+}
+
+.h1,
+h1 {
+    font-size: 2.2rem;
+}
+
+.h2,
+h2 {
+    font-size: 1.8rem;
+}
+
+.h3,
+h3 {
+    font-size: 1.75rem;
+}
+
+.h4,
+h4 {
+    font-size: 1.3rem;
+}
+
+.h5,
+h5 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.h6,
+h6 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    color: inherit;
+    line-height: 1.8;
+    color: theme('color.black');
+}
+
+$page: "page";
+
+.#{$page} {
+    @media(min-width: theme('breakpoints.xl', 'value')) {
+        position: relative;
+        max-width: 1920px;
+        margin: 0 auto;
+        width: 100%;
+        height: 100vh;
+        display: block;
+
+        &-container {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+$body: 'body';
+
+.#{$body} {
+    @media(min-width: theme('breakpoints.xl', 'value')) {
+        position: relative;
+        width: 100%;
+        height: calc(100% - 71px);
+    }
+}
+
+$body-panel: 'body-panel';
+
+.#{$body-panel} {
+    @media(min-width: theme('breakpoints.xl', 'value')) {
+        width: 72%;
+        overflow: auto;
+        height: 100%;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            width: 0;
+        }
+    }
+
+    @media(max-width: theme('breakpoints.xl', 'value')) {
+        width: 100%;
+    }
+
+    @media(max-width: theme('breakpoints.lg', 'value')) {
+        width: 100%;
+    }
+
+}
+
+$body-side: 'body-side';
+
+.#{$body-side} {
+    @media(min-width: theme('breakpoints.xl', 'value')) {
+        width: 28%;
+        position: fixed;
+        #{theme('direction.right','value')}: 0;
+        top: 0;
+        bottom: 0;
+        overflow: auto;
+        background-color: theme('color.white');
+        border-#{theme('direction.left','value')}: 1px solid theme('color.gray.200');
+        padding-top: 70px;
+    }
+
+    @media(max-width: theme('breakpoints.xl', 'value')) {
+        width: 30%;
+    }
+
+    @media(max-width: theme('breakpoints.lg', 'value')) {
+        width: 100%;
+        display: block;
+    }
+}
+
+$page-title: "page-title";
+
+.#{$page-title} {
+    font-size: calc(16px + 0.13vw);
+    position: relative;
+    font-weight: 600;
+
+    @media(min-width: theme('breakpoints.sm', 'value')) {
+        & {
+            margin-#{theme('direction.left','value')}: .75rem;
+            padding-#{theme('direction.left','value')}: 1.25rem;
+
+            &:before {
+                position: absolute;
+                #{theme('direction.left','value')}: 0;
+                top: 0;
+                bottom: 0;
+                width: 1px;
+                background-color: theme('color.gray.400');
+                content: "";
+            }
+        }
+
+        @media(min-width: theme('breakpoints.xl', 'value')) {
+            & a {
+                transition: all 0.4s;
+
+                &:hover {
+                    text-decoration: underline;
+                    text-underline-offset: 4px;
+                }
+            }
+        }
+    }
+
+    @media(max-width: theme('breakpoints.xl', 'value')) {
+        font-size: 1rem;
+        max-width: 80%;
+    }
+
+    @media(max-width: theme('breakpoints.sm', 'value')) {
+        max-width: 100%;
+        margin-top: 2rem;
+        padding: 1rem;
+        border-top: 1px solid theme('color.gray.300');
+    }
+}
+
+$page-subtitle: "page-subtitle";
+
+.#{$page-subtitle} {
+    font-size: calc(16px + 0.13vw);
+    position: relative;
+    font-weight: 600;
+}
+
+$toggle-control-list: "toggle-control-list";
+
+.#{$toggle-control-list} {
+    @media(max-width: theme('breakpoints.xl', 'value')) {
+        display: none;
+    }
+}
+
+$toggle-control: 'toggle-control';
+
+.#{$toggle-control} {
+    position: relative;
+    width: 100%;
+    background-color: #F8F8F8;
+    border: 1px solid theme('color.gray.200');
+
+    @media(min-width: theme('breakpoints.xl', 'value')) {
+        border: none;
+        border-bottom: 1px solid theme('color.gray.200');
+    }
+
+    &__action {
+        padding: 1.25rem;
+        padding-#{theme('direction.right','value')}: 3rem;
+        position: relative;
+        min-height: 60px;
+        cursor: pointer;
+
+        &:after {
+            position: absolute;
+            #{theme('direction.right','value')}: 1.5rem;
+            top: 1.5rem;
+            content: "";
+            pointer-events: none;
+            width: 8px;
+            height: 8px;
+            border-right: 2px solid currentColor;
+            border-bottom: 2px solid currentColor;
+            transform: rotate(45deg);
+        }
+
+        &.no-after {
+            &:after {
+                display: none;
+            }
+        }
+
+        & h6 {
+            margin: 0 0 8px;
+
+            @media(max-width: theme('breakpoints.xl', 'value')) {
+                font-size: 13px;
+            }
+        }
+
+        & p {
+            margin: 0;
+            font-size: 13px;
+            line-height: 1;
+        }
+    }
+
+    &__target {
+        background-color: theme('color.white');
+        border-top: 1px solid theme('color.gray.200');
+    }
+
+    &.is-active {
+        & {
+            background-color: theme('color.white');
+
+            .#{$toggle-control} {
+                &__action {
+                    color: theme('color.primary');
+
+                    &:after {
+                        transform: rotate(-135deg);
+                        top: 2rem
+                    }
+                }
+            }
+        }
+    }
+}
+
+$lecture-checkbox: 'lecture-checkbox';
+
+.#{$lecture-checkbox} {
+    & {
+        position: relative;
+        cursor: pointer;
+
+        &__view {
+            position: relative;
+            width: 18px;
+            height: 18px;
+            display: block;
+            border: 1px solid theme('color.gray.300');
+            border-radius: theme('radius.round');
+            transition: all 0.4s;
+            background-color: theme('color.white');
+            z-index: 1;
+
+            &:before {
+                border: 1px solid transparent;
+                border-radius: theme('radius.round');
+                position: absolute;
+                #{theme('direction.left','value')}: -4px;
+                top: -4px;
+                bottom: -4px;
+                #{theme('direction.right','value')}: -4px;
+                content: "";
+                transition: all 0.4s;
+                pointer-events: none;
+            }
+
+            &:after {
+                position: absolute;
+                left: 6px;
+                top: 1px;
+                content: "";
+                width: 5px;
+                height: 10px;
+                border-right: 1px solid theme('color.white');
+                border-bottom: 1px solid theme('color.white');
+                transform: rotate(45deg);
+                visibility: hidden;
+                opacity: 0;
+                transition: all 0.4s;
+                pointer-events: none;
+            }
+        }
+
+
+        & input {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+
+            &:checked {
+                +.#{$lecture-checkbox} {
+                    &__view {
+                        background-color: theme('color.green');
+                        border-color: theme('color.green');
+
+                        &:before {
+                            border-color: theme('color.green');
+                        }
+
+                        &:after {
+                            opacity: 1;
+                            visibility: visible;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+$lecture: 'lecture';
+
+.#{$lecture} {
+    & {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: .5rem 1.25rem;
+        cursor: pointer;
+        word-wrap: break-word;
+
+        &__control {
+            width: 30px;
+            position: relative;
+            white-space: nowrap;
+
+            .#{$lecture-checkbox} {
+                margin-top: 7px;
+                margin-#{theme('direction.left','value')}: 2px;
+            }
+
+            .tooltip {
+                top: 15px;
+            }
+        }
+
+        &__content {
+            width: calc(100% - 40px);
+
+            & p {
+                margin: 0;
+            }
+        }
+
+        &.is-active {
+            &:after {
+                position: absolute;
+                #{theme('direction.left','value')}: 0;
+                #{theme('direction.right','value')}: 0;
+                top: 0;
+                bottom: 0;
+                content: "";
+                pointer-events: none;
+                background-color: theme('color.primary');
+                opacity: 0.05;
+            }
+        }
+
+        @media(max-width: theme('breakpoints.xl', 'value')) {
+            font-size: 12px;
+        }
+    }
+}
+
+$lecture-meta: 'lecture-meta';
+
+.#{$lecture-meta} {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    color: theme('color.gray.1000');
+
+    @media(min-width: theme('breakpoints.xl', 'value')) {
+        font-size: 13px;
+    }
+
+    &__item {
+        margin: .25rem .75rem;
+        margin-#{theme('direction.left','value')}: 0;
+    }
+}
+
+
+
+$lecture-list: 'lecture-list';
+
+.#{$lecture-list} {
+    position: relative;
+    width: 100%;
+
+    &:before {
+        position: absolute;
+        #{theme('direction.left','value')}: 2rem;
+        top: 0;
+        bottom: 0;
+        content: "";
+        pointer-events: none;
+        width: 1px;
+        background-color: theme('color.gray.300');
+    }
+}
+
+
+$box-outlined: 'box-outlined';
+
+.#{$box-outlined} {
+    width: 100%;
+    padding: 2rem;
+    border: 1px solid theme('color.gray.200');
+}
+
+
+$page-directions: 'page-directions';
+
+.#{$page-directions} {
+    padding-top: 2.5rem;
+    margin-top: 2.5rem;
+    min-height: 90px;
+
+    @media(max-width: theme('breakpoints.sm', 'value')) {
+        & .btn--sm-block {
+            width: 100%;
+            display: block;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+    }
+
+}
+
+.no-skin {
+    box-shadow: none !important;
+}
+
+.is-disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+$section-layout: 'section-layout';
+
+.#{$section-layout} {
+    &__head {
+        border-bottom: 1px solid theme('color.gray.200');
+        padding-top: 1.5rem;
+
+        @media(min-width: theme('breakpoints.xl', 'value')) {
+            padding: 2rem 0 0;
+        }
+    }
+
+    &__body {
+        padding: 2.5rem 0;
+        position: relative;
+
+        @media(min-width: theme('breakpoints.xl', 'value')) {
+            padding: 3.4rem 0 2rem;
+
+            .#{$box-outlined} {
+                min-width: 340px;
+                max-width: 340px;
+            }
+        }
+
+        @media(max-width: theme('breakpoints.xl', 'value')) {
+            .#{$box-outlined} {
+                border: none;
+                padding: 0;
+            }
+        }
+    }
+
+    &__footer {
+        border-top: 1px solid theme('color.gray.200');
+        padding: 1rem 0;
+
+        & p {
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+$section-intro: 'section-intro';
+
+.#{$section-intro} {
+    position: relative;
+}
+
+
+$container: 'container';
+
+.#{$container} {
+    @media(min-width: theme('breakpoints.xl', 'value')) {
+        width: 96%;
+    }
+}
+
+
+$lecture-attachment: "lecture-attachment";
+
+.#{$lecture-attachment} {
+    &__item {
+        width: 100%;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        padding: .5rem 0;
+        transition: all 0.4s;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        @media(min-width:theme('breakpoints.xl', 'value')) {
+            &:hover {
+                text-decoration: underline;
+                text-underline-offset: 4px;
+            }
+        }
+    }
+
+    &__media {
+        width: 26px;
+        padding-top: 4px;
+        margin: 0;
+    }
+
+    &__content {
+        flex: 1;
+
+        @media(min-width:theme('breakpoints.xl', 'value')) {
+            font-size: 13px;
+        }
+    }
+}
+
+$attached-media: "attached-media";
+
+.#{$attached-media} {
+    width: 18px;
+    height: 18px;
+    fill: theme('color.gray.800');
+}
+
+
+$directions: 'directions';
+
+.#{$directions} {
+    &-next {
+        position: absolute;
+        #{theme('direction.right','value')}: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        color: theme('color.white');
+        display: flex;
+        align-items: center;
+        z-index: 1;
+
+        &__control {
+            width: 40px;
+            height: 50px;
+            position: relative;
+            display: block;
+            border: 1px solid theme('color.gray.800');
+            background-color: rgba(0, 0, 0, 0.6);
+            border-#{theme('direction.right','value')}: 0;
+
+            &:before {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: 12px;
+                height: 12px;
+                border-#{theme('direction.right','value')}: 2px solid currentColor;
+                border-bottom: 2px solid currentColor;
+                transform: translate(-50%, -50%) rotate(-45deg);
+                content: "";
+            }
+        }
+
+        @media(min-width:theme('breakpoints.xl', 'value')) {
+            &:hover {
+                background-color: rgba(0, 0, 0, 1);
+
+                .#{$directions} {
+                    &-title {
+                        opacity: 1;
+                        visibility: visible;
+                        transition: all 0.4s;
+                    }
+                }
+            }
+        }
+
+        .#{$directions} {
+            &-title {
+                #{theme('direction.right','value')}: 46px;
+            }
+        }
+
+    }
+
+
+    &-prev {
+        z-index: 1;
+        position: absolute;
+        #{theme('direction.left','value')}: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        color: theme('color.white');
+        display: flex;
+        align-items: center;
+
+        &__control {
+            width: 40px;
+            height: 50px;
+            position: relative;
+            display: block;
+            border: 1px solid theme('color.gray.800');
+            background-color: rgba(0, 0, 0, 0.6);
+            border-#{theme('direction.left','value')}: 0;
+
+            &:before {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: 12px;
+                height: 12px;
+                border-left: 2px solid currentColor;
+                border-top: 2px solid currentColor;
+                transform: translate(-50%, -50%) rotate(-45deg);
+                content: "";
+            }
+        }
+
+        @media(min-width:theme('breakpoints.xl', 'value')) {
+            &:hover {
+                background-color: rgba(0, 0, 0, 1);
+
+                .#{$directions} {
+                    &-title {
+                        opacity: 1;
+                        visibility: visible;
+                        transition: all 0.4s;
+                    }
+                }
+            }
+        }
+
+        .#{$directions} {
+            &-title {
+                #{theme('direction.left','value')}: 46px;
+            }
+        }
+
+    }
+
+    &-title {
+        height: 50px;
+        line-height: 46px;
+        white-space: nowrap;
+        position: absolute;
+        padding: 0 1.5rem;
+        border: 1px solid theme('color.gray.800');
+        background-color: rgba(0, 0, 0, 0.6);
+        opacity: 0;
+        visibility: hidden;
+        max-width: 350px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+}
+
+html[dir="rtl"] {
+
+    .directions-prev__control:before,
+    .directions-next__control:before {
+        transform: translate(-50%, -50%) rotate(135deg);
+    }
+}
+
+$course-video: 'course-video';
+
+.#{$course-video} {
+    @media(max-width:theme('breakpoints.lg', 'value')) {
+        & {
+            &:before {
+                padding-bottom: calc(3 / 4 * 100%);
+            }
+        }
+    }
+}
+
+$section-links: 'section-links';
+
+.#{$section-links} {
+    & {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @media(max-width:theme('breakpoints.xl', 'value')) {
+            &__left {
+                width: calc(100% - 50px);
+            }
+
+            &__right {
+                width: 50px;
+                display: flex;
+                justify-content: flex-end;
+            }
+        }
+    }
+}
+
+
+$notes-container: 'notes-container';
+
+.#{$notes-container} {
+    &__head {
+        background-color: theme('color.gray.100');
+        padding: 1rem;
+        margin-bottom: 2.5rem;
+        border-radius: theme('radius');
+
+        @media (min-width: theme("breakpoints.xl", "value")) {
+            & {
+                padding: 2rem;
+            }
+        }
+    }
+}
+
+$search-view: "search-view";
+
+.#{$search-view} {
+    @media (min-width: theme("breakpoints.sm", "value")) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+
+        & form {
+            width: 100%;
+        }
+    }
+
+    &__large {
+        flex: 1;
+    }
+
+    @media (max-width: theme("breakpoints.sm", "value")) {
+        &__small {
+            & .btn {
+                width: 100%;
+                margin-top: 1rem;
+            }
+        }
+    }
+}
+
+
+$form-search: "form-search";
+
+.#{$form-search} {
+    position: relative;
+
+    @media(min-width:theme('breakpoints.xl', 'value')) {
+        min-width: 200px;
+    }
+
+    @media(min-width:theme('breakpoints.sm', 'value')) {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    &__action {
+        position: absolute;
+        top: 0;
+
+        &--reset {
+            #{theme('direction.right','value')}: 3rem;
+        }
+
+        &--submit {
+            #{theme('direction.right','value')}: 0;
+            ;
+        }
+
+        .close,
+        .btn,
+        .form-reset {
+            pointer-events: none;
+            display: flex;
+        }
+
+        &--submit {
+            & input {
+                padding: 0 !important;
+                font-size: 0;
+                width: 3rem;
+                height: 2.875rem;
+                border: none;
+                background: transparent !important;
+                position: absolute !important;
+                cursor: pointer;
+                border-#{theme('direction.left','value')}: 1px solid theme('color.gray.300')
+            }
+        }
+
+        &--reset {
+            & input {
+                padding: 0 !important;
+                font-size: 0;
+                width: 3rem;
+                height: 2.875rem;
+                border: none;
+                background: transparent !important;
+                position: absolute !important;
+                border: none !important;
+                cursor: pointer;
+            }
+        }
+    }
+
+    &__field {
+        flex: 1;
+
+        & input {
+            padding-#{theme('direction.right','value')}: 3rem;
+        }
+    }
+
+    $form-reset: "form-reset";
+
+    .#{$form-reset} {
+        width: 3rem;
+        height: 3rem;
+        position: relative;
+        color: inherit;
+        font-size: 2rem;
+        line-height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+
+        &:before {
+            position: absolute;
+            #{theme('direction.left','value')}: 0;
+            #{theme('direction.right','value')}: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            content: "+";
+            transform: rotate(45deg);
+            text-align: center;
+        }
+
+        &--small {
+            width: 24px;
+            height: 24px;
+            line-height: 20px;
+            font-size: 1.5rem;
+        }
+    }
+
+}
+
+$notes: 'notes';
+
+.#{$notes} {
+    transition: all 0.4s;
+    margin-bottom: 2rem;
+
+    &__body {
+        padding: 1.25rem;
+        background-color: #FFF0DB;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+        color: theme('color.black');
+        position: relative;
+        overflow: hidden;
+
+        @media(min-width:theme('breakpoints.xl', 'value')) {
+            padding: 2rem;
+        }
+
+        & p {
+            margin-bottom: 0;
+        }
+    }
+
+    &__title {
+        max-width: 80%;
+    }
+
+    &__actions {
+        position: absolute;
+        #{theme('direction.right','value')}: .75rem;
+        top: .5rem;
+        transition: all 0.4s;
+    }
+
+    @media(min-width:theme('breakpoints.xl', 'value')) {
+        &__actions {
+            transform: translateX(130%);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s;
+            top: 1.25rem;
+        }
+    }
+
+    @media(min-width:theme('breakpoints.xl', 'value')) {
+        &:hover {
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+
+            .#{$notes} {
+                &__actions {
+                    transform: translateX(0);
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+    }
+
+}
+
+.author-bio {
+    background-color: #F5F6F9;
+    color: #000;
+    padding: calc(clamp(1.071rem, 1.592vw + 0.673rem, 2.857rem));
+    border-radius: theme('radius');
+}
+
+$author-box: "author-box";
+
+.#{$author-box} {
+    @media(min-width:theme('breakpoints.sm', 'value')) {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__media {
+        aspect-ratio: 3/4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+        overflow: hidden;
+        border-radius: theme('radius');
+
+        .avtar {
+            height: auto;
+            width: auto;
+            border-radius: 0;
+        }
+
+        @media(min-width:theme('breakpoints.sm', 'value')) {
+            max-width: 100px;
+        }
+
+        @media(max-width:theme('breakpoints.sm', 'value')) {
+            & {
+                float: #{theme('direction.left','value')};
+                margin-#{theme('direction.right','value')}: 1.5rem;
+
+                .avtar.avtar--large {
+                    width: 6rem;
+                    height: 6rem;
+                }
+            }
+        }
+    }
+
+    &__content {
+        @media(min-width:theme('breakpoints.sm', 'value')) {
+            padding-#{theme('direction.left','value')}: 2rem;
+            width: calc(100% - 100px);
+            padding-#{theme('direction.left','value')}: 1.5rem;
+        }
+
+        @media(max-width:theme('breakpoints.sm', 'value')) {
+            .rating {
+                margin: 1rem 0 2rem;
+            }
+        }
+    }
+
+    &__head {
+        margin-bottom: .5rem;
+
+        @media(min-width:theme('breakpoints.sm', 'value')) {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.25rem;
+        }
+
+        @media(max-width:theme('breakpoints.sm', 'value')) {
+            & .author-name {
+                margin-bottom: .25rem !important;
+                display: block;
+            }
+        }
+    }
+}
+
+
+$teaches: "teaches";
+
+.#{$teaches} {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    &__media {
+        width: 24px;
+    }
+
+    &__content {
+        width: calc(100% - 30px);
+    }
+}

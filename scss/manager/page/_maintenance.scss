@@ -1,0 +1,30 @@
+.maintenance {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .svg,
+    img {
+        margin: 0 auto;
+        max-width: 450px;
+        margin-bottom: 2rem;
+    }
+    h3 {
+        font-size: 1.2rem;
+    }
+    p {
+        margin-bottom: 1.2rem;
+    }
+}
+
+.not-found {
+    @extend .maintenance;
+    height: auto;
+}
+
+.access-denied {
+    @extend .maintenance;
+}

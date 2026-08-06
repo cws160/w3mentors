@@ -1,0 +1,82 @@
+.section--hero,
+.section--page-header {
+    border-radius: 0;
+}
+
+.section--cta::before {
+    display: none;
+}
+
+.flex-card__footer {
+    flex-direction: column;
+    align-items: center;
+
+    .btn {
+        min-width: 210px;
+    }
+}
+
+.section--cta-block {
+    border-radius: 0;
+    margin: 0;
+
+    .cta-block {
+        margin-top: 0;
+    }
+}
+
+.package-title {
+    background-color: transparent;
+    border-radius: 0;
+}
+
+.package-card::before {
+    border-radius: var(--radius) 0 0;
+}
+
+
+.course-media .course-preview__action span,
+.course-preview__action span {
+    margin: 2rem;
+}
+
+.grid-blocks .cms-block__media .media {
+    border-radius: 0;
+    background-color: transparent;
+}
+
+.avtar-elements {
+    left: 1rem;
+    right: 1rem;
+}
+
+.rounded-4 {
+    border-radius: calc(clamp(1.429rem, 0.637vw + 1.269rem, 2.143rem)) 0 !important;
+}
+
+
+.section.bg-gradiant.section--contact-cta {
+    position: relative;
+    background: none;
+
+    .container {
+        position: relative;
+        z-index: 2;
+    }
+
+    &::after {
+        content: "";
+        background-color: theme('color.primary');
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        opacity: .15;
+    }
+}
+
+.section--tutor-steps {
+    padding-bottom: calc(clamp(2.857rem, 1.911vw + 2.379rem, 5rem));
+    border-radius: 0;
+}

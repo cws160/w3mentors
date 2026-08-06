@@ -1,0 +1,35 @@
+/*cookies*/
+.cc-window {
+    background-color: rgba(0, 0, 0, 0.75);
+    bottom: 0;
+    #{theme('direction.left','value')}: 0;
+    opacity: 1;
+    position: fixed;
+    #{theme('direction.right','value')}: 0;
+    transition: all 0.3s ease 0s;
+    width: 100%;
+    z-index: 1000;
+
+    .box-cookies {
+        color: #dbe0df;
+        font-size: 13px;
+        font-weight: 400;
+        padding: 15px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+
+        a {
+            color: #fff;
+            text-decoration: underline;
+        }
+    }
+}
+
+.btns-pair {
+    display: inline-flex;
+    gap: 1rem;
+}

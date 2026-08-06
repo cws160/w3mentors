@@ -1,0 +1,265 @@
+.communication {
+    @include media-breakpoint-up(lg) {
+        display: grid;
+        grid-gap: 1rem;
+        border-radius: 1rem;
+        grid-template-columns: 300px auto;
+        grid-template-areas: "nav content";
+    }
+
+    &-nav {
+        background-color: $bg-white;
+        grid-area: nav;
+        // background-color: $bg-gray;
+        @include media-breakpoint-down(lg) {
+            margin-bottom: 1rem;
+        }
+    }
+    &-content {
+        grid-area: content;
+        @include media-breakpoint-down(lg) {
+            margin-bottom: 1rem;
+        }
+        height: 100%;
+        .card {
+            height: 100%;
+        }
+    }
+    &-sidebar {
+        grid-area: sidebar;
+        // background-color: $bg-gray;
+    }
+    &-search {
+        border-bottom: $border;
+        padding: 10px 0;
+        .omni-search {
+            border: none !important;
+            &:focus,
+            &:focus-visible {
+                outline: none !important;
+                border: none !important;
+            }
+        }
+    }
+    &-filter {
+        padding: 1.5rem;
+        min-width: 20rem;
+    }
+}
+
+.message__list {
+    min-height: calc(100vh - 280px);
+    max-height: calc(100vh - 380px);
+    overflow-y: auto;
+    &-item {
+        display: flex;
+        flex-direction: column;
+        padding: 0.75rem;
+        border-bottom: $border;
+        cursor: pointer;
+        position: relative;
+        &:hover {
+            color: currentColor;
+            background-color: lighten($bg-gray, 01);
+            text-decoration: none;
+        }
+        &.is-active {
+            // // background-color: $brand-color;
+            // color:  lighten($brand-color, 55%);
+            @include bg-brand();
+            // color:  lighten($brand-color, 55%);
+            @include bg-brand();
+            .message-to {
+                background: #00000054;
+            }
+        }
+        &:last-child {
+            border-bottom: 0;
+        }
+        .message-from {
+            display: flex;
+            margin-bottom: 0.5rem;
+            .message-media {
+                flex: 0 0 55px;
+                img {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    background-color: $bg-gray;
+                }
+            }
+            .message-data {
+                margin-#{$start-direction}: 0.75rem;
+                color: currentColor;
+                flex: 1;
+                h4 {
+                    font-size: 0.875rem;
+                    font-weight: 500;
+                    margin-bottom: 0.25rem;
+                    letter-spacing: 0.25px;
+                }
+                p {
+                    font-size: 0.75rem;
+                    margin: 0;
+                }
+            }
+        }
+        .message-to {
+            display: flex;
+            background: #f1f1f1;
+            border-radius: 3rem;
+            position: absolute;
+            bottom: 1.25rem;
+            #{$start-direction}: 2.25rem;
+            padding: 0.125rem;
+            align-items: center;
+            width: auto;
+            .message-media {
+                display: flex;
+                .user {
+                    margin: 0;
+                    img {
+                        width: 22px;
+                        height: 22px;
+                        max-width: 22px;
+                        min-width: 22px;
+                        border-radius: 50%;
+                        background-color: $bg-gray;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.messages {
+    padding: 1rem;
+    height: 100%;
+    max-height: calc(100vh - 380px);
+    flex-shrink: 2;
+    overflow-y: auto;
+    //border-top: $border;
+    // box-shadow: inset 0 2rem 2rem -2rem rgba(black, 0.05), inset 0 -2rem 2rem -2rem rgba(black, 0.05);
+    .date {
+        font-size: 0.8rem;
+        background: #eee;
+        padding: 0.25rem 1rem;
+        border-radius: 2rem;
+        color: $txt-gray;
+        width: fit-content;
+        margin: 0 auto;
+    }
+    .message-wrap {
+        margin: 1rem;
+        display: flex;
+        align-items: flex-end;
+        .message-avtar {
+            flex: 0 0 50px;
+            margin-bottom: 0.75rem;
+            img {
+                width: 36px;
+                height: 36px;
+                max-width: 36px;
+            }
+        }
+        .message-detail {
+            flex: 1;
+        }
+        .time {
+            font-size: 0.75rem;
+            display: block;
+            margin-top: 0.25rem;
+        }
+        .message {
+            box-sizing: border-box;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            background: $bg-gray;
+            border-radius: 1.125rem 1.125rem 1.125rem 0;
+            min-height: 2.25rem;
+            width: fit-content;
+            max-width: 66%;
+            // box-shadow: 0 0 2rem rgba(black, 0.075), 0rem 1rem 1rem -1rem rgba(black, 0.1);
+        }
+        &--to {
+            margin-#{$start-direction}: auto;
+            flex-direction: row-reverse;
+            .message-avtar {
+                text-align: #{$end-direction};
+            }
+            .message {
+                border-radius: 1.125rem 1.125rem 0 1.125rem;
+                margin-#{$start-direction}: auto;
+            }
+            .time {
+                text-align: #{$end-direction};
+            }
+        }
+    }
+}
+
+.message__user {
+    .user {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1rem;
+        img {
+            width: 100px;
+            height: 100px;
+            max-width: 100px;
+        }
+    }
+    &-name {
+        font-size: 1.25rem;
+        color: $txt-body;
+        font-weight: 600;
+        text-align: center;
+    }
+}
+
+.message-user__detail {
+    margin-#{$start-direction}: 1rem;
+    h3 {
+        color: $txt-gray;
+        font-size: 1rem;
+        font-weight: 500;
+        margin: 0;
+    }
+    p {
+        color: $txt-body;
+        font-size: 0.75rem;
+        margin: 0;
+    }
+}
+
+.list__group {
+    margin-top: 2.5rem;
+    &-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.85rem;
+    }
+    &-icon {
+        width: 40px;
+        height: 40px;
+        flex: 0 0 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        background: $bg-gray;
+        margin-#{$end-direction}: 0.85rem;
+        svg {
+            width: 1.25em;
+            height: 1.25em;
+        }
+    }
+    &-title {
+        flex: 1;
+        h4 {
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin: 0;
+        }
+    }
+}

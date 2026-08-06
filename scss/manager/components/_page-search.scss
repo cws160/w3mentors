@@ -1,0 +1,52 @@
+.site-search {
+    & {
+        background-color: $white;
+
+        position: relative;
+        border-radius: $radius2;
+        margin-bottom: 1rem;
+        box-shadow: $shadow12;
+    }
+    &-trigger {
+        padding: 1rem 1.4rem;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: 500;
+
+        &::after {
+            position: absolute;
+            content: "+";
+            height: 24px;
+            width: 24px;
+            font-size: 32px;
+            right: 15px;
+            rotate: 45deg;
+            display: none;
+            top: 13px;
+            text-align: center;
+            line-height: 24px;
+        }
+
+        &.active {
+            &::after {
+                display: block;
+            }
+
+            .icon {
+                display: none;
+            }
+        }
+    }
+    &-target {
+        padding: 1.4rem;
+        border-top: $border;
+    }
+    &-icon {
+        width: 20px;
+        height: 20px;
+        display: block;
+        position: absolute;
+        #{$end-direction}: 1rem;
+        top: 1rem;
+    }
+}

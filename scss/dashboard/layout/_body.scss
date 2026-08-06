@@ -1,0 +1,341 @@
+html,
+body {
+  height: 100%;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.4;
+  color: inherit;
+}
+
+.h1,
+h1 {
+  font-size: 2.2rem;
+}
+
+.h2,
+h2 {
+  font-size: 1.8rem;
+}
+
+.h3,
+h3 {
+  font-size: 1.5rem;
+}
+
+.h4,
+h4 {
+  font-size: 1.3rem;
+}
+
+.h5,
+h5 {
+  font-size: 1.2rem;
+}
+
+.h6,
+h6 {
+  font-size: 1.1rem;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: inherit;
+  line-height: 1.8;
+  color: #000;
+}
+
+
+$dashboard-learner: "dashboard-learner";
+
+.#{$dashboard-learner} {
+  background-color: #EDEFF3;
+}
+
+$dashboard-teacher: "dashboard-teacher";
+
+.#{$dashboard-teacher} {
+  background-color: #EDEFF3;
+}
+
+$dashboard-affiliate: "dashboard-affiliate";
+
+.#{$dashboard-affiliate} {
+  background-color: #EDEFF3;
+}
+
+$site: "site";
+
+.#{$site} {
+  @media(min-width:theme('breakpoints.xl', 'value')) {
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
+
+  @media(max-width:theme('breakpoints.xl', 'value')) {
+    padding-#{theme('direction.left','value')}: 4.2855rem;
+  }
+
+  @media(max-width:theme('breakpoints.md', 'value')) {
+    padding-#{theme('direction.left','value')}: 0;
+    padding-bottom: 100px;
+  }
+}
+
+$page: "page";
+
+main.#{$page} {
+  @media(min-width:theme('breakpoints.xl', 'value')) {
+    padding-#{theme('direction.left','value')}: 300px;
+  }
+
+  @media(min-width:theme('breakpoints.xl', 'value')) {
+    &>.container.container--fixed {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+
+      >.page__body {
+        flex: 1;
+      }
+
+      >.page__body-flex {
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+      }
+
+      >.page__footer {
+        margin-top: auto;
+      }
+    }
+  }
+}
+
+.#{$page} {
+  width: 100%;
+  transition: all 0.4s;
+
+  &__head {
+    padding: 2.5rem 0 1.5rem;
+    position: relative;
+
+    h1 {
+      font-size: calc(18px + 0.2vw);
+
+      @media(max-width:theme('breakpoints.sm', 'value')) {
+        & {
+          text-align: center;
+
+          &+p {
+            text-align: center;
+          }
+        }
+      }
+    }
+
+
+
+    @media(max-width:theme('breakpoints.sm', 'value')) {
+      .buttons-group {
+        display: flex;
+        margin-top: .75rem;
+
+        &>* {
+          flex: 1;
+        }
+      }
+    }
+
+  }
+
+  &__footer {
+    padding: 1.25rem 0 1.25rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+
+    @media(min-width:theme('breakpoints.sm', 'value')) {
+      & {
+        margin-top: 2rem;
+      }
+    }
+
+    @media(max-width:theme('breakpoints.md', 'value')) {
+      & {
+        padding: 1.25rem 0 0;
+
+        p {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  &__body {
+    padding-bottom: 2rem;
+  }
+
+}
+
+.is-fullview {
+  main.#{$page} {
+    @media(min-width:theme('breakpoints.xl', 'value')) {
+      padding-#{theme('direction.left','value')}: 60px;
+    }
+  }
+}
+
+$page-content: "page-content";
+$container: "container";
+
+.#{$container} {
+  @media(min-width:theme('breakpoints.md', 'value')) {
+    &--fixed {
+      max-width: 1260px;
+      width: 94%;
+    }
+  }
+
+  @media(max-width:theme('breakpoints.xl', 'value')) {
+    &--fixed {
+      max-width: 1260px;
+      width: 98%;
+    }
+  }
+
+  @media(max-width:theme('breakpoints.md', 'value')) {
+    &--fixed {
+      width: 100%;
+    }
+  }
+}
+
+
+$box-white: "box-white";
+
+.#{$box-white} {
+  background-color: theme('color.white');
+  position: relative;
+  width: 100%;
+  border-radius: theme('radius');
+  box-shadow: theme('boxShadow.all');
+}
+
+$page-panel: "page-panel";
+
+.#{$page-panel} {
+  background-color: theme('color.white');
+  position: relative;
+  width: 100%;
+  border-radius: theme('radius');
+  box-shadow: theme('boxShadow.all');
+  overflow: hidden;
+
+  @media(min-width:theme('breakpoints.xl', 'value')) {
+    & {
+      &--flex {
+        display: flex;
+      }
+
+      &--flex &__large {
+        width: calc(100% - 200px);
+      }
+    }
+
+    &__small,
+    &__large {
+      flex: 1;
+      width: 100%;
+    }
+
+    &__small {
+      max-width: 200px;
+      background-color: rgba(0, 0, 0, 0.02);
+      border-#{theme('direction.right','value')}: 1px solid rgba(0, 0, 0, 0.08);
+      padding: theme('padding-3') 0;
+      border-top-#{theme('direction.left','value')}-radius: 0;
+      border-bottom-#{theme('direction.left','value')}-radius: 0;
+    }
+
+    &--large {
+      background-color: transparent;
+      box-shadow: none;
+
+      .#{$page-panel} {
+        &__small {
+          order: 2;
+          background-color: transparent;
+          border-#{theme('direction.right','value')}: none;
+          padding: theme('padding-4') theme('padding-8');
+          padding-#{theme('direction.right','value')}: 0;
+          max-width: 300px;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  @media(max-width:theme('breakpoints.xl', 'value')) {
+    &--large {
+      background-color: transparent;
+      box-shadow: none;
+    }
+  }
+
+  &__head {
+    padding: 1.25rem;
+    border-bottom: 1px solid theme('color.gray.200');
+
+    @media(max-width:theme('breakpoints.md', 'value')) {
+      & {
+        padding: 1rem;
+      }
+    }
+  }
+
+  &__body {
+    padding: 1.25rem;
+
+    @media(max-width:theme('breakpoints.md', 'value')) {
+      & {
+        padding: 1rem;
+      }
+    }
+  }
+}
+
+$page-container: "page-container";
+
+.#{$page-container} {
+  background-color: theme('color.white');
+  position: relative;
+  width: 100%;
+  border-radius: theme('radius');
+  box-shadow: theme('boxShadow.all');
+}
+
+.courses.form {
+  .page-layout {
+    overflow-x: hidden;
+  }
+}
+
+.forum.form {
+  .page-panel {
+    overflow-x: hidden;
+  }
+}

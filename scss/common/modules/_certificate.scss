@@ -1,0 +1,102 @@
+$section: 'section';
+
+.#{$section} {
+    &--certificate {
+        padding: 3.4rem 0 !important;
+    }
+}
+
+
+$sidebox: 'sidebox';
+
+.#{$sidebox} {
+    &__head {
+        padding-bottom: 1rem;
+    }
+}
+
+
+$layout-flex: 'layout-flex';
+
+.#{$layout-flex} {
+    @media(min-width: theme('breakpoints.lg', 'value')) {
+        display: flex;
+        flex-wrap: wrap;
+
+        &__large {
+            flex: 1;
+        }
+
+        &__small {
+            width: 360px;
+            padding-#{theme('direction.left','value')}: 3.4rem;
+        }
+    }
+
+    @media(max-width: theme('breakpoints.lg', 'value')) {
+        &__small {
+            padding-top: 2.5rem;
+            margin-top: 2.5rem;
+            border-top: 1px solid theme('color.gray.200');
+        }
+    }
+
+}
+
+$course-tile: 'course-tile';
+
+.#{$course-tile} {
+    max-width: 360px;
+
+    &__body {
+        padding-top: 1rem;
+    }
+
+    &__item {
+        font-size: 13px;
+        color: #666;
+    }
+
+    &__price {
+        font-size: 15px;
+
+        & .price-standard {
+            font-weight: 600;
+        }
+
+        & .price-old {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+    }
+}
+
+$share: 'share';
+$btn-actions: 'btn-actions';
+
+[dir=rtl] .getPrevJs .icon,
+[dir=rtl] .getNextJs .icon {
+    transform: rotate(180deg);
+}
+
+.#{$btn-actions} {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+
+    &>* {
+        flex: 1;
+        max-width: 50%;
+    }
+
+    .#{$share} {
+        @media (max-width: theme("breakpoints.sm", "value")) {
+            &__trigger {
+                & {
+                    font-size: 100%;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,49 @@
+$icon: "icon";
+
+.#{$icon} {
+  display: inline-flex;
+  vertical-align: middle;
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+
+  @media(max-width:theme('breakpoints.md', 'value')) {
+    width: 22px;
+    height: 22px;
+  }
+
+  &--30 {
+    width: 30px;
+    height: 30px;
+  }
+
+  &--40 {
+    width: 2.86rem;
+    height: 2.86rem;
+  }
+
+  &--large {
+    width: 3.4rem;
+    height: 3.4rem;
+  }
+
+  &--xlarge {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  &--xsmall {
+    width: 14px;
+    height: 14px;
+  }
+
+  &--small {
+    width: 16px;
+    height: 16px;
+  }
+
+  &--18 {
+    width: 18px;
+    height: 18px;
+  }
+}

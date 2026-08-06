@@ -1,0 +1,41 @@
+$align: "align";
+
+.#{$align} {
+    &-left {
+        text-align: #{theme('direction.left','value')} !important;
+    }
+
+    &-right {
+        text-align: #{theme('direction.right','value')} !important;
+    }
+
+    &-center {
+        text-align: center !important;
+    }
+}
+
+.-align {
+    &-left {
+        text-align: #{theme('direction.left','value')} !important;
+    }
+
+    &-right {
+        text-align: #{theme('direction.right','value')} !important;
+    }
+
+    &-center {
+        text-align: center !important;
+    }
+
+    &-justify {
+        text-align: justify !important;
+    }
+
+    &-auto {
+        margin: auto !important;
+    }
+}
+
+.align--center {
+    text-align: center !important;
+}

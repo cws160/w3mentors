@@ -1,0 +1,15 @@
+:root {
+  @each $keys, $values in $theme {
+    @each $key, $value in $values {
+      @if type-of($value)==map {
+        @each $k, $v in $value {
+          --#{$keys}-#{$key}-#{$k}: #{$v};
+        }
+      }
+
+      @else {
+        --#{$keys}-#{$key}: #{$value};
+      }
+    }
+  }
+}

@@ -1,0 +1,100 @@
+.notification-action {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    li {
+        margin-#{$end-direction}: 1rem;
+    }
+    .btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 0.25rem;
+        border: 1px solid #efefee;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .checkbox {
+        display: flex;
+        margin: 0;
+        padding: 0;
+        width: 40px;
+        height: 40px;
+        align-items: center;
+        span {
+            position: relative;
+            background-color: #fff;
+        }
+    }
+}
+.form--notification-search {
+    input[type="search"] {
+        height: 40px;
+    }
+}
+.notifications {
+    .checkbox {
+        display: flex;
+        margin: 0;
+        padding: 0;
+        width: 20px;
+        height: 20px;
+        margin-#{$end-direction}: 0.75rem;
+        span {
+            position: relative;
+            background-color: #fff;
+        }
+    }
+    .avatar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        background-color: currentColor;
+        overflow: hidden;
+        margin-#{$end-direction}: 1rem;
+        &:before {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            content: attr(data-title);
+            color: #fff;
+        }
+    }
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #efefee;
+        padding: 1rem 1.5rem;
+    }
+    &__summary {
+        font-size: 13px;
+        flex: 1;
+        padding-#{$end-direction}: 1.5rem;
+        h6 {
+            font-size: 14px;
+            margin-bottom: 3px;
+            color: $txt-body;
+        }
+    }
+}
+.card--notification {
+    .card-head {
+        border-bottom: 1px solid #efefee;
+    }
+    .card-body {
+        padding: 0;
+    }
+    .card-footer {
+        background-color: #fff;
+    }
+    .notification-list-count {
+        font-size: 0.875rem;
+    }
+}

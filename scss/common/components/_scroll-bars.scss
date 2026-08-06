@@ -1,0 +1,20 @@
+.scrollbar {
+    overflow: auto;
+    width: 100% !important;
+    padding: 0;
+    position: relative;
+
+    &-track {
+        width: 8px;
+        #{theme('direction.right','value')}: 0 !important;
+        position: relative;
+    }
+
+    &-handle {
+        width: 5px;
+        border-radius: 30px;
+        background: rgba(0, 0, 0, 0.1);
+        -webkit-transition: width 250ms;
+        transition: width 250ms;
+    }
+}

@@ -1,0 +1,30 @@
+.border,
+.-border {
+  border: 1px solid theme('color.gray.200');
+
+  &-top {
+    border-top: 1px solid theme('color.gray.200');
+  }
+
+  &-right {
+    border-#{theme('direction.right','value')}: 1px solid theme('color.gray.200');
+  }
+
+  &-bottom {
+    border-bottom: 1px solid theme('color.gray.200');
+  }
+
+  &-left {
+    border-#{theme('direction.left','value')}: 1px solid theme('color.gray.200');
+  }
+}
+
+.noborder {
+  &--right {
+    border-#{theme('direction.right','value')}: none !important;
+  }
+
+  &--left {
+    border-#{theme('direction.left','value')}: none !important;
+  }
+}

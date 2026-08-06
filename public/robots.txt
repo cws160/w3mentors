@@ -1,0 +1,14 @@
+User-agent: *
+Disallow: /courses/
+Disallow: /teachers/
+Disallow: /apply-to-teach/
+Disallow: /group-classes/
+Disallow: /forum/
+Disallow: /privacy-policy/
+Disallow: /terms-and-conditions/
+Disallow: /faq/
+Disallow: /aboutus/
+Disallow: /contact/
+Disallow: /blog
+Disallow: /video-content/
+Disallow: /guest-user/affiliate-signup-form/

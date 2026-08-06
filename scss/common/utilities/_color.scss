@@ -1,0 +1,19 @@
+$text: "color";
+
+@each $color, $value in map-get($theme, 'color') {
+
+  @if type-of($value)==map {
+    @each $c, $v in $value {
+      .#{$text}-#{$color}-#{$c} {
+        color: var(--color-#{$color}-#{$c}) !important;
+      }
+    }
+  }
+
+  @else {
+    .#{$text}-#{$color} {
+      color: var(--color-#{$color}) !important;
+    }
+  }
+
+}

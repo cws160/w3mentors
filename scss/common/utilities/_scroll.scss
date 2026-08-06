@@ -1,0 +1,61 @@
+.scrollbar {
+    overflow: auto;
+    width: 100% !important;
+    max-height: 200px;
+    padding: 0 !important;
+    position: relative;
+}
+
+.scrollbar {
+    &-track {
+        width: 10px;
+        #{theme('direction.right','value')}: 0px !important;
+        position: relative;
+    }
+
+    &-handle {
+        width: 4px;
+        background: rgba(0, 0, 0, 0.1);
+        margin-#{theme('direction.left','value')}: 3px;
+        border-radius: var(--radius-sm);
+        transition: width 250ms;
+    }
+}
+
+@media (max-width:theme('breakpoints.xl', 'value')) {
+    .horiz-scroller {
+        position: relative;
+        overflow-y: hidden;
+        overflow-x: scroll;
+        white-space: nowrap;
+
+        [class*="col-"] {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        >* {
+            white-space: normal;
+        }
+    }
+}
+
+@media (max-width:theme('breakpoints.md', 'value')) {
+    .mini-horiz-scroller {
+        position: relative;
+        display: inline-block;
+        overflow-y: hidden;
+        overflow-x: scroll;
+        white-space: nowrap;
+
+        [class*="col-"] {
+            display: inline-block;
+            vertical-align: top;
+            width: 50%;
+        }
+
+        >* {
+            white-space: normal;
+        }
+    }
+}

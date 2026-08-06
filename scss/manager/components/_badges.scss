@@ -1,0 +1,43 @@
+.badge {
+    font-size: 0.75rem;
+    font-weight: 400;
+    padding: 4px 8px;
+    text-align: center;
+    white-space: nowrap;
+    display: inline-block;
+    border-radius: $common-radius;
+    &-default {
+        background: #fff;
+        border: $border;
+    }
+    &-brand {
+        // background-color: $brand-color;
+        // color:  lighten($brand-color, 55%);
+        @include bg-brand();
+    }
+    &-primary {
+        // background-color: $brand-color;
+        // color:  lighten($brand-color, 55%);
+        @include bg-brand();
+    }
+    &-secondary {
+        // background: $secondary-color;
+        // color: $secondary-color-inverse;
+    }
+    &-success {
+        background: lighten($success-color, 50);
+        color: $success-color;
+    }
+    &-info {
+        background: lighten($info-color, 30);
+        color: $info-color;
+    }
+    &-danger {
+        background: lighten($danger-color, 30);
+        color: $danger-color;
+    }
+    &-warning {
+        background: lighten($warning-color, 35);
+        color: $warning-color;
+    }
+}

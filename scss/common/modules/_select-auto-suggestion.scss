@@ -1,0 +1,98 @@
+.select2-dropdown {
+    border: none !important;
+    border-radius: theme('radius') !important;
+    box-shadow: theme('boxShadow.vertical');
+    min-width: 258px;
+}
+
+.select2-selection__arrow {
+    display: none;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: theme('color.primary') !important;
+}
+
+.select2-results__options {
+    &>li {
+        &.select2-results__message {
+            padding: 1.5rem;
+            padding-top: 0;
+        }
+
+        &>ul {
+            &>li {
+                padding-#{theme('direction.left','value')}: 2rem !important;
+            }
+        }
+    }
+}
+
+@media(min-width: theme('breakpoints.sm', 'value')) {
+    .select2-container--default .select2-selection--single {
+        border: none !important;
+    }
+
+    .select2-container .select2-selection--single .select2-selection__rendered {
+        max-width: 220px;
+    }
+}
+
+@media(max-width: theme('breakpoints.sm', 'value')) {
+    .select2-container--default .select2-selection--single {
+        border-color: theme('color.gray.300') !important;
+        min-height: 40px;
+        height: auto !important;
+    }
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+    padding-#{theme('direction.left','value')}: 0 !important;
+    position: relative;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+    color: inherit !important;
+}
+
+.select2-search--dropdown {
+    padding: 1rem !important;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    border-color: theme('color.gray.200') !important;
+    padding-#{theme('direction.left','value')}: 1rem !important;
+}
+
+@media(min-width: theme('breakpoints.sm', 'value')) {
+    .filter-panel .select2-container {
+        padding-#{theme('direction.left','value')}: 1rem !important;
+    }
+}
+
+@media(max-width: theme('breakpoints.sm', 'value')) {
+    .filter-panel .select2-container {
+        padding: 0 1rem !important;
+    }
+
+    .filter-panel .select2-container+.filter-item__search-action {
+        #{theme('direction.right','value')}: 1.5rem !important;
+    }
+}
+
+.courses.courses-index {
+    & .filters-layout__item-first {
+        & .filter-item__trigger {
+            padding-#{theme('direction.left','value')}: 0;
+            padding-#{theme('direction.right','value')}: 0;
+        }
+
+        & .filter-item__label {
+            padding-#{theme('direction.left','value')}: 1rem;
+        }
+
+        & .filter-item__search-action {
+            #{theme('direction.right','value')}: 0.5rem;
+        }
+    }
+}

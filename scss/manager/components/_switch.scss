@@ -1,0 +1,854 @@
+.switch {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 0.85rem;
+  cursor: pointer;
+  input {
+    &:empty {
+      margin-#{$start-direction}: -999px;
+      height: 0;
+      width: 0;
+      overflow: hidden;
+      position: absolute;
+      opacity: 0;
+      ~ {
+        .input-helper {
+          display: inline-block;
+          position: relative;
+          //float: left;
+          width: 1px;
+          text-indent: 0;
+          cursor: pointer;
+          user-select: none;
+          line-height: 30px;
+          margin: 2px 0;
+          height: 30px;
+          width: 57px;
+          border-radius: 15px;
+          &:before {
+            position: absolute;
+            display: block;
+            top: 0;
+            bottom: 0;
+            #{$start-direction}: 0;
+            content: " ";
+            transition: all 100ms ease-in;
+            width: 54px;
+            border-radius: 15px;
+            background-color: #e8ebf1;
+          }
+          &:after {
+            position: absolute;
+            display: block;
+            top: 0;
+            bottom: 0;
+            #{$start-direction}: 0;
+            content: " ";
+            transition: all 100ms ease-in;
+            width: 54px;
+            border-radius: 15px;
+            height: 24px;
+            width: 24px;
+            line-height: 26px;
+            top: 3px;
+            bottom: 3px;
+            margin-#{$start-direction}: 3px;
+            font-size: 0.9em;
+            text-align: center;
+            //vertical-align: middle;
+            color: #f8f9fb;
+            background-color: $bg-white;
+          }
+        }
+      }
+    }
+    &:checked {
+      ~ {
+        .input-helper {
+          &:after {
+            margin-#{$start-direction}: 26px;
+            // background-color: $brand-color;
+            // color:  lighten($brand-color, 55%);
+            @include bg-brand();
+            color: #ffffff;
+          }
+          &:before {
+            background-color: #e8ebf1;
+          }
+        }
+      }
+    }
+  }
+  input[disabled] {
+    cursor: not-allowed;
+    ~ {
+      .input-helper {
+        cursor: not-allowed;
+        &:after {
+          cursor: not-allowed;
+          opacity: 0.7;
+        }
+        &:before {
+          cursor: not-allowed;
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+  &#{&}-icon {
+    input {
+      &:empty {
+        ~ {
+          .input-helper {
+            &:after {
+              font-family: "LineAwesome";
+              text-decoration: inherit;
+              text-rendering: optimizeLegibility;
+              text-transform: none;
+              -moz-osx-font-smoothing: grayscale;
+              content: "";
+            }
+          }
+        }
+      }
+      &:checked {
+        ~ {
+          .input-helper {
+            &:after {
+              content: "\2713";
+            }
+          }
+        }
+      }
+    }
+  }
+  &#{&}-icon-check {
+    input {
+      &:checked {
+        ~ {
+          .input-helper {
+            &:after {
+              // font-family: "LineAwesome";
+              text-decoration: inherit;
+              text-rendering: optimizeLegibility;
+              text-transform: none;
+              -moz-osx-font-smoothing: grayscale;
+              content: "";
+            }
+          }
+        }
+      }
+    }
+  }
+  &#{&}-lg {
+    input {
+      &:empty {
+        ~ {
+          .input-helper {
+            line-height: 40px;
+            margin: 2px 0;
+            height: 40px;
+            width: 75px;
+            border-radius: 20px;
+            &:before {
+              width: 72px;
+              border-radius: 20px;
+            }
+            &:after {
+              width: 72px;
+              border-radius: 20px;
+              height: 34px;
+              width: 34px;
+              line-height: 34px;
+              top: 3px;
+              bottom: 3px;
+              margin-#{$start-direction}: 3px;
+              font-size: 1em;
+              text-align: center;
+              vertical-align: middle;
+            }
+          }
+        }
+      }
+      &:checked {
+        ~ {
+          .input-helper {
+            &:after {
+              margin-#{$start-direction}: 34px;
+            }
+          }
+        }
+      }
+    }
+  }
+  &#{&}-sm {
+    input {
+      &:empty {
+        ~ {
+          .input-helper {
+            line-height: 20px;
+            margin: 2px 0;
+            height: 20px;
+            width: 40px;
+            min-width: 40px;
+            border-radius: 12px;
+            //margin-#{$start-direction}: 10px;
+            &:before {
+              width: 38px;
+              border-radius: 12px;
+            }
+            &:after {
+              width: 38px;
+              border-radius: 12px;
+              height: 16px;
+              width: 16px;
+              line-height: 16px;
+              top: 2px;
+              bottom: 2px;
+              margin-#{$start-direction}: 2px;
+              font-size: 0.7rem;
+              text-align: center;
+              vertical-align: middle;
+            }
+          }
+        }
+      }
+      &:checked {
+        ~ {
+          .input-helper {
+            &:after {
+              margin-#{$start-direction}: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+  &#{&}-brand {
+    &:not(.switch-outline) {
+      input {
+        &:empty {
+          ~ {
+            .input-helper {
+              &:before {
+                // background-color: $brand-color;
+                // color:  lighten($brand-color, 55%);
+                @include bg-brand();
+              }
+              &:after {
+                color: $brand-color;
+                background-color: $bg-white;
+                opacity: 0.4;
+              }
+            }
+          }
+        }
+        &:checked {
+          ~ {
+            .input-helper {
+              &:before {
+                // background-color: $brand-color;
+                // color:  lighten($brand-color, 55%);
+                @include bg-brand();
+              }
+              &:after {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &#{&}-outline {
+    &.switch-brand {
+      input {
+        &:empty {
+          ~ {
+            .input-helper {
+              &:before {
+                border: 2px solid #dee3eb;
+                background-color: #e8ebf1;
+              }
+              &:after {
+                color: #ffffff;
+              }
+            }
+          }
+        }
+        &:checked {
+          ~ {
+            .input-helper {
+              &:before {
+                background-color: $bg-white;
+              }
+              &:after {
+                // background-color: $brand-color;
+                // color:  lighten($brand-color, 55%);
+                @include bg-brand();
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &#{&}-light {
+    &:not(.switch-outline) {
+      input {
+        &:empty {
+          ~ {
+            .input-helper {
+              &:before {
+                background-color: $bg-white;
+              }
+              &:after {
+                color: #ffffff;
+                background-color: $dark-color;
+                opacity: 0.4;
+              }
+            }
+          }
+        }
+        &:checked {
+          ~ {
+            .input-helper {
+              &:before {
+                background-color: $bg-white;
+              }
+              &:after {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &#{&}-outline {
+    &.switch-light {
+      input {
+        &:empty {
+          ~ {
+            .input-helper {
+              &:before {
+                border: 2px solid #dee3eb;
+                background-color: #e8ebf1;
+              }
+              &:after {
+                color: $dark-color;
+              }
+            }
+          }
+        }
+        &:checked {
+          ~ {
+            .input-helper {
+              &:before {
+                background-color: $dark-color;
+              }
+              &:after {
+                background-color: $bg-white;
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &#{&}-dark {
+    &:not(.switch-outline) {
+      input {
+        &:empty {
+          ~ {
+            .input-helper {
+              &:before {
+                background-color: $dark-color;
+              }
+              &:after {
+                color: $dark-color;
+                background-color: $bg-white;
+                opacity: 0.4;
+              }
+            }
+          }
+        }
+        &:checked {
+          ~ {
+            .input-helper {
+              &:before {
+                background-color: $dark-color;
+              }
+              &:after {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+    &--outline {
+      input {
+        &:empty {
+          ~ {
+            .input-helper {
+              &:before {
+                border: 2px solid $dark-color;
+                background-color: transparent;
+              }
+              &:after {
+                background-color: $dark-color;
+                width: 14px;
+                height: 14px;
+                top: 3px;
+                margin-#{$start-direction}: 4px;
+              }
+              &:hover {
+                &:before {
+                  background-color: lighten($dark-color, 20%);
+                  border-color: lighten($dark-color, 20%);
+                }
+                &::after {
+                  background-color: $bg-light;
+                }
+              }
+            }
+          }
+        }
+        &:checked {
+          ~ {
+            .input-helper {
+              &:before {
+                // background-color: $brand-color;
+                // color:  lighten($brand-color, 55%);
+                @include bg-brand();
+                border-color: $brand-color;
+              }
+              &:after {
+                background-color: lighten($brand-color, 55%);
+                opacity: 1;
+                margin-#{$start-direction}: 20px;
+              }
+              &:hover {
+                &:before {
+                  // background-color: $brand-color;
+                  // color:  lighten($brand-color, 55%);
+                  @include bg-brand();
+                  border-color: $brand-color;
+                }
+                &::after {
+                  background-color: lighten($brand-color, 55%);
+                }
+              }
+            }
+          }
+        }
+        &:disabled {
+          ~ {
+            .input-helper {
+              &:hover {
+                &:before {
+                  background-color: transparent;
+                  border-color: currentColor;
+                }
+                &::after {
+                  background-color: $dark-color;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &#{&}-outline {
+    &.switch-dark {
+      input {
+        &:empty {
+          ~ {
+            .input-helper {
+              &:before {
+                border: 2px solid #dee3eb;
+                background-color: #e8ebf1;
+              }
+              &:after {
+                color: #ffffff;
+              }
+            }
+          }
+        }
+        &:checked {
+          ~ {
+            .input-helper {
+              &:before {
+                background-color: $bg-white;
+              }
+              &:after {
+                background-color: $dark-color;
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &#{&}-primary {
+    &:not(.switch-outline) {
+      input {
+        &:empty {
+          ~ {
+            .input-helper {
+              &:before {
+                background-color: $primary-color;
+              }
+              &:after {
+                color: $primary-color;
+                background-color: $bg-white;
+                opacity: 0.4;
+              }
+            }
+          }
+        }
+        &:checked {
+          ~ {
+            .input-helper {
+              &:before {
+                background-color: $primary-color;
+              }
+              &:after {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &#{&}-outline {
+    &.switch-primary {
+      input {
+        &:empty {
+          ~ {
+            .input-helper {
+              &:before {
+                border: 2px solid #dee3eb;
+                background-color: #e8ebf1;
+              }
+              &:after {
+                color: #ffffff;
+              }
+            }
+          }
+        }
+        &:checked {
+          ~ {
+            .input-helper {
+              &:before {
+                background-color: $bg-white;
+              }
+              &:after {
+                background-color: $primary-color;
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &#{&}-success {
+    &:not(.switch-outline) {
+      input {
+        &:empty {
+          ~ {
+            .input-helper {
+              &:before {
+                background-color: $success-color;
+              }
+              &:after {
+                color: $success-color;
+                background-color: $bg-white;
+                opacity: 0.4;
+              }
+            }
+          }
+        }
+        &:checked {
+          ~ {
+            .input-helper {
+              &:before {
+                background-color: $success-color;
+              }
+              &:after {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &#{&}-outline {
+    &.switch-success {
+      input {
+        &:empty {
+          ~ {
+            .input-helper {
+              &:before {
+                border: 2px solid #dee3eb;
+                background-color: #e8ebf1;
+              }
+              &:after {
+                color: #ffffff;
+              }
+            }
+          }
+        }
+        &:checked {
+          ~ {
+            .input-helper {
+              &:before {
+                background-color: $bg-white;
+              }
+              &:after {
+                background-color: $success-color;
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &#{&}-info {
+    &:not(.switch-outline) {
+      input {
+        &:empty {
+          ~ {
+            .input-helper {
+              &:before {
+                background-color: $info-color;
+              }
+              &:after {
+                color: $info-color;
+                background-color: $bg-white;
+                opacity: 0.4;
+              }
+            }
+          }
+        }
+        &:checked {
+          ~ {
+            .input-helper {
+              &:before {
+                background-color: $info-color;
+              }
+              &:after {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &#{&}-outline {
+    &.switch-info {
+      input {
+        &:empty {
+          ~ {
+            .input-helper {
+              &:before {
+                border: 2px solid #dee3eb;
+                background-color: #e8ebf1;
+              }
+              &:after {
+                color: #ffffff;
+              }
+            }
+          }
+        }
+        &:checked {
+          ~ {
+            .input-helper {
+              &:before {
+                background-color: $bg-white;
+              }
+              &:after {
+                background-color: $info-color;
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &#{&}-warning {
+    &:not(.switch-outline) {
+      input {
+        &:empty {
+          ~ {
+            .input-helper {
+              &:before {
+                background-color: $warning-color;
+              }
+              &:after {
+                color: $warning-color;
+                background-color: #111111;
+                opacity: 0.4;
+              }
+            }
+          }
+        }
+        &:checked {
+          ~ {
+            .input-helper {
+              &:before {
+                background-color: $warning-color;
+              }
+              &:after {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &#{&}-outline {
+    &.switch-warning {
+      input {
+        &:empty {
+          ~ {
+            .input-helper {
+              &:before {
+                border: 2px solid #dee3eb;
+                background-color: #e8ebf1;
+              }
+              &:after {
+                color: #111111;
+              }
+            }
+          }
+        }
+        &:checked {
+          ~ {
+            .input-helper {
+              &:before {
+                background-color: #111111;
+              }
+              &:after {
+                background-color: $warning-color;
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &#{&}-danger {
+    &:not(.switch-outline) {
+      input {
+        &:empty {
+          ~ {
+            .input-helper {
+              &:before {
+                background-color: $danger-color;
+              }
+              &:after {
+                color: $danger-color;
+                background-color: $bg-white;
+                opacity: 0.4;
+              }
+            }
+          }
+        }
+        &:checked {
+          ~ {
+            .input-helper {
+              &:before {
+                background-color: $danger-color;
+              }
+              &:after {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &#{&}-outline {
+    &.switch-danger {
+      input {
+        &:empty {
+          ~ {
+            .input-helper {
+              &:before {
+                border: 2px solid #dee3eb;
+                background-color: #e8ebf1;
+              }
+              &:after {
+                color: #ffffff;
+              }
+            }
+          }
+        }
+        &:checked {
+          ~ {
+            .input-helper {
+              &:before {
+                background-color: $bg-white;
+              }
+              &:after {
+                background-color: $danger-color;
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &#{&}-inline {
+    display: inline-flex;
+  }
+}
+
+.form-group.row {
+  .switch {
+    margin-top: 0.15rem;
+    &.switch-lg {
+      margin-top: 0rem;
+      position: relative;
+      top: -0.3rem;
+    }
+    &.switch-sm {
+      margin-top: 0.3rem;
+    }
+  }
+}
+
+.switch-tab {
+  position: relative;
+  .btn-group {
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    button {
+      font-size: 1rem;
+      padding: 0.5rem 3rem;
+    }
+    .is-active {
+      opacity: 1 !important;
+    }
+    .btn-brand {
+      opacity: 0.5;
+    }
+  }
+}

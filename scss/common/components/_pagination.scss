@@ -1,0 +1,169 @@
+$pagination: "pagination";
+
+.#{$pagination} {
+  display: inline-flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+
+  &>ul {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .75rem;
+  }
+
+  a,
+  button {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 2.6rem;
+    height: 3rem;
+    width: 3rem;
+    text-decoration: none;
+    text-align: center;
+    background-color: #fff;
+    cursor: pointer;
+    color: currentColor;
+    font-size: theme("font.size.md");
+    border: 1px solid theme("color.gray.200");
+    border-radius: theme('radius-sm');
+
+    &:hover {
+      border-color: #F5F6F9;
+      background-color: #F5F6F9;
+    }
+
+    &.is-active {
+      color: #fff;
+      background: #393737;
+      border-width: 0;
+    }
+
+    &.is-disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+
+    &.is-prev {
+      &:before {
+        content: "\2039";
+        font-size: 28px;
+        line-height: 1.25;
+        display: block;
+        font-weight: normal;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+      }
+    }
+
+    &.is-next {
+      &::before {
+        content: "\203A";
+        font-size: 28px;
+        line-height: 1.25;
+        display: block;
+        font-weight: normal;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+      }
+    }
+
+    &.is-backward {
+      &:before {
+        content: "‹‹";
+        font-size: 28px;
+        line-height: 1.25;
+        display: block;
+        font-weight: normal;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        letter-spacing: -2px;
+      }
+    }
+
+    &.is-forward {
+      &:before {
+        content: "››";
+        font-size: 28px;
+        line-height: 1.25;
+        display: block;
+        font-weight: normal;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        letter-spacing: -2px;
+      }
+    }
+  }
+
+  &--centered {
+    display: flex;
+    justify-content: center;
+  }
+
+  &--right {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &--left {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  &--curve {
+
+    a,
+    button {
+      border-radius: theme('radius.curve');
+    }
+  }
+
+  &--round {
+
+    a,
+    button {
+      border-radius: 1000px;
+    }
+  }
+
+}
+
+
+
+.paging-controls {
+  padding: 1rem 0;
+
+  @media(min-width:theme('breakpoints.sm', 'value')) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  @media(max-width:theme('breakpoints.sm', 'value')) {
+    text-align: center;
+
+    & p {
+      margin-bottom: 10px !important;
+    }
+  }
+}

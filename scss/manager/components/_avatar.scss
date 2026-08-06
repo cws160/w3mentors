@@ -1,0 +1,220 @@
+$avatar: "avatar";
+
+.#{$avatar} {
+    position: relative;
+    display: inline-block;
+
+    &__holder {
+        width: 120px;
+        height: 120px;
+        border-radius: 3px;
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        &.#{$avatar}__holder-16-9 {
+            @extend.avatar__holder;
+            height: 68px;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+.avatar {
+
+    &__upload,
+    &__cancel {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: auto;
+        right: -10px;
+        bottom: -5px;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: $bg-white;
+        box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.1);
+    }
+
+    .file-upload {
+        position: absolute;
+        opacity: 0;
+    }
+
+    &__upload {
+        right: -11px;
+        top: 55px;
+    }
+
+    &__cancel {
+        bottom: 0;
+        top: auto;
+    }
+
+    &.#{$avatar}-changed {
+        .#{$avatar}__cancel {
+            display: flex;
+        }
+    }
+
+    &.#{$avatar}-brand {
+        .#{$avatar}__upload {
+            i {
+                color: $brand-color;
+            }
+
+            &:hover {
+                // background-color: $brand-color;
+                // color:  lighten($brand-color, 55%);
+                @include bg-brand();
+
+                i {
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+
+    &.#{$avatar}-light {
+        .#{$avatar}__upload {
+            i {
+                color: #ffffff;
+            }
+
+            &:hover {
+                background-color: $bg-white;
+
+                i {
+                    color: $dark-color;
+                }
+            }
+        }
+    }
+
+    &.#{$avatar}-dark {
+        .#{$avatar}__upload {
+            i {
+                color: $dark-color;
+            }
+
+            &:hover {
+                background-color: $dark-color;
+
+                i {
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+
+    &.#{$avatar}-primary {
+        .#{$avatar}__upload {
+            i {
+                color: $primary-color;
+            }
+
+            &:hover {
+                background-color: $primary-color;
+
+                i {
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+
+    &.#{$avatar}-success {
+        .#{$avatar}__upload {
+            i {
+                color: $success-color;
+            }
+
+            &:hover {
+                background-color: $success-color;
+
+                i {
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+
+    &.#{$avatar}-info {
+        .#{$avatar}__upload {
+            i {
+                color: $info-color;
+            }
+
+            &:hover {
+                background-color: $info-color;
+
+                i {
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+
+    &.#{$avatar}-warning {
+        .#{$avatar}__upload {
+            i {
+                color: $warning-color;
+            }
+
+            &:hover {
+                background-color: $warning-color;
+
+                i {
+                    color: #111111;
+                }
+            }
+        }
+    }
+
+    &.#{$avatar}-danger {
+        .#{$avatar}__upload {
+            i {
+                color: $danger-color;
+            }
+
+            &:hover {
+                background-color: $danger-color;
+
+                i {
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+
+    &.#{$avatar}-circle {
+        .#{$avatar}__holder {
+            border-radius: 50%;
+        }
+
+        .#{$avatar}__upload {
+            // right: 0px;
+            // top: 5px;
+        }
+
+        .#{$avatar}__cancel {
+            right: 3px;
+            bottom: 10px;
+        }
+    }
+
+    &.#{$avatar}-outline {
+        .#{$avatar}__holder {
+            border: 3px solid #ffffff;
+            box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.1);
+        }
+    }
+}

@@ -1,0 +1,26 @@
+.cta-card__media::after {
+    display: none;
+}
+
+.cta-card__media img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+.why-panel {
+    background-color: #EFF0F3;
+    color: #000;
+}
+
+/* Logo-aligned accents */
+a:not(.btn):hover {
+    color: $brand-green;
+}
+
+.section--cta .btn--primary:hover,
+.book__actions .btn--primary:hover {
+    background-color: $brand-green-dark;
+    border-color: $brand-green-dark;
+}

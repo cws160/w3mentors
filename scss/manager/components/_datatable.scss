@@ -1,0 +1,108 @@
+$shadow1: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+.datatable {
+    &_cell {
+        overflow-wrap: break-word;
+        &-sort {
+            cursor: pointer;
+            i {
+                display: inline-block;
+                position: relative;
+                right: -10px;
+                line-height: 0;
+                vertical-align: middle;
+                font-size: 10px;
+            }
+        }
+        &-sorted {
+            color: $brand-color !important;
+        }
+        &_top {
+            background-color: hsla(0, 0%, 100%, 0.8);
+            backdrop-filter: blur(3px);
+            position: sticky;
+            top: 0;
+            z-index: 2;
+            &:first-child {
+                z-index: 5;
+            }
+        }
+        &_left {
+            position: sticky;
+            #{$start-direction}: 0;
+            z-index: 2;
+            background-color: hsla(0, 0%, 100%, 0.8);
+            backdrop-filter: blur(3px);
+            overflow-wrap: break-word;
+            &:after {
+                position: absolute;
+                top: 0;
+                #{$end-direction}: 0;
+                bottom: -1px;
+                width: 30px;
+                transform: translateX(100% * $transform-direction);
+                transition: box-shadow 0.3s;
+                content: "";
+                pointer-events: none;
+                box-shadow: inset 10px 0 8px -8px rgba(0, 0, 0, 0.05);
+            }
+        }
+        &_right {
+            position: sticky;
+            #{$end-direction}: 0;
+            z-index: 2;
+            background-color: hsla(0, 0%, 100%, 0.8);
+            backdrop-filter: blur(3px);
+            overflow-wrap: break-word;
+            &::after {
+                position: absolute;
+                top: 0;
+                bottom: -1px;
+                #{$start-direction}: 0;
+                width: 30px;
+                transform: translateX(-100% * $transform-direction);
+                transition: box-shadow 0.3s;
+                content: "";
+                pointer-events: none;
+                box-shadow: inset 10px 0 8px -8px rgba(0, 0, 0, 0.05);
+            }
+        }
+    }
+    &-sticky {
+        border-top: $border;
+        white-space: nowrap;
+        position: relative;
+        width: 100%;
+        z-index: 1;
+        margin: auto;
+        overflow: auto;
+        height: 650px;
+        table {
+            font-size: 0.9rem;
+            width: 100%;
+            min-width: 1280px;
+            margin: auto;
+            border-collapse: collapse;
+            border-spacing: 0;
+            border: none;
+            thead {
+                th {
+                    color: $txt-gray;
+                    text-transform: uppercase;
+                    letter-spacing: 0.1rem;
+                    font-weight: 600;
+                    background: $bg-white;
+                }
+            }
+            tr {
+                border-bottom: $border;
+            }
+            th,
+            td {
+                padding: 1rem 25px;
+                color: $txt-gray;
+                vertical-align: top;
+                font-weight: 300;
+            }
+        }
+    }
+}

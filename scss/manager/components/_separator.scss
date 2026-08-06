@@ -1,0 +1,109 @@
+.separator {
+    height: 0;
+    margin: 20px 0;
+    border-bottom: $border;
+    &-dashed {
+        border-bottom-style: dashed;
+    }
+    &-dotted {
+        border-bottom-style: dotted;
+    }
+    &-border-2x {
+        border-bottom-width: 2px;
+    }
+    &-space {
+        border-bottom: 0;
+    }
+    &-sm {
+        margin: 0.5rem 0;
+    }
+    &-space-sm {
+        margin: 0.5rem 0;
+    }
+    &-md {
+        margin: 2rem 0;
+    }
+    &-space-md {
+        margin: 2rem 0;
+    }
+    &-lg {
+        margin: 2.5rem 0;
+    }
+    &-space-lg {
+        margin: 2.5rem 0;
+    }
+    &-space-xl {
+        margin: 3rem 0;
+    }
+    &-xl {
+        margin: 3rem 0;
+    }
+    &-fit {
+        margin-#{$start-direction}: -25px;
+        margin-#{$end-direction}: -25px;
+    }
+    &-brand {
+        border-bottom: 1px solid $brand-color;
+    }
+    &-brand {
+        &.separator--dashed {
+            border-bottom: 1px dashed $brand-color;
+        }
+    }
+    &-light {
+        border-bottom: 1px solid #fff;
+    }
+    &-light {
+        &.separator--dashed {
+            border-bottom: 1px dashed #fff;
+        }
+    }
+    &-dark {
+        border-bottom: 1px solid $dark-color;
+    }
+    &-dark {
+        &.separator--dashed {
+            border-bottom: 1px dashed $dark-color;
+        }
+    }
+    &-primary {
+        border-bottom: 1px solid $primary-color;
+    }
+    &-primary {
+        &.separator--dashed {
+            border-bottom: 1px dashed $primary-color;
+        }
+    }
+    &-success {
+        border-bottom: 1px solid $success-color;
+    }
+    &-success {
+        &.separator--dashed {
+            border-bottom: 1px dashed $success-color;
+        }
+    }
+    &-info {
+        border-bottom: 1px solid $info-color;
+    }
+    &-info {
+        &.separator--dashed {
+            border-bottom: 1px dashed $info-color;
+        }
+    }
+    &-warning {
+        border-bottom: 1px solid $warning-color;
+    }
+    &-warning {
+        &.separator--dashed {
+            border-bottom: 1px dashed $warning-color;
+        }
+    }
+    &-danger {
+        border-bottom: 1px solid $danger-color;
+    }
+    &-danger {
+        &.separator--dashed {
+            border-bottom: 1px dashed $danger-color;
+        }
+    }
+}

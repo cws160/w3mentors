@@ -1,0 +1,103 @@
+$tooltip: "tooltip";
+
+.#{$tooltip} {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  max-width: 300px;
+  padding: .25rem .5rem;
+  font-size: 10px;
+  font-weight: normal;
+  letter-spacing: 0.05em;
+  background-color: #000;
+  color: theme('color.white');
+  box-shadow: theme('boxShadow.5');
+  border-radius: theme('radius-sm');
+
+  &:before {
+    position: absolute;
+    display: block;
+    width: 0.7em;
+    height: 0.7em;
+    background-color: inherit;
+    content: "";
+  }
+
+  //Modifier
+  &--curve {
+    border-radius: theme('radius.curve');
+  }
+
+  &--round {
+    border-radius: theme('radius.round');
+  }
+
+  &--top {
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%) translateY(-90%);
+    text-align: center;
+
+    &:before {
+      bottom: 0;
+      left: 50%;
+      transform: translateY(50%) translateX(-50%) rotate(45deg);
+    }
+  }
+
+  &--bottom {
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    text-align: center;
+
+    &:before {
+      top: 0;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%) rotate(45deg);
+    }
+  }
+
+  &--left {
+    #{theme('direction.right','value')}: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: #{theme('direction.left','value')};
+
+    &:before {
+      #{theme('direction.right','value')}: -3px;
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+    }
+  }
+
+  &--right {
+    #{theme('direction.left','value')}: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: #{theme('direction.left','value')};
+
+    &:before {
+      #{theme('direction.left','value')}: -3px;
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+    }
+  }
+
+  .is-hover & {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .is-hover:hover & {
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.5s;
+  }
+}
+
+.btn {
+  .tooltip {
+    white-space: normal;
+  }
+}

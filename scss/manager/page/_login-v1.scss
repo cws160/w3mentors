@@ -1,0 +1,108 @@
+.login-page {
+    min-height:90vh;
+    display: flex;
+    align-items: center;
+    @include media-breakpoint-down(md) {
+        align-items: inherit;
+    }
+    @media (max-height: 40rem) {
+        align-items: inherit;
+    }
+}
+
+.login-1 {
+    .login-block {
+        max-width: 450px;
+        min-width: 300px;
+        margin: 2rem auto;
+    }
+    .logo {
+        text-align: center;
+        margin: 0 auto;
+        margin-bottom: 2rem;
+        img {
+            max-width: 160px;
+            margin: 0 auto;
+        }
+    }
+    .card {
+        padding: 2rem 3rem;
+        &-head {
+            border: none;
+            padding: 0;
+            padding-bottom: 1rem;
+        }
+        &-body {
+            padding: 0;
+            // padding: 2rem;
+        }
+        &-foot {
+            border: none;
+            padding: 0;
+        }
+
+        .title {
+            margin-bottom: 0.5rem;
+            h2 {
+                font-size: 1.5rem;
+                color: $txt-body;
+            }
+        }
+    }
+    .other-links {
+        color: $brand-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        li {
+            display: inline-block;
+        }
+        a {
+            color: currentColor;
+        }
+    }
+    .version {
+        text-align: center;
+        font-size: 0.8rem;
+        margin-top: 2rem;
+    }
+}
+
+.form-login {
+    input {
+        &[type="text"],
+        &[type="password"] {
+            height: auto;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        &[type="submit"] {
+            background-color: $brand-color;
+            width: 100%;
+            display: block;
+            text-align: center;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            height: auto;
+            color: $brand-color-inverse;
+        }
+    }
+}
+
+.field-password {
+    height: 100%;
+    // height: $input-height;
+    width: 3rem;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.8rem;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iY3VycmVudENvbG9yIiBjbGFzcz0iYmkgYmktdGhyZWUtZG90cyIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICA8cGF0aCBkPSJNMyA5LjVhMS41IDEuNSAwIDEgMSAwLTMgMS41IDEuNSAwIDAgMSAwIDN6bTUgMGExLjUgMS41IDAgMSAxIDAtMyAxLjUgMS41IDAgMCAxIDAgM3ptNSAwYTEuNSAxLjUgMCAxIDEgMC0zIDEuNSAxLjUgMCAwIDEgMCAzeiIvPgo8L3N2Zz4=);
+
+    &-show {
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iY3VycmVudENvbG9yIiBjbGFzcz0iYmkgYmktZXllIiB2aWV3Qm94PSIwIDAgMTYgMTYiPgogIDxwYXRoIGQ9Ik0xNiA4cy0zLTUuNS04LTUuNVMwIDggMCA4czMgNS41IDggNS41UzE2IDggMTYgOHpNMS4xNzMgOGExMy4xMzMgMTMuMTMzIDAgMCAxIDEuNjYtMi4wNDNDNC4xMiA0LjY2OCA1Ljg4IDMuNSA4IDMuNWMyLjEyIDAgMy44NzkgMS4xNjggNS4xNjggMi40NTdBMTMuMTMzIDEzLjEzMyAwIDAgMSAxNC44MjggOGMtLjA1OC4wODctLjEyMi4xODMtLjE5NS4yODgtLjMzNS40OC0uODMgMS4xMi0xLjQ2NSAxLjc1NUMxMS44NzkgMTEuMzMyIDEwLjExOSAxMi41IDggMTIuNWMtMi4xMiAwLTMuODc5LTEuMTY4LTUuMTY4LTIuNDU3QTEzLjEzNCAxMy4xMzQgMCAwIDEgMS4xNzIgOHoiLz4KICA8cGF0aCBkPSJNOCA1LjVhMi41IDIuNSAwIDEgMCAwIDUgMi41IDIuNSAwIDAgMCAwLTV6TTQuNSA4YTMuNSAzLjUgMCAxIDEgNyAwIDMuNSAzLjUgMCAwIDEtNyAweiIvPgo8L3N2Zz4=);
+    }
+}

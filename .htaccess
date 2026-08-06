@@ -1,0 +1,42 @@
+<IfModule mod_rewrite.c>
+    Options -Indexes +FollowSymlinks -MultiViews
+    RewriteEngine On
+    RewriteBase /
+
+    RewriteCond %{HTTP:Authorization} ^(.*)
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%1]
+
+    # Same-domain Laravel API: https://w3mentors.com/api/v1/...
+    RewriteRule ^api(?:/(.*))?$ backend/public/index.php [L,QSA]
+
+    # Laravel image and sitemap routes used by the converted React app.
+    RewriteRule ^image(?:/(.*))?$ backend/public/index.php [L,QSA]
+    RewriteRule ^images(?:/(.*))?$ backend/public/index.php [L,QSA]
+    RewriteRule ^sitemap\.xml$ backend/public/index.php [L,QSA]
+    RewriteRule ^sitemap/list_([0-9]+)\.xml$ backend/public/index.php [L,QSA]
+
+    # Do not expose Laravel source directly.
+    RewriteRule ^backend(?:/.*)?$ - [F,L]
+
+    # Serve real files/folders, including React assets under /frontend.
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Homepage and all frontend SPA routes load the React app.
+    RewriteRule ^$ frontend/index.html [L]
+    RewriteRule ^.*$ frontend/index.html [L]
+</IfModule>
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access 1 year"
+    ExpiresByType image/jpeg "access 1 year"
+    ExpiresByType image/gif "access 1 year"
+    ExpiresByType image/png "access 1 year"
+    ExpiresByType image/svg+xml "access 1 month"
+    ExpiresByType text/css "access 1 month"
+    ExpiresByType application/javascript "access 1 month"
+    ExpiresByType image/x-icon "access 1 year"
+    ExpiresDefault "access 2 days"
+</IfModule>

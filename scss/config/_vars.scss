@@ -1,0 +1,149 @@
+@import 'brand';
+
+@function palette($color) {
+  $palette: (
+  );
+
+@for $i from 1 through 10 {
+  $palette: map-merge((#{$i * 100}: mix($color, #ffffff, $i * 5%)),
+      $palette );
+}
+
+$palette: map-merge(('000': $color),
+    $palette );
+@return $palette;
+}
+
+
+
+$spacing: (
+  px: 1px,
+  '0': 0,
+  '1': 0.25rem,
+  '2': 0.5rem,
+  '3': 0.75rem,
+  '4': 1rem,
+  '5': 1.25rem,
+  '6': 1.5rem,
+  '8': 2rem,
+  '10': 2.5rem,
+  '12': 3rem,
+  '14': 3.4rem,
+  '16': 4rem,
+  '18': 4.5rem,
+  '20': 5rem,
+  '24': 6rem,
+  '26': 7rem,
+  '32': 8rem,
+  '40': 10rem,
+  '48': 12rem,
+  '56': 14rem,
+  '64': 16rem,
+);
+
+$theme: (
+  'direction': ('ltr-direction': $ltr-direction,
+    'rtl-direction': $rtl-direction,
+    'left': $left,
+    'right': $right,
+    'start': $start,
+    'end': $end,
+    'transform': $transform-direction ),
+  'breakpoints': ('sm': 576px,
+    'md': 767px,
+    'lg': 991px,
+    'xl': 1199px,
+    'xxl': 1299px,
+    'xxxl': 1399px,
+    'xxxxl': 1499px),
+
+
+  'padding': map-merge($spacing,
+    ()),
+
+  'margin': map-merge($spacing,
+    ()),
+
+  'radius': ('0': 8px,
+    '1': 8px,
+    '2': 8px,
+    '3': 16px,
+    '4': 32px,
+    '5': 128px,
+    'curve': 4px,
+    'round': 100px),
+  'font':('family': ('base': ('Noto Sans')),
+    'weight': ('regular': 400,
+      'medium': 600,
+      'bold': 700),
+    'size': ('h1': calc(24px + 0.4vw),
+      'h2': calc(24px + 0.8vw),
+      'h3': calc(18px + 0.4vw),
+      'h4': calc(18px + 0.2vw),
+      'h5': calc(16px + 0.13vw),
+      'h6': calc(13px + 0.1vw),
+      'p': 18px,
+      'medium': 15px,
+      'small': 13px,
+      'xs': 0.7rem,
+      'sm': 0.95rem,
+      'md': 1rem,
+      'lg': 1.25rem,
+      'xl': 1.5rem,
+      'xxl': 1.75rem,
+      'xxxl': 2rem)),
+
+  'color': ('brand': $brand-green,
+    'primary': $brand-green,
+    'primary-inverse': #fff,
+
+    'secondary': $brand-green-dark,
+    'secondary-inverse': #fff,
+
+    'third': $brand-green-light,
+    'third-inverse': #fff,
+
+    'red': #ff0000,
+    'red-inverse': #fff,
+
+    'green': $brand-green,
+    'green-inverse': #fff,
+
+    'yellow': #ffab22,
+    'yellow-inverse': #fff,
+
+    'danger': #c9252d,
+    'danger-inverse': #fff,
+
+    'success': $brand-green,
+    'success-inverse': #fff,
+
+    'warning': #ffab22,
+    'warning-inverse': #fff,
+
+    'info': #0d66d0,
+    'info-inverse': #fff,
+
+    'black': #000,
+    'white': #ffffff,
+    'gray': palette(#000),
+
+    'dark-blue': $brand-green-dark,
+    'dark-blue-inverse': #fff,
+
+    'dark': $brand-black,
+    'gray-dark': #333,
+
+    'green-80': #3db56a,
+    'green-60': #6bc78f,
+    'green-40': #9ad9b3,
+  ),
+
+  'boxShadow': ('l-r': '0px 0px 5px rgba(0, 0, 0, 0.1)',
+    'vertical': '5px 15px 20px 0px rgba(0, 0, 0, 0.1)',
+    'all': ' 0 0 6px rgba(0, 0, 0, 0.08)',
+    'none': 'none',
+    'bottom': '0 20px 30px 0 rgba(0, 0, 0, 0.15)',
+  ),
+
+);

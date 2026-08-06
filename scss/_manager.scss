@@ -1,0 +1,105 @@
+//Framework
+@import "manager/bootstrap/bootstrap";
+@import "manager/bootstrap/variables";
+
+//themes
+@import "manager/themes/variables";
+
+//layout
+@import "manager/layout/header";
+@import "manager/layout/aside-menu";
+@import "manager/layout/sidebar";
+@import "manager/layout/subheader";
+@import "manager/layout/profile";
+@import "manager/layout/footer";
+
+//Components
+@import "manager/components/offcanvas";
+@import "manager/components/demo";
+@import "manager/components/nav";
+
+@import "manager/components/navbar";
+//@import "manager/components/stellarnav";
+@import "manager/components/card";
+@import "manager/components/dropdown";
+//@import "manager/components/jquery.smartmenus.bootstrap-4";
+@import "manager/components/pagination";
+@import "manager/components/breadcrumb";
+@import "manager/components/forms";
+@import "manager/components/buttons";
+@import "manager/components/switch";
+@import "manager/components/badge";
+@import "manager/components/chips";
+@import "manager/components/bg";
+@import "manager/components/avatar";
+@import "manager/components/widget";
+@import "manager/components/usercard";
+@import "manager/components/timeline";
+@import "manager/components/tabs";
+@import "manager/components/option";
+@import "manager/components/quick-panel";
+@import "manager/components/alert";
+@import "manager/components/badges";
+@import "manager/components/notification";
+@import "manager/components/separator";
+@import "manager/components/tables";
+@import "manager/components/datatable";
+@import "manager/components/toaster";
+@import "manager/components/modal";
+@import "manager/components/media";
+@import "manager/components/spinner";
+@import "manager/components/notes";
+@import "manager/components/callout";
+@import "manager/components/iconbox";
+@import "manager/components/infobox";
+@import "manager/components/ribbon";
+@import "manager/components/dropzone";
+//@import "manager/components/fullcalendar";
+//@import "manager/components/inbox";
+@import "manager/components/colorpicker";
+@import "manager/components/list-group";
+//@import "manager/components/kanban";
+@import "manager/components/scrollbar";
+@import "manager/components/searchbar";
+@import "manager/components/header-notification";
+@import "manager/components/loader";
+@import "manager/components/tagify";
+@import "manager/components/responsive-datatable";
+@import "manager/components/product-profile";
+@import "manager/components/misc";
+@import "manager/components/sticky-head-demo";
+@import "manager/components/page-search";
+@import "manager/components/system-message";
+@import "manager/components/log";
+
+//vendor
+@import "manager/vendor/particles";
+@import "manager/vendor/line-awesome";
+@import "manager/vendor/fontawesome";
+//@import "manager/vendor/flaticon";
+@import "manager/vendor/flaticon2";
+//@import "manager/vendor/socicons";
+@import "manager/vendor/select2/core";
+@import "manager/components/select2";
+@import "manager/vendor/chartist-settings";
+@import "manager/vendor/chartist";
+//@import "manager/vendor/simplebar";
+@import "manager/vendor/scroll-hint";
+//@import "manager/vendor/bootstrap-select";
+//@import "manager/vendor/kanban";
+@import "manager/vendor/jquery-ui";
+
+//page
+@import "manager/page/login-v1";
+@import "manager/page/single-vendor";
+@import "manager/page/maintenance";
+@import "manager/page/setting";
+@import "manager/page/get-started";
+@import "manager/page/notifications";
+@import "manager/page/categories";
+@import "manager/page/add-stock";
+@import "manager/page/messages";
+@import "manager/page/allpages";
+
+//Project overrides
+@import "codexscss";

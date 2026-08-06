@@ -1,0 +1,64 @@
+.section--hero,
+.section--page-header {
+    border-radius: 0;
+}
+
+.rounded-4 {
+    border-radius: 0 !important;
+}
+
+.section.section--tutor-steps {
+    padding: calc(clamp(2.857rem, 1.911vw + 2.379rem, 5rem)) 0;
+    border-radius: 0;
+}
+
+.section--cta-block,
+.cta-block {
+    margin: 0;
+}
+
+.section--cta {
+    &::before {
+        display: none;
+    }
+}
+
+.text-button {
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+    padding-#{theme('direction.right','value')}: 2rem;
+    color: theme('color.primary');
+
+    &:hover {
+        color: inherit;
+    }
+
+    .circle-arrow {
+        display: none;
+    }
+
+    &::before {
+        content: "";
+        --size: .625rem;
+        width: var(--size);
+        height: var(--size);
+        border-right: 2px solid currentColor;
+        border-bottom: 2px solid currentColor;
+        position: absolute;
+        #{theme('direction.right','value')}: 2px;
+        top: 50%;
+        transform: translateY(-50%) rotate(-45deg);
+    }
+
+    &::after {
+        content: "";
+        width: 1.25rem;
+        height: 2px;
+        background-color: currentColor;
+        position: absolute;
+        #{theme('direction.right','value')}: 2px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}

@@ -1,0 +1,40 @@
+$breadcrumbs: 'breadcrumbs';
+
+.#{$breadcrumbs} {
+    padding: 0 0 1.25rem;
+    font-size: 13px;
+
+    @media(max-width: theme('breakpoints.lg', 'value')) {
+        padding-bottom: 0;
+    }
+
+    ul {
+        @media(max-width: theme('breakpoints.lg', 'value')) {
+            font-size: 12px;
+        }
+
+        li {
+            margin-#{theme('direction.right','value')}: .75rem;
+            padding-#{theme('direction.right','value')}: .75rem;
+            display: inline;
+            vertical-align: middle;
+
+            @media(max-width: theme('breakpoints.lg', 'value')) {
+                margin-bottom: .75rem;
+            }
+
+            a {
+                color: currentColor;
+                position: relative;
+
+                &::after {
+                    content: "/";
+                    pointer-events: none;
+                    position: absolute;
+                    #{theme('direction.right','value')}: -12px;
+                    top: 2px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,116 @@
+.box {
+    width: 100%;
+    position: relative;
+    background-color: theme('color.white');
+    box-shadow: 0px 0px 40px #E0E3EC;
+    border-radius: theme('radius');
+
+    & &__head {
+        padding: 1.25rem;
+        border-radius: theme('radius') theme('radius') 0 0;
+        border-bottom: 1px solid theme('color.gray.200');
+        position: relative;
+
+        .-link-underline {
+            line-height: 1.4;
+            display: inline-block;
+        }
+
+        p,
+        h4 {
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 1.75rem;
+        }
+    }
+}
+
+
+.box--narrow {
+    padding: 15px 30px 30px;
+    min-width: 460px;
+    max-width: 460px;
+
+    @media (min-width: theme('breakpoints.xl', 'value')) {
+        display: block;
+        overflow: auto;
+        max-height: 85vh;
+    }
+
+    h2 {
+        margin-bottom: 15px;
+    }
+
+    p {
+        margin-bottom: 0.4rem;
+    }
+
+    .box__logo {
+        width: 140px;
+        margin: auto;
+    }
+
+    .form {
+
+        input[type="submit"],
+        input[type="button"] {
+            width: 100%;
+            text-align: center;
+        }
+
+        .field_label {
+            margin-bottom: 0.4rem;
+            width: 100%;
+        }
+    }
+}
+
+.set-remember {
+    & .caption-wraper {
+        display: none;
+    }
+}
+
+.fieldset-box {
+    border: 1px solid theme('color.gray.200');
+    border-radius: theme('radius-sm');
+    padding: 1.5rem;
+    padding-top: 0;
+    padding-bottom: .5rem;
+    margin-bottom: 1.25rem;
+
+    legend {
+        display: inline-block;
+        width: auto;
+        padding: .5rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 0;
+        color: theme('color.secondary');
+    }
+
+    & .table-pricing {
+        border-collapse: separate;
+        border-spacing: 0 10px;
+
+        & td {
+            padding: 0 .5rem;
+        }
+    }
+}
+
+.plan-listing-facebox {
+    & .table {
+        border-spacing: 0;
+
+        & th {
+            border-radius: 0 !important;
+        }
+    }
+
+    & .table-scroll {
+        margin: 0;
+    }
+}

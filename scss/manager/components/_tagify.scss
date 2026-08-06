@@ -1,0 +1,156 @@
+.tagify {
+    height: auto;
+    &--outside {
+        display: flex;
+        border: none !important;
+        .tagify__input {
+            order: -1;
+            flex: 100%;
+            border: none;
+            padding: 0;
+            margin: 0;
+            margin-bottom: 1em;
+            transition: 0.1s;
+            &:hover {
+                border-color: inherit;
+            }
+        }
+        &.tagify--focus .tagify__input {
+            transition: 0s;
+            border-color: inherit;
+        }
+    }
+    &__dropdown {
+        border: none;
+        box-shadow: $shadow1;
+        border-radius: $common-radius;
+        &__wrapper {
+            font-size: 0.85rem;
+            background-color: $bg-white;
+            padding: 1rem;
+            // @extend .dropdown-menu;
+        }
+    }
+    .tagify__tag {
+        > div {
+            font-size: 0.8rem;
+            padding: 0.1em 0.5em !important;
+            &::before {
+                box-shadow: 0 0 0 5em #e5e5e5 inset !important;
+            }
+        }
+        &__removeBtn {
+            font-family: inherit;
+        }
+        &:hover {
+            > div {
+                &:before {
+                    top: 0;
+                    #{$end-direction}: 0;
+                    bottom: 0;
+                    #{$start-direction}: 0;
+                }
+            }
+            &:not([readonly]) {
+                > div {
+                    &::before {
+                        box-shadow: 0 0 0 4em #d3e2e2 inset !important;
+                    }
+                }
+            }
+        }
+    }
+    &__input {
+        display: block;
+        width: 100%;
+        float: left;
+    }
+}
+
+.customLook {
+    display: inline-block;
+    min-width: 0;
+    border: none;
+    .tagify__tag {
+        margin-top: 0;
+        > div {
+            border-radius: 25px;
+            padding: 0.5rem 1rem;
+            &:before {
+                box-shadow: none;
+                background: $bg-gray;
+            }
+        }
+        &:only-of-type {
+            .tagify__tag__removeBtn {
+                display: none;
+            }
+        }
+
+        .tagify__tag__removeBtn {
+            opacity: 0;
+            transform: translateX(-6px * $transform-direction) scale(0.5);
+            margin-#{$start-direction}: -3ch;
+            transition: 0.12s;
+            font-family: inherit;
+        }
+        &:hover {
+            > div {
+                color: #fff;
+                &:before {
+                    box-shadow: none;
+                    background: $danger-color;
+                    border-color: $danger-color;
+                }
+            }
+            .tagify__tag__removeBtn {
+                transform: none;
+                opacity: 1;
+                margin-#{$start-direction}: -1ch;
+            }
+        }
+        &--editable {
+            > div {
+                &:before {
+                    box-shadow: none !important;
+                }
+            }
+        }
+    }
+    .tagify__input {
+        display: none;
+    }
+    + button {
+        color: $brand-color;
+        border: 0;
+        background: none;
+        box-shadow: 0 0 0 2px inset currentColor;
+        border-radius: 50%;
+        width: 1.85em;
+        height: 1.85em;
+        cursor: pointer;
+        outline: none;
+        transition: 0.1s ease-out;
+        margin: 0 0 0 5px;
+        vertical-align: top;
+        &:hover {
+            box-shadow: 0 0 0 5px inset currentColor;
+        }
+    }
+}
+
+.custom-tagify {
+    background-color: #fff;
+    border: 1px solid $border-color;
+    height: auto;
+    padding: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: 0.9em;
+    font-weight: normal;
+    border-radius: $common-radius;
+    .tagify__input {
+        border: none;
+        padding-top: 6px;
+    }
+}

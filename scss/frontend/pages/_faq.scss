@@ -1,0 +1,149 @@
+.faq-container {
+    border-top: 1px solid theme('color.gray.200');
+
+    .faq-row {
+        background: #fff;
+        border-bottom: 1px solid theme('color.gray.200');
+        position: relative;
+        counter-increment: counter-inc;
+
+        .faq-title {
+            padding: calc(clamp(1rem, 1.019vw + 0.745rem, 2.143rem));
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            position: relative;
+            border: none;
+            background-color: transparent;
+            width: 100%;
+            text-align: #{theme('direction.left','value')};
+
+            h5 {
+                font-size: calc(clamp(1.143rem, 0.51vw + 1.015rem, 1.714rem));
+                position: relative;
+                display: flex;
+                align-items: center;
+                gap: calc(clamp(1rem, 0.892vw + 0.777rem, 2rem));
+
+                &::before {
+                    --size: calc(clamp(2.857rem, 0.637vw + 2.698rem, 3.571rem));
+                    content: "Q";
+                    font-size: calc(clamp(1.429rem, 0.764vw + 1.237rem, 2.286rem));
+                    margin-#{theme('direction.right','value')}: .25rem;
+                    width: var(--size);
+                    height: var(--size);
+                    flex: 0 0 var(--size);
+                    border-radius: 50%;
+                    color: theme('color.primary');
+                    border: 1px solid currentColor;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: 300;
+
+                    @media(max-width: theme('breakpoints.xl', 'value')) {
+                        display: none;
+                    }
+                }
+
+                @media(max-width: theme('breakpoints.md', 'value')) {
+                    font-size: 1.1rem;
+                    line-height: 1.6rem;
+                }
+            }
+
+            &::after {
+                content: "";
+                display: block;
+                height: 32px;
+                width: 32px;
+                flex: 0 0 32px;
+                background: transparent;
+                transition: all 0.3s;
+                background-color: #393737;
+                color: #fff;
+                border-radius: 50%;
+                background-size: 20px 20px;
+                background-image: url('/images/arrow-down-icon.svg');
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+            &[aria-expanded="true"] {
+                &::after {
+                    transform: rotate(-180deg);
+                }
+
+                &::before {
+                    border-color: theme('color.primary');
+                    transform: rotate(-135deg);
+                }
+            }
+
+        }
+
+        .faq-answer {
+            border-top: 1px solid theme('color.gray.200');
+            padding: calc(clamp(1.143rem, 0.892vw + 0.92rem, 2.143rem));
+            background-color: #F5F6F9;
+            display: flex;
+            gap: calc(clamp(1rem, 0.892vw + 0.777rem, 2rem));
+
+            &::before {
+                --size: calc(clamp(2.857rem, 0.637vw + 2.698rem, 3.571rem));
+                content: "A";
+                font-size: calc(clamp(1.429rem, 0.764vw + 1.237rem, 2.286rem));
+                margin-#{theme('direction.right','value')}: .25rem;
+                width: var(--size);
+                height: var(--size);
+                flex: 0 0 var(--size);
+                border-radius: 50%;
+                background-color: theme('color.primary');
+                color: theme('color.primary-inverse');
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 300;
+
+                @media(max-width: theme('breakpoints.xl', 'value')) {
+                    display: none;
+                }
+            }
+
+            font-size: calc(clamp(1rem, 0.255vw + 0.936rem, 1.286rem));
+
+            p {
+                margin-bottom: 0;
+
+                +p {
+                    margin-top: 1.25rem;
+                }
+            }
+        }
+
+        .faq__target {
+            position: relative;
+
+            &::before {
+                content: "";
+                width: 15px;
+                height: 15px;
+                border-bottom: 1px solid #ddd;
+                border-left: 1px solid #ddd;
+                transform: rotate(-45deg);
+                display: block;
+                position: absolute;
+                background-color: #fff;
+                top: -6px;
+                #{theme('direction.left','value')}: 3.25rem;
+            }
+
+        }
+    }
+
+}
+
+.tabs-wrapper {
+    overflow: auto;
+}

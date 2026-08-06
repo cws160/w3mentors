@@ -1,0 +1,389 @@
+.spinner {
+    position: relative;
+    &:before {
+        content: '';
+        box-sizing: border-box;
+        position: absolute;
+        top: 50%;
+        #{$start-direction}: 0;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        margin-top: -10px;
+        animation: spinner .5s linear infinite;
+    }
+    &.spinner--sm {
+        &:before {
+            width: 16px;
+            height: 16px;
+            margin-top: -8px;
+        }
+        &.spinner--center {
+            &:before {
+                left: 50%;
+                margin-#{$start-direction}: -8px;
+            }
+        }
+        &.spinner--left {
+            &:before {
+                #{$start-direction}: 0;
+                right: auto;
+            }
+        }
+        .spinner--right {
+            &:before {
+                left: auto;
+                #{$end-direction}: 0;
+            }
+        }
+    }
+    &.spinner--center {
+        &:before {
+            left: 50%;
+            margin-#{$start-direction}: -10px;
+        }
+    }
+    &.spinner--left {
+        &:before {
+            #{$start-direction}: 0;
+            right: auto;
+        }
+    }
+    &.spinner--right {
+        &:before {
+            left: auto;
+            #{$end-direction}: 0;
+        }
+    }
+    &.spinner--lg {
+        &:before {
+            width: 24px;
+            height: 24px;
+            margin-top: -12px;
+        }
+        &.spinner--center {
+            &:before {
+                left: 50%;
+                margin-#{$start-direction}: -12px;
+            }
+        }
+        &.spinner--left {
+            &:before {
+                #{$start-direction}: 0;
+                right: auto;
+            }
+        }
+        &.spinner--right {
+            &:before {
+                left: auto;
+                #{$end-direction}: 0;
+            }
+        }
+    }
+    &.spinner--brand {
+        &:before {
+            border: 2px solid $brand-color;
+            border-#{$end-direction}: 2px solid transparent;
+        }
+    }
+    &.spinner--light {
+        &:before {
+            border: 2px solid #ffffff;
+            border-#{$end-direction}: 2px solid transparent;
+        }
+    }
+    &.spinner--dark {
+        &:before {
+            border: 2px solid $dark-color;
+            border-#{$end-direction}: 2px solid transparent;
+        }
+    }
+    &.spinner--primary {
+        &:before {
+            border: 2px solid $primary-color;
+            border-#{$end-direction}: 2px solid transparent;
+        }
+    }
+    &.spinner--success {
+        &:before {
+            border: 2px solid $success-color;
+            border-#{$end-direction}: 2px solid transparent;
+        }
+    }
+    &.spinner--info {
+        &:before {
+            border: 2px solid $info-color;
+            border-#{$end-direction}: 2px solid transparent;
+        }
+    }
+    &.spinner--warning {
+        &:before {
+            border: 2px solid $warning-color;
+            border-#{$end-direction}: 2px solid transparent;
+        }
+    }
+    &.spinner--danger {
+        &:before {
+            border: 2px solid $danger-color;
+            border-#{$end-direction}: 2px solid transparent;
+        }
+    }
+    &.spinner--input {
+        &.spinner--right {
+            &:before {
+                left: auto;
+                right: 1rem;
+            }
+        }
+        &.spinner--left {
+            &:before {
+                right: auto;
+                left: 1rem;
+            }
+        }
+    }
+    &.spinner--v2 {
+        &:before {
+            animation: spinner .5s linear infinite;
+        }
+        &.spinner--brand {
+            &:before {
+                border: 2px solid #c6d6fc;
+                border-top-color: #2861f2;
+            }
+        }
+        &.spinner--light {
+            &:before {
+                border: 2px solid white;
+                border-top-color: #f7f7f7;
+            }
+        }
+        &.spinner--dark {
+            &:before {
+                border: 2px solid #656a98;
+                border-top-color: #222433;
+            }
+        }
+        &.spinner--primary {
+            &:before {
+                border: 2px solid #d7dbf7;
+                border-top-color: #4b5bda;
+            }
+        }
+        &.spinner--success {
+            &:before {
+                border: 2px solid #90efe5;
+                border-top-color: #1bbcab;
+            }
+        }
+        &.spinner--info {
+            &:before {
+                border: 2px solid #dee5fb;
+                border-top-color: #476de9;
+            }
+        }
+        &.spinner--warning {
+            &:before {
+                border: 2px solid #ffe9bb;
+                border-top-color: #ffb313;
+            }
+        }
+        &.spinner--danger {
+            &:before {
+                border: 2px solid #ffd0e0;
+                border-top-color: #fd2a70;
+            }
+        }
+    }
+}
+
+@-webkit-keyframes spinner {
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spinner {
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.loader {
+    display: inline-block;
+    width: 1.4rem;
+    height: 1.4rem;
+    margin: 0 auto;
+    border-radius: 100%;
+    background-color: #f7f8fa;
+    opacity: 0;
+    animation: loader-scaleout 0.9s infinite ease-in-out;
+    &.loader--lg {
+        width: 2rem;
+        height: 2rem;
+    }
+    &.loader--sm {
+        width: 1rem;
+        height: 1rem;
+    }
+    &.loader--brand {
+        // background-color: $brand-color;
+        // color:  lighten($brand-color, 55%); 
+        @include bg-brand();
+    }
+    &.loader--light {
+        background-color: $bg-white;
+    }
+    &.loader--dark {
+        background-color: $dark-color;
+    }
+    &.loader--primary {
+        background-color: $primary-color;
+    }
+    &.loader--success {
+        background-color: $success-color;
+    }
+    &.loader--info {
+        background-color: $info-color;
+    }
+    &.loader--warning {
+        background-color: $warning-color;
+    }
+    &.loader--danger {
+        background-color: $danger-color;
+    }
+}
+
+.btn .loader {
+    position: relative;
+    line-height: 0;
+}
+
+@-webkit-keyframes loader-scaleout {
+    0% {
+        opacity: 0.3;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes loader-scaleout {
+    0% {
+        opacity: 0.3;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+.pulse {
+    position: relative;
+    .pulse__ring {
+        display: block;
+        border-radius: 40px;
+        height: 40px;
+        width: 40px;
+        position: absolute;
+        animation: pulse 3.5s ease-out;
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+        opacity: 0;
+        border-width: 3px;
+        border-style: solid;
+        border-color: #d8dce6;
+    }
+    &.pulse--brand {
+        .pulse__ring {
+            border-color: rgba(54, 108, 243, 0.8);
+        }
+    }
+    &.pulse--light {
+        .pulse__ring {
+            border-color: rgba(255, 255, 255, 0.8);
+        }
+    }
+    &.pulse--dark {
+        .pulse__ring {
+            border-color: rgba(40, 42, 60, 0.8);
+        }
+    }
+    &.pulse--primary {
+        .pulse__ring {
+            border-color: rgba(88, 103, 221, 0.8);
+        }
+    }
+    &.pulse--success {
+        .pulse__ring {
+            border-color: rgba(29, 201, 183, 0.8);
+        }
+    }
+    &.pulse--info {
+        .pulse__ring {
+            border-color: rgba(85, 120, 235, 0.8);
+        }
+    }
+    &.pulse--warning {
+        .pulse__ring {
+            border-color: rgba(255, 184, 34, 0.8);
+        }
+    }
+    &.pulse--danger {
+        .pulse__ring {
+            border-color: rgba(253, 57, 122, 0.8);
+        }
+    }
+}
+
+@media screen\0 {
+    .pulse .pulse__ring {
+        top: 2px;
+        left: 2px;
+    }
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-transform: scale(0.1, 0.1);
+        opacity: 0.0;
+    }
+    60% {
+        -webkit-transform: scale(0.1, 0.1);
+        opacity: 0.0;
+    }
+    65% {
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: scale(1.2, 1.2);
+        opacity: 0.0;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        -webkit-transform: scale(0.1, 0.1);
+        opacity: 0.0;
+    }
+    60% {
+        -webkit-transform: scale(0.1, 0.1);
+        opacity: 0.0;
+    }
+    65% {
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: scale(1.2, 1.2);
+        opacity: 0.0;
+    }
+}

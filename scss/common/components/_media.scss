@@ -1,0 +1,37 @@
+.media-group {
+    .media {
+        position: relative;
+        width: 100%;
+        border-radius: 3px;
+        overflow: hidden;
+
+        &:before {
+            position: relative;
+            padding-bottom: 77%;
+            content: "";
+            display: block;
+        }
+
+        img {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            #{theme('direction.left','value')}: 0;
+            #{theme('direction.right','value')}: 0;
+            margin: auto;
+            width: 100%;
+        }
+
+        &.media--small {
+            width: 70%;
+            #{theme('direction.right','value')}: -20%;
+            top: 45%;
+            position: absolute;
+        }
+    }
+}
+
+.section--content .row:nth-child(even) .media-group .media.media--small {
+    #{theme('direction.right','value')}: auto;
+    #{theme('direction.left','value')}: -20%;
+}

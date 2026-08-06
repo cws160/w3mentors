@@ -1,0 +1,231 @@
+:root {
+  --brand-color: rgba(0, 55, 180);
+  --brand-color-alpha: 0, 55, 180;
+  --brand-color-inverse: #ffffff;
+
+  --primary-color: rgba(255, 82, 0);
+  --primary-color-alpha: 255, 82, 0;
+  --primary-color-inverse: #ffffff;
+
+  --secondary-color: rgba(21, 35, 82);
+  --secondary-color-alpha: 21, 35, 82;
+  --secondary-color-inverse: #ffffff;
+
+  --third-color: #0073cf;
+  --third-color-inverse: #ffffff;
+}
+
+[data-theme="dark"] {
+  body {
+    background: var(--bg-gray);
+  }
+  &:root {
+    --txt-body: #fff;
+    --txt-gray: #888;
+    --bg-white: #000;
+    --bg-white-inverse: #fff;
+    --bg-black: #fff;
+    --bg-black-inverse: #000;
+    --bg-gray: #1d1d1d;
+    --border-color: #232323;
+  }
+}
+
+$base-font: "Poppins", sans-serif;
+
+//default colors
+$dark-color: #888;
+//dynamic theme colors
+$brand-color: #0C9331;
+$brand-color-inverse: #ffffff;
+
+$primary-color: var(--primary-color);
+$primary-color-inverse: var(--primary-color-inverse);
+
+$secondary-color: var(--secondary-color);
+$secondary-color-inverse: var(--secondary-color-inverse);
+
+//$secondary-color: #6DCDEF;
+// $secondary-color-inverse: #FFFFFF;
+$third-color: var(--third-color);
+$third-color-inverse: var(--third-color-inverse);
+//fixed theme colors
+$txt-body: rgba(0, 0, 0, 0.87);
+$txt-gray: rgba(0, 0, 0, 0.67);
+$text-muted: #888888 !default;
+//border colors
+$border-color: #ddd;
+$border: solid 1px $border-color;
+$border-light: solid 1px lighten($border-color, 5);
+$border-transparent: solid 1px transparent;
+$focus-outline: 1px solid #888;
+//backgrounds colors
+$bg-white: #fff;
+$bg-white-inverse: $txt-body;
+$bg-black: #000;
+$bg-black-inverse: #fff;
+$bg-brand-light: rgba(var(--brand-color-alpha), 0.1);
+$bg-light: #f3f4f5;
+$bg-gray: #dde8f2;
+$gray-light: #f3f4f5;
+$bg-placeholder: rgba(0, 0, 0, 0.03);
+//shadow
+
+$shadow-rgb: var(--shadow-rgb);
+$shadow0: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+$shadow1: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+$shadow2: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+$shadow3: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+$shadow4: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+$shadow5: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+$shadow6: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+$shadow7: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+$shadow8: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+$shadow9: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+  rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+$shadow10: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+$shadow11: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
+  rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px,
+  rgba(0, 0, 0, 0.09) 0px -3px 5px;
+$shadow12: rgba(0, 0, 0, 0.05) 0 0 1px 2px;
+
+//radius
+$common-radius: 4px;
+$radius4: 10px;
+$radius3: 8px;
+$radius2: 6px;
+$radius1: 2px;
+//messages
+$success-color: #1dc9b7;
+$warning-color: #ffb822;
+$info-color: #5578eb;
+$danger-color: #fd397a;
+
+//Bg brand
+@mixin bg-brand {
+  background-color: $brand-color;
+  color: $brand-color-inverse;
+}
+//Push auto
+@mixin push--auto {
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+
+//Pseudo
+@mixin pseudo($display: block, $pos: absolute, $content: "") {
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+//Responsive ratio
+@mixin responsive-ratio($x, $y, $pseudo: false) {
+  $padding: unquote(($y / $x) * 100 + "%");
+  @if $pseudo {
+    &:before {
+      @include pseudo($pos: relative);
+      width: 100%;
+      padding-top: $padding;
+    }
+  } @else {
+    padding-top: $padding;
+  }
+}
+
+// img absolute
+@mixin img-absolute {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+//Truncate
+@mixin truncate($truncation-boundary) {
+  max-width: $truncation-boundary;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin placeholder {
+  animation: placeholderShimmer 2s linear;
+  animation-iteration-count: infinite;
+  background-color: #fff;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(rgba(0, 0, 0, 0.08)),
+    color-stop(15%, rgba(0, 0, 0, 0.15)),
+    color-stop(30%, rgba(0, 0, 0, 0.08))
+  );
+  background-image: -webkit-linear-gradient(
+    left,
+    rgba(0, 0, 0, 0.08) 0,
+    rgba(0, 0, 0, 0.15) 15%,
+    rgba(0, 0, 0, 0.08) 30%
+  );
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.08) 0,
+    rgba(0, 0, 0, 0.15) 15%,
+    rgba(0, 0, 0, 0.08) 30%
+  );
+  background-size: 1200px 100%;
+}
+
+@-webkit-keyframes placeholderShimmer {
+  0% {
+    background-position: -1200px 0;
+  }
+  100% {
+    background-position: 1200px 0;
+  }
+}
+
+@keyframes placeholderShimmer {
+  0% {
+    background-position: -1200px 0;
+  }
+  100% {
+    background-position: 1200px 0;
+  }
+}
+
+$brand-color-100: rgba(var(--brand-color-alpha), 0.06) !default;
+$brand-color-200: rgba(var(--brand-color-alpha), 0.15) !default;
+$brand-color-300: rgba(var(--brand-color-alpha), 0.3) !default;
+$brand-color-400: rgba(var(--brand-color-alpha), 0.4) !default;
+$brand-color-500: rgba(var(--brand-color-alpha), 0.5) !default;
+$brand-color-600: rgba(var(--brand-color-alpha), 0.6) !default;
+$brand-color-700: rgba(var(--brand-color-alpha), 0.7) !default;
+$brand-color-800: rgba(var(--brand-color-alpha), 0.8) !default;
+$brand-color-900: rgba(var(--brand-color-alpha), 0.9) !default;
+
+$primary-color-100: rgba(var(--primary-color-alpha), 0.1) !default;
+$primary-color-200: rgba(var(--primary-color-alpha), 0.2) !default;
+$primary-color-300: rgba(var(--primary-color-alpha), 0.3) !default;
+$primary-color-400: rgba(var(--primary-color-alpha), 0.4) !default;
+$primary-color-500: rgba(var(--primary-color-alpha), 0.5) !default;
+$primary-color-600: rgba(var(--primary-color-alpha), 0.6) !default;
+$primary-color-700: rgba(var(--primary-color-alpha), 0.7) !default;
+$primary-color-800: rgba(var(--primary-color-alpha), 0.8) !default;
+$primary-color-900: rgba(var(--primary-color-alpha), 0.9) !default;
+
+$secondary-color-100: rgba(var(--secondary-color-alpha), 0.1) !default;
+$secondary-color-200: rgba(var(--secondary-color-alpha), 0.2) !default;
+$secondary-color-300: rgba(var(--secondary-color-alpha), 0.3) !default;
+$secondary-color-400: rgba(var(--secondary-color-alpha), 0.4) !default;
+$secondary-color-500: rgba(var(--secondary-color-alpha), 0.5) !default;
+$secondary-color-600: rgba(var(--secondary-color-alpha), 0.6) !default;
+$secondary-color-700: rgba(var(--secondary-color-alpha), 0.7) !default;
+$secondary-color-800: rgba(var(--secondary-color-alpha), 0.8) !default;
+$secondary-color-900: rgba(var(--secondary-color-alpha), 0.9) !default;

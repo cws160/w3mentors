@@ -1,0 +1,261 @@
+.icon-group {
+    display: flex;
+    align-items: center;
+    .form-control,
+    .vue-tags-input {
+        position: relative;
+        flex: 1 1 auto;
+        width: 1%;
+        margin-bottom: 0;
+    }
+}
+.icon-svg {
+    fill: $txt-gray;
+    svg {
+        @extend .icon-svg;
+    }
+    img {
+        @extend .icon-svg;
+    }
+}
+
+.list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+        margin: 0.5rem 0;
+        .icon-svg {
+            width: 1rem;
+            height: 1rem;
+        }
+    }
+}
+
+.form-group {
+    textarea {
+        padding: 10px;
+    }
+}
+
+.multiselect {
+    &__placeholder {
+        white-space: nowrap;
+    }
+    &__option {
+        font-size: 1rem;
+    }
+}
+
+.rowlisting {
+    padding: 0;
+    width: 100%;
+    li {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 0;
+        a {
+            color: $txt-gray;
+            font-weight: 400;
+        }
+        span {
+            color: $txt-body;
+            font-weight: 600;
+        }
+    }
+}
+
+.no-list {
+    list-style: none;
+}
+
+.accordion-country {
+    height: 200px;
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li {
+            border-top: $border;
+            padding: 1rem 0;
+            label {
+                margin: 0;
+                display: flex;
+                align-items: center;
+            }
+            .icn-flag {
+                margin-#{$end-direction}: 10px;
+                min-width: 25px;
+                max-width: 50px;
+            }
+            &:first-child {
+                border-top: none;
+            }
+        }
+        ul {
+            margin-top: 1rem;
+            padding-#{$start-direction}: 20px;
+        }
+    }
+}
+
+[v-cloak] > * {
+    display: none;
+}
+
+[v-cloak]::before {
+    content: "loading...";
+}
+
+/**/
+
+.drag-container {
+    margin: 0 auto;
+    max-width: none;
+    .drag-list {
+        display: flex;
+
+        align-items: flex-start;
+        margin: 0 -10px;
+        .drag-column {
+            flex: 1;
+            margin: 0 10px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0px 0px 13px 0px rgba(82, 63, 105, 0.05);
+            background-color: $bg-white;
+            border-radius: 4px;
+            &:nth-child(1) {
+                color: $brand-color;
+                fill: $brand-color;
+                .drag-options {
+                    background: $brand-color;
+                }
+            }
+            &:nth-child(2) {
+                color: $primary-color;
+                fill: $primary-color;
+                .drag-options {
+                    background: $primary-color;
+                }
+            }
+            &:nth-child(3) {
+                color: $warning-color;
+                fill: $warning-color;
+                .drag-options {
+                    background: $warning-color;
+                }
+            }
+            &:nth-child(4) {
+                color: $info-color;
+                fill: $info-color;
+                .drag-options {
+                    background: $info-color;
+                }
+            }
+            &:nth-child(5) {
+                color: $success-color;
+                fill: $success-color;
+                .drag-options {
+                    background: $success-color;
+                }
+            }
+            .drag-column-header {
+                display: flex;
+
+                align-items: center;
+
+                justify-content: space-between;
+                padding: 0px 25px;
+                min-height: 60px;
+                border-bottom: $border;
+                color: inherit;
+                h2 {
+                    font-size: 1.2rem;
+                    margin: 0;
+                    font-weight: 500;
+                }
+                .icn {
+                    margin-#{$end-direction}: 4px;
+                    svg {
+                        width: 16px;
+                        height: 16px;
+                        fill: inherit;
+                    }
+                }
+            }
+        }
+        .order-details {
+            ul {
+                margin-bottom: 0.5rem;
+            }
+            .order-number {
+                border: solid 1px #ebedf2;
+                border-radius: 3px;
+                padding: 5px 10px;
+                margin-bottom: 5px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .tick {
+                    cursor: pointer;
+                    svg {
+                        fill: $txt-gray;
+                        width: 16px;
+                        height: 16px;
+                    }
+                    &.checked {
+                        svg {
+                            fill: green;
+                        }
+                    }
+                }
+            }
+            h6 {
+                margin: 0;
+            }
+            li {
+                display: flex;
+                align-items: center;
+                color: $txt-body;
+                padding: 0.5rem 0;
+                .icn {
+                    margin-#{$end-direction}: 0.5rem;
+                    svg {
+                        fill: $txt-gray;
+                        width: 16px;
+                        height: 16px;
+                    }
+                }
+            }
+        }
+        .drag-inner-list {
+            min-height: 50px;
+            padding: 0;
+            color: $txt-body;
+            .drag-item {
+                height: auto;
+                background: none;
+                padding: 1rem;
+                margin: 25px;
+                transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+                border: 1px dashed $border-color;
+                border-radius: 4px;
+                /*background: #fdfdfd;*/
+                &:last-child {
+                }
+            }
+        }
+    }
+    .drag-options {
+        position: absolute;
+        top: 44px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+        transform: translateX(100% * $transform-direction);
+        opacity: 0;
+        transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+}

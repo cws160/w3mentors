@@ -1,0 +1,196 @@
+$avtar: "avtar";
+
+.#{$avtar} {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: theme('radius');
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  overflow: hidden;
+  background: theme('color.primary');
+  color: theme('color.primary-inverse');
+  margin: 0;
+
+  &:before {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    content: attr(data-title);
+    color: theme('color.primary-inverse');
+  }
+
+  & img {
+    position: relative;
+  }
+
+  &--xsmall {
+    --size: 32px;
+    width: var(--size);
+    height: var(--size);
+    flex: 0 0 var(--size);
+    font-size: 13px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &--small {
+    --size: 36px;
+    width: var(--size);
+    height: var(--size);
+    flex: 0 0 var(--size);
+    font-size: 13px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &--medium {
+    --size: 42px;
+    width: var(--size);
+    height: var(--size);
+    flex: 0 0 var(--size);
+    font-size: 13px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &--md {
+    --size: calc(clamp(2.143rem, 3.185vw + 1.347rem, 5.714rem));
+    width: var(--size);
+    height: var(--size);
+    flex: 0 0 var(--size);
+    font-size: 13px;
+
+    @media(max-width: theme('breakpoints.md', 'value')) {
+      --size: 40px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &--large {
+    --size: 100px;
+    width: var(--size);
+    height: var(--size);
+    flex: 0 0 var(--size);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &--xlarge {
+    --size: 14rem;
+    width: var(--size);
+    height: var(--size);
+    flex: 0 0 var(--size);
+    font-size: 1.5rem;
+  }
+
+  &--round {
+    border-radius: theme('radius.round');
+  }
+
+  &--sm {
+    --size: 40px;
+    width: var(--size);
+    height: var(--size);
+    flex: 0 0 var(--size);
+
+    @media(max-width: theme('breakpoints.md', 'value')) {
+      --size: 36px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &--md {
+    --size: 60px;
+    width: var(--size);
+    height: var(--size);
+    flex: 0 0 var(--size);
+
+    @media(max-width: theme('breakpoints.md', 'value')) {
+      --size: 50px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &--lg {
+    --size: 80px;
+    width: var(--size);
+    height: var(--size);
+    flex: 0 0 var(--size);
+
+    @media(max-width: theme('breakpoints.md', 'value')) {
+      --size: 70px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &--xl {
+    --size: 120px;
+    width: var(--size);
+    height: var(--size);
+    flex: 0 0 var(--size);
+
+    @media(max-width: theme('breakpoints.md', 'value')) {
+      --size: 100px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+}
+
+.avtar-views {
+  &-list {
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+
+    .avtar--xlarge {
+      height: auto;
+    }
+  }
+}

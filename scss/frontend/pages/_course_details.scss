@@ -1,0 +1,970 @@
+$section-view: "section-view";
+
+.#{$section-view} {
+    padding: 2rem 0 5rem;
+}
+
+$page-heading: "page-heading";
+
+.#{$page-heading} {
+    font-weight: 600;
+    font-size: calc(clamp(1.714rem, 1.019vw + 1.46rem, 2.857rem));
+    line-height: 1.25;
+}
+
+$page-subheading: "page-subheading";
+
+.#{$page-subheading} {
+    font-weight: 300;
+    font-size: calc(clamp(1.143rem, 0.382vw + 1.047rem, 1.571rem));
+}
+
+$page-nav: "page-nav";
+
+.#{$page-nav} {
+    @media (min-width:theme('breakpoints.sm', 'value')) {
+        position: sticky;
+        top: 0;
+        background-color: #fff;
+        z-index: 1;
+        padding: 1rem 0;
+
+        ul {
+            li {
+                flex: 1;
+
+                a {
+                    text-align: center;
+                    padding: calc(clamp(0.429rem, 0.51vw + 0.301rem, 1rem)) calc(clamp(0.714rem, 0.892vw + 0.491rem, 1.714rem));
+                    font-size: calc(clamp(1rem, 0.127vw + 0.968rem, 1.143rem));
+                }
+            }
+        }
+    }
+
+    @media (max-width:theme('breakpoints.lg', 'value')) {
+        margin-top: 2rem;
+    }
+
+    @media (max-width:theme('breakpoints.sm', 'value')) {
+        display: none;
+    }
+}
+
+$course-counts: "course-counts";
+
+.#{$course-counts} {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .5rem 1.5rem;
+
+    &__item {
+        position: relative;
+
+        &:not(:last-child):before {
+            position: absolute;
+            #{theme('direction.right','value')}: -.75rem;
+            top: 2px;
+            bottom: 2px;
+            content: "";
+            width: 1px;
+            background-color: currentColor;
+        }
+    }
+
+    @media (max-width:theme('breakpoints.xl', 'value')) {
+        clear: #{theme('direction.left','value')};
+    }
+}
+
+$page-view: "page-view";
+
+.#{$page-view} {
+    &__head {
+        .#{$course-counts} {
+            margin-top: 2.5rem;
+        }
+    }
+}
+
+$course-info: "course-info";
+
+.#{$course-info} {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .25rem;
+
+    &__media {
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+$page-flex: 'page-flex';
+
+.#{$page-flex} {
+    position: relative;
+    width: 100%;
+
+    @media(max-width: theme('breakpoints.sm', 'value')) {
+        padding: 0 1rem;
+    }
+
+    &__large {
+        @media(max-width: theme('breakpoints.lg', 'value')) {
+            margin-top: 1.5rem;
+        }
+    }
+
+    @media(min-width: theme('breakpoints.lg', 'value')) {
+        display: grid;
+        grid-column-gap: 60px;
+        grid-row-gap: 40px;
+        grid-template-columns: 1fr 385px;
+
+        &__large {
+            order: 1;
+        }
+
+        &__small {
+            order: 2;
+        }
+    }
+
+    @media(max-width: theme('breakpoints.xl', 'value')) {
+        grid-column-gap: 40px;
+        grid-template-columns: 1fr 320px;
+    }
+
+    @media(min-width: theme('breakpoints.lg', 'value')) {
+        &__sticky {
+            position: sticky;
+            top: 2rem;
+        }
+    }
+}
+
+$course-preview: 'course-preview';
+
+.#{$course-preview} {
+    position: relative;
+    width: 100%;
+    border-radius: theme('radius');
+    overflow: hidden;
+
+    &__action {
+        position: absolute;
+        #{theme('direction.left','value')}: 0;
+        #{theme('direction.right','value')}: 0;
+        top: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.3);
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+
+        & span {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: block;
+            margin: 1rem;
+            transition: all 0.4s;
+            color: #fff;
+            border: 2px solid currentColor;
+            position: relative;
+
+            &:before {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                border-top: 7px solid transparent;
+                border-bottom: 7px solid transparent;
+                content: "";
+                border-#{theme('direction.left','value')}: 12px solid currentColor;
+                margin-#{theme('direction.left','value')}: 2px;
+            }
+        }
+
+        @media(min-width: theme('breakpoints.xl', 'value')) {
+            &:hover {
+                & span {
+                    background-color: rgba(255, 255, 255, 1);
+                    color: #000;
+                }
+            }
+        }
+    }
+}
+
+$panel-content: 'panel-content';
+
+.#{$panel-content} {
+    position: relative;
+    width: 100%;
+
+    @media(min-width: theme('breakpoints.sm', 'value')) {
+        &:not(:last-child) {
+            margin-bottom: 3.5rem;
+            padding-bottom: 3.5rem;
+            border-bottom: 1px solid #E6E6E6;
+        }
+    }
+
+    &__head {
+        h3 {
+            font-weight: 700;
+        }
+
+        @media(max-width: theme('breakpoints.sm', 'value')) {
+            padding: 1.5rem 0;
+            position: relative;
+            border-top: 1px solid theme('color.gray.300');
+            border-bottom: 1px solid theme('color.gray.300');
+            margin-top: -1px;
+            background-color: #fff;
+            padding-#{theme('direction.right','value')}: 2.5rem;
+            cursor: pointer;
+
+            &:after {
+                position: absolute;
+                #{theme('direction.right','value')}: .25rem;
+                top: 1.8rem;
+                width: 10px;
+                height: 10px;
+                content: "";
+                border-#{theme('direction.left','value')}: 2px solid currentColor;
+                border-bottom: 2px solid currentColor;
+                transform: rotate(-45deg);
+                transition: 0.3s all ease-in-out;
+            }
+
+            h3 {
+                font-size: calc(16px + 0.13vw);
+            }
+        }
+    }
+
+    @media(max-width: theme('breakpoints.sm', 'value')) {
+        &.is-active {
+            .#{$panel-content} {
+                &__head {
+                    color: theme('color.primary');
+
+                    &:after {
+                        transform: rotate(135deg);
+                        top: 2.2rem;
+                    }
+                }
+            }
+        }
+    }
+
+    @media(max-width: theme('breakpoints.sm', 'value')) {
+        &__body {
+            display: none;
+            padding-bottom: 2rem;
+        }
+    }
+}
+
+$content-group: 'content-group';
+
+.#{$content-group} {
+    position: relative;
+    width: 100%;
+    margin-top: 1rem;
+
+    &:not(:first-child) {
+        margin-top: 2rem;
+    }
+
+    h5 {
+        font-weight: 600;
+        font-size: calc(clamp(1.143rem, 0.382vw + 1.047rem, 1.571rem));
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .5rem;
+    }
+
+    .badge {
+        background-color: #F5F6F9;
+        color: #000;
+        border-radius: theme('radius-sm');
+        font-size: .9375rem;
+        padding: .5rem 1.125rem;
+        margin: 0;
+
+        &::before {
+            display: none;
+        }
+    }
+}
+
+$check-list: 'check-list';
+
+.#{$check-list} {
+    position: relative;
+    width: 100%;
+
+    ul {
+        li {
+            position: relative;
+            padding-#{theme('direction.left','value')}: 2rem;
+            line-height: 1.6;
+
+            &:before {
+                position: absolute;
+                #{theme('direction.left','value')}: 5px;
+                top: 5px;
+                content: "";
+                width: 7px;
+                height: 12px;
+                border-bottom: 2px solid currentColor;
+                border-right: 2px solid currentColor;
+                transform: rotate(45deg);
+            }
+        }
+    }
+
+    &--half {
+        @media(min-width: theme('breakpoints.sm', 'value')) {
+            ul {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 1rem 2rem;
+            }
+        }
+    }
+}
+
+.check-listing:not(.showmore) li:nth-child(n + 5) {
+    display: none;
+}
+
+.check-listing~.link-expand {
+    margin-top: 1rem;
+}
+
+.link-expand {
+    font-size: calc(clamp(1rem, 0.127vw + 0.968rem, 1.143rem));
+    background-color: transparent;
+    color: theme('color.primary');
+    font-weight: 600;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    border: none;
+    padding: 0;
+
+    &::before {
+        content: "+";
+        font-size: 1.5rem;
+    }
+
+    &.is-active {
+        display: none;
+    }
+}
+
+$inline-list: 'inline-list';
+
+.#{$inline-list} {
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .75rem 2rem;
+
+        li {
+            position: relative;
+
+            &:not(:last-child):before {
+                position: absolute;
+                #{theme('direction.right','value')}: -1rem;
+                top: 2px;
+                bottom: 2px;
+                content: "";
+                width: 1px;
+                background-color: currentColor;
+            }
+        }
+    }
+}
+
+$dots-list: 'dots-list';
+
+.#{$dots-list} {
+    position: relative;
+    width: 100%;
+
+    ul {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+
+        li {
+            position: relative;
+            font-weight: 600;
+
+            &:not(:first-child) {
+                padding-#{theme('direction.left','value')}: 2.5rem;
+
+                &:before {
+                    position: absolute;
+                    #{theme('direction.left','value')}: 1.1rem;
+                    top: 0.4rem;
+                    content: "";
+                    width: 6px;
+                    height: 6px;
+                    background-color: currentColor;
+                    border-radius: theme('radius.round');
+                }
+            }
+        }
+    }
+}
+
+$course-layout: 'course-layout';
+$step-caption: 'step-caption';
+$step-counter: 'step-counter';
+
+.#{$course-layout} {
+    position: relative;
+    width: 100%;
+    margin-top: 2rem;
+    border: 1px solid theme('color.gray.300');
+    border-radius: theme('radius');
+
+    &__head {
+        padding: calc(clamp(1rem, 0.382vw + 0.904rem, 1.429rem)) calc(clamp(1rem, 1.019vw + 0.745rem, 2.143rem));
+        display: flex;
+        justify-content: space-between;
+        gap: 1.75rem;
+        cursor: pointer;
+
+        &[aria-expanded="true"] {
+            &:after {
+                transform: rotate(-135deg);
+                margin-top: 10px;
+            }
+
+            .course-content {
+                p {
+                    display: block;
+                }
+            }
+        }
+
+        .course-content {
+            display: grid;
+            align-items: flex-start;
+            grid-template-columns: 1fr auto;
+            gap: .25rem 2rem;
+            flex: 1;
+
+            @media(max-width:theme('breakpoints.md', 'value')) {
+                display: flex;
+                flex-direction: column;
+            }
+
+            h5 {
+                font-size: calc(clamp(1.143rem, 0.127vw + 1.111rem, 1.286rem));
+            }
+
+            p {
+                margin: 0;
+                grid-column-start: 1;
+                grid-column-end: 3;
+                display: none;
+            }
+        }
+
+        .course-counts {
+            padding-top: 5px;
+        }
+
+        &:after {
+            content: "";
+            border-right: 2px solid currentColor;
+            border-bottom: 2px solid currentColor;
+            transform: rotate(45deg);
+            width: 10px;
+            height: 10px;
+            transform-origin: center;
+            margin-top: 7px;
+
+            @media(max-width:theme('breakpoints.xl', 'value')) {
+                width: 9px;
+                height: 9px;
+            }
+
+        }
+    }
+
+    &__body {
+        border-top: 1px solid theme('color.gray.300');
+    }
+
+    &-inner {
+        padding: calc(clamp(1rem, 0.382vw + 0.904rem, 1.429rem)) calc(clamp(1rem, 1.019vw + 0.745rem, 2.143rem));
+    }
+}
+
+$course-topic: 'course-topic';
+
+.#{$course-topic} {
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid theme('color.gray.300');
+
+    &:last-child {
+        border: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    @media(min-width:theme('breakpoints.sm', 'value')) {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    &__action {
+        width: 100%;
+
+        @media(min-width:theme('breakpoints.sm', 'value')) {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .#{$course-topic} {
+
+            &__name,
+            &__preview {
+                text-decoration: underline;
+                text-underline-offset: 4px;
+            }
+
+            &__preview {
+                color: theme('color.primary');
+
+                &:hover {
+                    color: currentColor;
+                    text-decoration: none;
+                }
+            }
+
+            &__name {
+                &:hover {
+                    text-decoration: none;
+                    color: theme('color.primary');
+                }
+            }
+        }
+    }
+
+    &__title {
+        font-weight: 600;
+        display: flex;
+        align-items: flex-start;
+        gap: .75rem;
+
+        @media(min-width:theme('breakpoints.md', 'value')) {
+            max-width: 75%;
+            width: 100%;
+
+            .icon {
+                flex: 0 0 18px;
+            }
+        }
+    }
+
+    &__content {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+
+        @media(min-width:theme('breakpoints.sm', 'value')) {
+            margin-#{theme('direction.left','value')}: auto;
+        }
+
+        @media(max-width:theme('breakpoints.xl', 'value')) {
+            gap: 1rem;
+        }
+
+        @media(max-width:theme('breakpoints.sm', 'value')) {
+            padding-#{theme('direction.left','value')}: 2rem;
+            padding-top: 0.5rem;
+        }
+    }
+}
+
+.course-layout-inner {
+    padding: calc(clamp(1rem, 0.382vw + 0.904rem, 1.429rem)) calc(clamp(1rem, 1.019vw + 0.745rem, 2.143rem));
+}
+
+$author-box: "author-box";
+
+.#{$author-box} {
+    width: 100%;
+    background-color: #F5F6F9;
+    color: #000;
+    padding: calc(clamp(1.071rem, 1.592vw + 0.673rem, 2.857rem));
+    border-radius: theme('radius');
+    display: flex;
+    gap: calc(clamp(1.143rem, 2.548vw + 0.506rem, 4rem));
+
+    @media(max-width:theme('breakpoints.sm', 'value')) {
+        flex-direction: column;
+        margin-bottom: 1.5rem;
+    }
+
+    &__media {
+        text-align: center;
+
+        @media(min-width:theme('breakpoints.sm', 'value')) {
+            max-width: calc(clamp(7.143rem, 7.643vw + 5.232rem, 15.714rem));
+            flex: 0 0 calc(clamp(7.143rem, 7.643vw + 5.232rem, 15.714rem));
+        }
+
+        .media {
+            border-radius: theme('radius');
+        }
+    }
+
+    &__content {
+        .author-name {
+            font-size: calc(clamp(1rem, 0.255vw + 0.936rem, 1.286rem));
+            font-weight: 600;
+        }
+
+        .btn {
+            border-width: 2px;
+        }
+
+        .author-bio {
+            p {
+                margin: 0;
+            }
+        }
+    }
+
+}
+
+$page-box: 'page-box';
+
+.#{$page-box} {
+    position: relative;
+    width: 100%;
+    min-height: 300px;
+
+    @media(min-width:theme('breakpoints.sm', 'value')) {
+        background: #fff;
+        box-shadow: 0px 0px 40px #E0E3EC;
+        border-radius: theme('radius');
+    }
+
+    &__head {
+        padding: calc(clamp(0.857rem, 0.892vw + 0.634rem, 1.857rem)) 0;
+        padding-bottom: 0;
+
+        h5 {
+            font-size: calc(clamp(1.143rem, 0.382vw + 1.047rem, 1.571rem));
+            font-weight: 600;
+        }
+
+        @media(min-width:theme('breakpoints.sm', 'value')) {
+            padding: calc(clamp(0.857rem, 0.892vw + 0.634rem, 1.857rem)) calc(clamp(0.857rem, 1.146vw + 0.571rem, 2.143rem));
+            padding-bottom: 0;
+        }
+    }
+
+    &__body {
+        padding: calc(clamp(0.857rem, 0.892vw + 0.634rem, 1.857rem)) 0;
+
+        @media(min-width:theme('breakpoints.sm', 'value')) {
+            padding: calc(clamp(0.857rem, 0.892vw + 0.634rem, 1.857rem)) calc(clamp(0.857rem, 1.146vw + 0.571rem, 2.143rem));
+        }
+    }
+
+    &__footer {
+        padding: calc(clamp(0.857rem, 0.892vw + 0.634rem, 1.857rem)) 0;
+        border-top: 1px solid theme('color.gray.200');
+
+        @media(min-width:theme('breakpoints.sm', 'value')) {
+            padding: calc(clamp(0.857rem, 1.146vw + 0.571rem, 2.143rem));
+        }
+
+        @media(max-width:theme('breakpoints.sm', 'value')) {
+            padding: 2rem 0;
+        }
+
+        .sharing-view {
+            h6 {
+                font-size: calc(clamp(1rem, 0.255vw + 0.936rem, 1.286rem));
+            }
+        }
+
+        @media(max-width:theme('breakpoints.lg', 'value')) {
+            .sharing-view {
+                padding: 0;
+                border: none;
+            }
+        }
+    }
+
+    .btn {
+        border-width: 2px;
+        font-size: calc(clamp(1rem, 0.127vw + 0.968rem, 1.143rem));
+    }
+}
+
+$course-options: 'course-options';
+
+.#{$course-options} {
+    &__item {
+        padding: 1rem 0;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: calc(clamp(1rem, 0.127vw + 0.968rem, 1.143rem));
+        border-top: 1px solid #E6E6E6;
+
+        @media(max-width:theme('breakpoints.sm', 'value')) {
+            border: none;
+            padding: .375rem 0;
+        }
+
+        &-media {
+            svg {
+                display: block;
+            }
+        }
+
+        &:first-child {
+            padding-top: 0;
+            border-top: none;
+        }
+
+        &.is-hurry {
+            color: theme('color.secondary');
+            font-weight: 600;
+        }
+    }
+}
+
+$course-pricing: 'course-pricing';
+
+.#{$course-pricing} {
+    &__price {
+        font-size: calc(clamp(1.286rem, 1.401vw + 0.935rem, 2.857rem));
+        font-weight: 600;
+    }
+}
+
+$video-item: 'video-item';
+
+.#{$video-item} {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    cursor: pointer;
+    padding: .75rem 1.25rem .75rem;
+
+    &__media {
+        width: 80px;
+        margin-top: 0.3rem;
+    }
+
+    &__content {
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__title {
+        max-width: 80%;
+        line-height: 1.7;
+        font-size: 13px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    &__time {
+        font-size: 13px;
+    }
+
+    &.is-active {
+        background-color: theme('color.gray.100');
+
+        .#{$video-item} {
+            &__title {
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+$more-videos: 'more-videos';
+
+.#{$more-videos} {
+    position: relative;
+    width: 100%;
+    max-height: 346px;
+    overflow: auto;
+}
+
+$video-preview: "video-preview";
+
+.#{$video-preview} {
+    background-color: #fff;
+    border-radius: theme('radius');
+
+    @media (min-width:theme('breakpoints.xl', 'value')) {
+        min-width: 1100px;
+    }
+
+    &__large {
+        @media (min-width:theme('breakpoints.xl', 'value')) {
+            width: calc(100% - 380px);
+            padding: 2rem;
+        }
+    }
+
+    &__small {
+        @media (min-width:theme('breakpoints.xl', 'value')) {
+            width: 380px;
+            padding: .75rem 0;
+            border-#{theme('direction.left','value')}: 1px solid theme('color.gray.200');
+        }
+    }
+
+    &__body {
+        position: relative;
+        width: 100%;
+
+        @media (min-width:theme('breakpoints.xl', 'value')) {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__head {
+        border-bottom: 1px solid theme('color.gray.200');
+        padding: 2rem;
+    }
+}
+
+.btn--favorite {
+    gap: 1rem;
+
+    .fav-icon {
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2px;
+        width: 18px;
+        height: 18px;
+        position: relative;
+        top: 1px;
+        display: block;
+    }
+
+    &.is-active {
+        & .fav-icon {
+            fill: #fff;
+            stroke: #fff;
+        }
+    }
+
+}
+
+.mark-option {
+    .fav-icon {
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2px;
+        width: 18px;
+        height: 18px;
+        position: relative;
+        top: 1px;
+        display: block;
+    }
+
+    &.is-active {
+        & .fav-icon {
+            fill: #fff;
+            stroke: #fff;
+        }
+    }
+}
+
+//NEW UPDATED
+$details-view: ".details-view";
+
+#{$details-view} {
+    display: flex;
+    align-items: center;
+    gap: calc(clamp(1.143rem, 3.822vw + 0.187rem, 5.429rem));
+
+    @media (max-width:theme('breakpoints.xl', 'value')) {
+        display: block;
+    }
+
+    &__media {
+        flex: 0 0 45%;
+        max-width: 45%;
+
+        @media (max-width:theme('breakpoints.xl', 'value')) {
+            margin-bottom: 2rem;
+            max-width: 100%;
+        }
+    }
+
+    .course-counts {
+        &__item {
+            &::before {
+                display: none;
+            }
+        }
+    }
+
+    .course-card__label {
+        font-size: calc(clamp(1rem, 0.127vw + 0.968rem, 1.143rem));
+    }
+
+    .rating {
+        &__value {
+            font-size: 1.125rem;
+        }
+    }
+
+    .profile-meta {
+        &__details {
+            h4 {
+                font-size: calc(clamp(1rem, 0.51vw + 0.873rem, 1.571rem));
+
+                @media (min-width:theme('breakpoints.xl', 'value')) {
+                    font-weight: normal;
+                }
+            }
+        }
+    }
+
+    .avtar--large {
+        @media (max-width:theme('breakpoints.xl', 'value')) {
+            width: 3.428rem;
+            height: 3.428rem;
+        }
+    }
+}

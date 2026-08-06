@@ -1,0 +1,46 @@
+.chips {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    .chip {
+        font-size: 0.8rem;
+        padding-#{$start-direction}: 1rem;
+        margin: 4px 0;
+        margin-#{$end-direction}: 1rem;
+        position: relative;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: auto;
+            #{$start-direction}: 0;
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 100%;
+            background-color: $bg-gray;
+        }
+        &.buyer {
+            &:before {
+                background-color: $success-color;
+            }
+        }
+        &.supplier {
+            &:before {
+                background-color: $info-color;
+            }
+        }
+        &.advertiser {
+            &:before {
+                background-color: $warning-color;
+            }
+        }
+        &.affiliate {
+            &:before {
+                background-color: $danger-color;
+            }
+        }
+    }
+}

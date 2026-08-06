@@ -1,0 +1,321 @@
+$invoice:'invoice';
+.#{$invoice}-1 {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    .#{$invoice}__container {
+        width: 100%;
+        margin: 0;
+        padding: 0 30px;
+    }
+    .#{$invoice}__head {
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding: 80px 0;
+        background: $brand-color;
+        .#{$invoice}__container {
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+        .#{$invoice}__brand {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            .#{$invoice}__title {
+                font-weight: 700;
+                font-size: 2.7rem;
+                margin-#{$end-direction}: 10px;
+                margin-top: 5px;
+                color: #fff;
+                vertical-align: top;
+            }
+            .#{$invoice}__logo {
+                display: flex;
+                flex-direction: column;
+                margin-top: 5px;
+                text-align: right;
+                img {
+                    text-align: right;
+                }
+                .#{$invoice}__desc {
+                    display: flex;
+                    flex-direction: column;
+                    text-align: right;
+                    padding: 1rem 0 1rem 0;
+                    color: rgba(255, 255, 255, 0.7);
+                }
+            }
+        }
+        .#{$invoice}__items {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 50px;
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            .#{$invoice}__item {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                color: #fff;
+                margin-#{$end-direction}: 10px;
+                margin-top: 20px;
+                &:last-child {
+                    margin-#{$end-direction}: 0;
+                }
+                .#{$invoice}__subtitle {
+                    font-weight: 500;
+                    padding-bottom: 0.5rem;
+                }
+                .#{$invoice}__text {
+                    color: rgba(255, 255, 255, 0.7);
+                }
+            }
+        }
+    }
+    .#{$invoice}__body {
+        padding: 3rem 0;
+        table {
+            background-color: transparent;
+            thead {
+                tr {
+                    th {
+                        background-color: transparent;
+                        padding: 1rem 0 0.5rem 0;
+                        border-top: none;
+                        color: $txt-gray;
+                        &:not(:first-child) {
+                            text-align: right;
+                        }
+                    }
+                }
+            }
+            tbody {
+                tr {
+                    td {
+                        background-color: transparent;
+                        padding: 1rem 0 1rem 0;
+                        border-top: none;
+                        font-weight: 700;
+                        font-size: 1.1rem;
+                        color: #595d6e;
+                        &:not(:first-child) {
+                            text-align: right;
+                        }
+                        &:last-child {
+                            color: #FE21BE;
+                            font-size: 1.2rem;
+                        }
+                    }
+                    &:first-child {
+                        td {
+                            padding-top: 1.8rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .#{$invoice}__footer {
+        padding: 3rem 0;
+        background-color: #f7f8fa;
+        .#{$invoice}__container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .#{$invoice}__bank {
+            margin-#{$end-direction}: 10px;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            .#{$invoice}__title {
+                font-size: 1.2rem;
+                text-transform: capitalize;
+                font-weight: 600;
+                color: $txt-gray;
+            }
+            .#{$invoice}__item {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                margin-top: 10px;
+                .#{$invoice}__label {
+                    font-size: 1.1rem;
+                    font-weight: 500;
+                    margin-#{$end-direction}: 40px;
+                    color: #595d6e;
+                    text-align: left;
+                }
+                .#{$invoice}__value {
+                    font-size: 1.1rem;
+                    font-weight: 400;
+                    color: $txt-gray;
+                    text-align: right;
+                }
+            }
+        }
+        .#{$invoice}__total {
+            display: flex;
+            flex-direction: column;
+            text-align: right;
+            .#{$invoice}__title {
+                font-size: 1.2rem;
+                text-transform: capitalize;
+                font-weight: 600;
+                color: $txt-gray;
+            }
+            .#{$invoice}__price {
+                color: #FE21BE;
+                font-weight: 700;
+                font-size: 24px;
+            }
+            .#{$invoice}__notice {
+                font-size: 1rem;
+                font-weight: 500;
+                color: $txt-gray;
+            }
+        }
+    }
+    .#{$invoice}__actions {
+        padding: 2rem 0;
+        .#{$invoice}__container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+}
+
+@media (min-width: 1025px) {
+    .#{$invoice}-1 {
+        .#{$invoice}__container {
+            width: 80%;
+            margin: 0 auto;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .#{$invoice}-1 {
+        .#{$invoice}__container {
+            width: 100%;
+            margin: 0;
+            padding: 0 20px;
+        }
+        .#{$invoice}__head {
+            padding: 20px 0;
+            .#{$invoice}__brand {
+                display: flex;
+                flex-direction: column;
+                .#{$invoice}__title {
+                    font-weight: 700;
+                    font-size: 2rem;
+                    margin-bottom: 30px;
+                }
+                .#{$invoice}__logo {
+                    text-align: left;
+                    img {
+                        text-align: left;
+                    }
+                    .#{$invoice}__desc {
+                        text-align: left;
+                    }
+                }
+            }
+            .#{$invoice}__items {
+                margin-top: 20px;
+            }
+        }
+        .#{$invoice}__body {
+            padding: 2rem 0;
+        }
+        .#{$invoice}__footer {
+            padding: 2rem 0;
+            .#{$invoice}__container {
+                flex-direction: column;
+            }
+            .#{$invoice}__bank {
+                .#{$invoice}__item {
+                    .#{$invoice}__label {
+                        margin-#{$end-direction}: 20px;
+                    }
+                }
+            }
+            .#{$invoice}__total {
+                margin-top: 30px;
+                text-align: left;
+            }
+        }
+    }
+}
+
+@media print {
+    .header {
+        display: none !important;
+    }
+    .header-mobile {
+        display: none !important;
+    }
+    .aside {
+        display: none !important;
+    }
+    .footer {
+        display: none !important;
+    }
+    .subheader {
+        display: none !important;
+    }
+    .scrolltop {
+        display: none !important;
+    }
+    .quick-panel {
+        display: none !important;
+    }
+    .demo-panel {
+        display: none !important;
+    }
+    .sticky-toolbar {
+        display: none !important;
+    }
+    body {
+        background: transparent !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .wrapper {
+        background: transparent !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .body {
+        background: transparent !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .content {
+        background: transparent !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .#{$invoice}-1 {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        .#{$invoice}__head {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            .#{$invoice}__container {
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+            }
+        }
+        .#{$invoice}__actions {
+            display: none !important;
+        }
+        .#{$invoice}__container {
+            width: 100%;
+            padding: 0 10px;
+        }
+    }
+}

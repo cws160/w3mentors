@@ -1,0 +1,26 @@
+<IfModule mod_rewrite.c>
+Options +FollowSymlinks
+RewriteEngine on
+
+RewriteBase /
+
+RewriteCond %{HTTP_HOST} ^www.elearning.w3mentors.com [NC]
+RewriteRule ^(.*)$ https://elearning.w3mentors.com/$1 [L,R=301,NC]
+
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+
+RewriteRule ^admin$ admin.php [PT,L,QSA]
+RewriteRule ^admin/(.*)$ admin.php?url=$1 [PT,L,QSA]
+
+RewriteRule ^dashboard$ dashboard.php [PT,L,QSA]
+RewriteRule ^dashboard/(.*)$ dashboard.php?url=$1 [PT,L,QSA]
+RewriteRule ^/?([a-zA-Z-]+)/dashboard/(.*)$ dashboard.php?url=$1/$2 [PT,L,QSA]
+RewriteRule ^/?([a-zA-Z-]+)/dashboard$ dashboard.php?url=$1/$2 [PT,L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(.*)$ index.php?url=$1 [PT,L,QSA]
+
+</IfModule>

@@ -1,0 +1,28 @@
+//Config
+@import '../../config/functions';
+@import '../../config/vars';
+
+// layoutS
+@import '../../frontend/layout/header';
+@import '../../frontend/layout/nav';
+@import '../../frontend/layout/body';
+@import '../../frontend/layout/search-filters';
+@import '../../frontend/layout/footer-new';
+
+// pages
+@import '../../frontend/pages/index';
+@import '../../frontend/pages/login';
+@import '../../frontend/pages/listing';
+@import '../../frontend/pages/group-classes';
+@import '../../frontend/pages/faq';
+@import '../../frontend/pages/blog';
+@import '../../frontend/pages/payment';
+@import '../../frontend/pages/tutor-profile';
+@import '../../frontend/pages/about';
+@import '../../frontend/pages/contact';
+@import '../../frontend/pages/tutor_registration';
+@import '../../frontend/pages/apply_to_teach';
+@import '../../frontend/pages/course_listing';
+@import '../../frontend/pages/course_details';
+
+@import 'themecss';

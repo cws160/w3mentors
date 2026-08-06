@@ -1,0 +1,88 @@
+.modal {
+  z-index: 999;
+  &-content {
+    border-radius: $common-radius;
+    border: none;
+    box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.06);
+    .close {
+      font-weight: 400;
+    }
+  }
+  &-header {
+    .close {
+      margin: -1rem;
+      margin-#{$start-direction}: auto !important;
+    }
+    .btn-close {
+      margin-#{$start-direction}: auto !important;
+      margin-#{$end-direction}: 0 !important;
+    }
+  }
+  &-title {
+    font-size: 1.2rem;
+    color: $txt-body;
+    display: flex;
+    flex-direction: column;
+    small {
+      font-size: 0.8rem;
+    }
+  }
+  &-footer {
+    //justify-content: inherit;
+  }
+  &.fixed-right {
+    padding-#{$end-direction}: 0 !important;
+    .modal-dialog-vertical {
+      height: 100%;
+      max-width: 600px;
+      margin: 0;
+      margin-#{$start-direction}: auto;
+      .modal-content {
+        border-radius: 0px;
+        height: inherit;
+        overflow-y: auto;
+        .modal-header {
+          padding: 1.5rem;
+        }
+      }
+      &-sm {
+        max-width: 400px;
+      }
+      &-md {
+        max-width: 750px;
+      }
+      &-lg {
+        max-width: 1000px;
+      }
+    }
+    &.fade .modal-dialog-vertical {
+      transform: translateX(100% * $transform-direction);
+    }
+    &.show .modal-dialog-vertical {
+      transform: translateX(0 * $transform-direction);
+    }
+  }
+}
+.modal-backdrop {
+  z-index: 998;
+}
+button.close {
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+.dialogue {
+  .icn {
+    font-size: 5rem;
+    margin-bottom: 2rem;
+    &-warning {
+      color: $warning-color;
+    }
+    &-success {
+      color: $success-color;
+    }
+    &-danger {
+      color: $danger-color;
+    }
+  }
+}

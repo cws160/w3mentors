@@ -1,0 +1,72 @@
+.screen {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    background: #fff;
+}
+
+.screen .screen__left {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    background: #eee;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+}
+
+.screen .screen__left:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    content: "";
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.screen .screen__right {
+    position: absolute;
+    right: 0;
+    top: 0px;
+    bottom: 0;
+    width: 500px;
+    z-index: 1;
+    background: #fff;
+    padding: 0;
+    border: 15px solid #eee;
+    overflow: auto;
+}
+
+.screen__center-content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+.alert {
+	font-size: 1em;
+	color: #fff;
+	width: 100%;
+	padding: 20px 20px;
+	border: 1px solid transparent;
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation-name: fadeInUp;
+	animation-name: fadeInUp;
+    border-radius: 0;
+}
+
+.alert--info {
+	background: #02b4d1;
+}

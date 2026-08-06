@@ -1,0 +1,28 @@
+
+//Config
+@import 'config/functions';
+@import 'config/vars';
+
+
+// layoutS
+@import 'dashboard/layout/body';
+@import 'dashboard/layout/sidebar';
+@import 'dashboard/layout/menu';
+@import 'dashboard/layout/footer';
+
+
+
+// pages
+@import 'dashboard/pages/settings';
+@import 'dashboard/pages/chat';
+@import 'dashboard/pages/dashboard';
+@import 'dashboard/pages/notifications';
+@import 'dashboard/pages/lessons';
+@import 'dashboard/pages/messages';
+@import 'dashboard/pages/online-class';
+@import 'dashboard/pages/gift-card';
+@import 'dashboard/pages/orders';
+@import 'dashboard/pages/course-settings';
+@import 'dashboard/pages/forum';
+
+

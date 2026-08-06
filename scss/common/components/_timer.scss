@@ -1,0 +1,28 @@
+$timer: "timer";
+
+.#{$timer} {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: theme('color.third');
+    min-height: 32px;
+
+    &__media {
+        margin-#{theme('direction.right','value')}: .25rem;
+    }
+
+    &__controls {
+        display: flex;
+        align-items: center;
+    }
+
+    &__digit {
+        position: relative;
+        font-weight: 600;
+
+        &:not(:last-child):after {
+            content: ":";
+            margin: 0 0.1rem;
+        }
+    }
+}

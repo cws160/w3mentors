@@ -1,0 +1,27 @@
+{
+    "require": {
+        "aws/aws-sdk-php": "^3.269",
+        "mailchimp/marketing": "^3.0",
+        "google/apiclient": "^2.13",
+        "nickdnk/graph-sdk": "^7.0",
+        "phpmailer/phpmailer": "^6.8",
+        "google/recaptcha": "^1.3",
+        "stripe/stripe-php": "^10.12",
+        "mpdf/mpdf": "^8.1",
+        "google/analytics-data": "^0.9.4",
+        "web-token/jwt-key-mgmt": "^3.2",
+        "web-token/jwt-signature": "^3.2",
+        "web-token/jwt-signature-algorithm-rsa": "^3.2",
+        "firebase/php-jwt": "^6.5"
+    },
+    "scripts": {
+        "pre-autoload-dump": "Google\\Task\\Composer::cleanup"
+    },
+    "extra": {
+        "google/apiclient-services": [
+            "Analytics",
+            "Oauth2",
+            "Calendar"
+        ]
+    }
+}

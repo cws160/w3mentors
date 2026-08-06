@@ -1,0 +1,83 @@
+$tagit: 'tagit';
+
+.#{$tagit} {
+    box-shadow: none !important;
+    border: 1px solid theme('color.gray.300') !important;
+    padding: 1px 5px;
+    overflow: auto;
+    margin-#{theme('direction.left','value')}: inherit;
+    margin-#{theme('direction.right','value')}: inherit;
+
+    &.ui-widget-content {
+        border: 1px solid theme('color.gray.300') !important;
+    }
+
+    .tagit-choice {
+        box-shadow: none !important;
+    }
+
+    .tagit-close {
+        width: 36px;
+        height: 36px;
+        position: absolute;
+        #{theme('direction.right','value')}: 0;
+        top: 0;
+        text-align: center;
+        color: theme('color.black');
+        cursor: pointer;
+
+        &:after {
+            content: "+";
+            font-size: 1.6rem;
+            transform: rotate(45deg);
+            position: absolute;
+            #{theme('direction.left','value')}: 0;
+            #{theme('direction.right','value')}: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            line-height: 36px
+        }
+    }
+}
+
+
+input.tagit-hidden-field {
+    display: none;
+}
+
+ul.tagit {
+    li {
+        display: block;
+        float: #{theme('direction.left','value')};
+        margin: 2px 5px 2px 0;
+
+        &.tagit-choice-editable {
+            padding: .75rem;
+            padding-#{theme('direction.right','value')}: 3.4rem;
+            background-color: theme('color.gray.200');
+        }
+
+        &.tagit-choice {
+            position: relative;
+            line-height: inherit;
+
+            .tagit-close {
+                .text-icon {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    input[type="text"] {
+        box-sizing: border-box;
+        box-shadow: none;
+        border: none;
+        margin: 0;
+        padding: 0;
+        width: inherit;
+        background-color: inherit;
+        outline: none;
+    }
+}

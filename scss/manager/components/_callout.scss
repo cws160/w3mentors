@@ -1,0 +1,141 @@
+$callout:'callout';
+.#{$callout} {
+    padding: 1.5rem;
+    .#{$callout}__body {
+        display: flex;
+        align-items: center;
+        .#{$callout}__content {
+            flex: 2;
+            .#{$callout}__title {
+                font-size: 1.85rem;
+                font-weight: 500;
+                color: #48465b;
+                margin-bottom: 1rem;
+            }
+            .#{$callout}__desc {
+                font-size: 1.15rem;
+                line-height: 2rem;
+                color: #9392a0;
+                padding-#{$end-direction}: 2rem;
+                font-weight: 400;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+        .#{$callout}__action {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+            .btn.btn-custom {
+                padding: 1rem 1.3rem;
+                font-size: 0.9rem;
+            }
+        }
+    }
+    &--diagonal-bg {
+        overflow: hidden;
+        position: relative;
+        background-color: $bg-white;
+        .#{$callout}__body {
+            position: relative;
+            z-index: 2;
+        }
+        &:before {
+            content: ' ';
+            position: absolute;
+            top: 0;
+            #{$start-direction}: 0;
+            #{$end-direction}: 0;
+            bottom: 0;
+            background-color: #f7f8fa;
+            z-index: 1;
+        }
+        &:after {
+            content: ' ';
+            width: 200%;
+            height: 1000px;
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 45%;
+            -webkit-transform: rotate(20deg);
+            transform: rotate(20deg);
+            background-color: $bg-white;
+        }
+    }
+    &--brand {
+        background-color: rgba(54, 108, 243, 0.07);
+        &.#{$callout}--diagonal-bg {
+            background-color: $bg-white;
+            &:before {
+                background-color: rgba(54, 108, 243, 0.15);
+            }
+        }
+    }
+    &--light {
+        background-color: rgba(255, 255, 255, 0.07);
+        &.#{$callout}--diagonal-bg {
+            background-color: $bg-white;
+            &:before {
+                background-color: rgba(255, 255, 255, 0.15);
+            }
+        }
+    }
+    &--dark {
+        background-color: rgba(40, 42, 60, 0.07);
+        &.#{$callout}--diagonal-bg {
+            background-color: $bg-white;
+            &:before {
+                background-color: rgba(40, 42, 60, 0.15);
+            }
+        }
+    }
+    &--primary {
+        background-color: rgba(88, 103, 221, 0.07);
+        &.#{$callout}--diagonal-bg {
+            background-color: $bg-white;
+            &:before {
+                background-color: rgba(88, 103, 221, 0.15);
+            }
+        }
+    }
+    &--success {
+        background-color: rgba(29, 201, 183, 0.07);
+        &.#{$callout}--diagonal-bg {
+            background-color: $bg-white;
+            &:before {
+                background-color: rgba(29, 201, 183, 0.15);
+            }
+        }
+    }
+    &--info {
+        background-color: rgba(85, 120, 235, 0.07);
+        &.#{$callout}--diagonal-bg {
+            background-color: $bg-white;
+            &:before {
+                background-color: rgba(85, 120, 235, 0.15);
+            }
+        }
+    }
+    &--warning {
+        background-color: rgba(255, 184, 34, 0.07);
+        &.#{$callout}--diagonal-bg {
+            background-color: $bg-white;
+            &:before {
+                background-color: rgba(255, 184, 34, 0.15);
+            }
+        }
+    }
+    &--danger {
+        background-color: rgba(253, 57, 122, 0.07);
+        &.#{$callout}--diagonal-bg {
+            background-color: $bg-white;
+            &:before {
+                background-color: rgba(253, 57, 122, 0.15);
+            }
+        }
+    }
+}

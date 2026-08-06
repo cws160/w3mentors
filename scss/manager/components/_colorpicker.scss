@@ -1,0 +1,48 @@
+.vc-chrome {
+    position: absolute;
+    top: 100%;
+    #{$end-direction}: 0;
+    z-index: 9;
+    width: 100% !important;
+    margin-top: 10px;
+    &-saturation-wrap {
+        padding-bottom: 30% !important;
+    }
+}
+
+.current-color {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-color: #000;
+    cursor: pointer;
+}
+
+.color-picker {
+    flex-direction: row-reverse;
+    input {
+        height: unset;
+        padding: unset;
+        border: none;
+        margin-#{$start-direction}: 10px;
+        @include media-breakpoint-down(lg) {
+            display: none;
+        }
+    }
+    .input-group-append {
+        .color-picker-container {
+            background: transparent;
+            padding: 0;
+            border: none;
+            .current-color {
+                display: inline-block;
+                width: 200px;
+                height: 13px;
+                background-color: #000;
+                cursor: pointer;
+                border-radius: 15px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
+            }
+        }
+    }
+}

@@ -1,0 +1,72 @@
+$gift-card: "gift-card";
+
+.#{&gift-card} {
+    position: relative;
+    height: 100%;
+
+    @media (max-width:theme('breakpoints.md', 'value')) {
+        height: 200px;
+        margin-bottom: 1.5rem;
+    }
+
+    .gift-card__body {
+        position: absolute;
+        #{theme('direction.left','value')}: 0;
+        #{theme('direction.right','value')}: 0;
+        top: 0;
+        bottom: 0;
+        background: theme('color.primary');
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        outline: 2px dashed;
+        outline-offset: -15px;
+        overflow: hidden;
+
+        &::before {
+            content: "";
+            pointer-events: none;
+            top: -21px;
+            #{theme('direction.left','value')}: -53px;
+            width: 220px;
+            height: 220px;
+            border-radius: 70% 30% 30% 70% / 60% 40% 60% 40%;
+            background-color: #21D4FD;
+            background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
+            box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+            position: absolute;
+            transform: rotate(45deg);
+            opacity: 0.3;
+        }
+
+        .card-info {
+            position: relative;
+            width: 50%;
+
+            .card-media {
+                filter: brightness(100);
+                margin-bottom: 3rem;
+
+                img {
+                    margin: 0 auto;
+                }
+            }
+
+            .btn {
+                pointer-events: none;
+            }
+        }
+
+        h6 {
+            margin-bottom: .5rem;
+        }
+
+        .btn {
+            font-weight: bold;
+            width: 100%;
+            font-size: 1.4rem;
+        }
+    }
+}

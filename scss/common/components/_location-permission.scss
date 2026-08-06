@@ -1,0 +1,53 @@
+.geo-location {
+  &_range {
+    margin: 1rem 0;
+    -webkit-appearance: none !important;
+    width: 100%;
+    height: 2px;
+    background: theme("color.primary");
+    border: none;
+    outline: none;
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none !important;
+      width: 24px;
+      height: 24px;
+      background: #fff;
+      border: 2px solid theme("color.primary");
+      border-radius: 50%;
+      cursor: pointer;
+
+      &:hover {
+        background: theme("color.primary");
+      }
+    }
+
+    &::-webkit-slider-thumb:active {
+      cursor: -webkit-grabbing;
+    }
+
+    &::-moz-range-thumb:active {
+      cursor: -moz-grabbing;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &-bottom {
+    flex: 1;
+
+    @media (max-width: theme("breakpoints.md", "value")) {
+      margin-top: 1.25rem;
+    }
+  }
+
+  &-radius {
+    @media (min-width: theme("breakpoints.md", "value")) {
+      max-width: 300px;
+    }
+
+    flex: 1;
+  }
+}

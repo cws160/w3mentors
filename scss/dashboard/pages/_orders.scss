@@ -1,0 +1,496 @@
+$arrow-icon: "arrow-icon";
+
+.#{$arrow-icon} {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-width: 24px;
+    height: 24px;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    margin: 0 10px;
+    color: theme('color.primary');
+    text-align: center;
+    background-color: theme('color.white');
+
+    &::before {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        content: "";
+        border-#{theme('direction.left','value')}: 4px solid transparent;
+        border-#{theme('direction.right','value')}: 4px solid transparent;
+        border-top: 7px solid currentColor;
+        transform: translate(-50%, -50%);
+    }
+
+}
+
+$action-trigger: "action-trigger";
+
+.#{$action-trigger} {
+    &.is-active {
+        .#{$arrow-icon} {
+            &::before {
+                border-top: none;
+                border-bottom: 7px solid currentColor;
+                top: 42%;
+            }
+        }
+    }
+}
+
+$target-data: "target-data";
+
+.#{$target-data} {
+    &__group {
+        @media(min-width:theme('breakpoints.md', 'value')) {
+            padding: 1.5rem 1.5rem 3rem;
+        }
+
+        &:not(:last-child) {
+            @media(min-width:theme('breakpoints.md', 'value')) {
+                border-bottom: 1px solid theme('color.gray.300');
+            }
+        }
+    }
+
+    &>td {
+        border-radius: theme('radius-sm');
+    }
+
+}
+
+$detail-info: "detail-info";
+
+.#{$detail-info} {
+    white-space: normal;
+
+    @media(max-width:theme('breakpoints.md', 'value')) {
+        display: flex;
+    }
+
+    &__title {
+        @media(min-width:theme('breakpoints.md', 'value')) {
+            margin-bottom: 1.25rem;
+        }
+
+        @media(max-width:theme('breakpoints.md', 'value')) {
+            width: 40%;
+        }
+    }
+
+    &__listing {
+        @media(max-width:theme('breakpoints.md', 'value')) {
+            flex: 1;
+            padding-#{theme('direction.left','value')}: 1.25rem;
+        }
+    }
+
+    &__row {
+        &:not(:last-child) {
+            margin-bottom: .5rem;
+        }
+
+        &:first-child {
+            font-weight: 600;
+            margin-bottom: .75rem;
+        }
+    }
+
+    &__actions {
+        display: inline-flex;
+        flex-direction: column;
+
+        @media(max-width:theme('breakpoints.md', 'value')) {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 15px;
+        }
+
+        .btn {
+            border-color: theme('color.gray.400');
+            font-weight: 600;
+
+            &:not(:last-child) {
+                @media(min-width:theme('breakpoints.md', 'value')) {
+                    margin-bottom: .75rem;
+                }
+            }
+
+            .icon {
+                margin-#{theme('direction.right','value')}: .25rem;
+            }
+        }
+    }
+
+}
+
+$detail-list: "detail-list";
+
+.#{$detail-list} {
+
+    @media(min-width:theme('breakpoints.md', 'value')) {
+        display: flex;
+        align-items: flex-start;
+        margin: 0 -15px;
+    }
+
+    @media(max-width:theme('breakpoints.md', 'value')) {
+        padding: 1rem;
+    }
+
+    &__item {
+        @media(min-width:theme('breakpoints.md', 'value')) {
+            flex: 0 0 33.33%;
+            max-width: 33.33%;
+            padding: 0 15px;
+        }
+
+        @media(max-width:theme('breakpoints.md', 'value')) {
+            &:not(:last-child) {
+                margin-bottom: 2rem;
+            }
+        }
+    }
+}
+
+.detail-title {
+    h6 {
+        text-transform: uppercase;
+        color: theme('color.gray-dark');
+        opacity: 0.6;
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+}
+
+$table-panel: "table-panel";
+
+.#{$table-panel} {
+    & table {
+        border: 1px solid theme('color.gray.200');
+        border-radius: theme('radius-sm');
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+
+    &__body {
+        thead {
+            tr {
+                th {
+                    color: theme('color.dark');
+                    padding: .75rem 1rem;
+                    background-color: #f5f5f5;
+                    font-size: 0.95rem;
+                    z-index: 0;
+                }
+            }
+        }
+
+        tbody {
+
+            tr {
+                td {
+                    color: theme('color.dark');
+                    padding: .5rem 1rem;
+                    border-bottom: 1px solid theme('color.gray.200');
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+}
+
+$target-data: "target-data";
+
+.#{$target-data} {
+    @media(max-width:theme('breakpoints.md', 'value')) {
+        &.is-expanded {
+            position: fixed;
+            #{theme('direction.left','value')}: 0;
+            #{theme('direction.right','value')}: 0;
+            top: 0;
+            background: theme('color.white');
+            z-index: 11;
+            height: 100%;
+            overflow: auto;
+            padding: 0 !important;
+            bottom: 0;
+        }
+
+        & {
+            padding: 0 !important;
+            border: none !important;
+        }
+
+    }
+
+    .close {
+        @media(max-width:theme('breakpoints.md', 'value')) {
+            display: block !important;
+        }
+    }
+}
+
+$table-panel: "table-panel";
+
+.#{$table-panel} {
+    &__head {
+        @media(max-width:theme('breakpoints.md', 'value')) {
+            padding: 1rem;
+        }
+
+        .detail-title {
+            @media(max-width:theme('breakpoints.md', 'value')) {
+                position: relative;
+
+                h6 {
+                    margin-bottom: 0;
+                    color: theme('color.primary');
+                    text-transform: capitalize;
+                    font-size: 15px;
+                    opacity: 1;
+                }
+
+                &::after {
+                    position: absolute;
+                    #{theme('direction.right','value')}: 0px;
+                    top: 50%;
+                    content: "+";
+                    font-size: 1.6rem;
+                    line-height: 1;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+
+        @media(max-width:theme('breakpoints.sm', 'value')) {
+            border-top: 1px solid theme('color.gray.200');
+
+            &.is-active {
+                .detail-title {
+                    &::after {
+                        content: "-";
+                    }
+                }
+            }
+        }
+    }
+
+    &__body {
+        @media(max-width:theme('breakpoints.md', 'value')) {
+            display: none;
+        }
+    }
+}
+
+
+
+$detail-group-row: "detail-group-row";
+
+.#{$detail-group-row} {
+    padding: 2rem 1.5rem;
+    border-bottom: 1px solid theme('color.gray.300');
+
+    &:last-child {
+        border: none;
+    }
+
+    @media(max-width:theme('breakpoints.lg', 'value')) {
+        padding: 1.25rem;
+    }
+
+    @media(max-width:theme('breakpoints.md', 'value')) {
+        padding: 1rem;
+    }
+}
+
+$detail-row: "detail-row";
+
+.#{$detail-row} {
+    color: theme('color.gray.1000');
+    line-height: 25px;
+    position: relative;
+
+    @media(min-width:theme('breakpoints.lg', 'value')) {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__primary {
+        font-size: 15px;
+
+        @media(min-width:theme('breakpoints.lg', 'value')) {
+            max-width: 70%;
+            width: 100%;
+        }
+
+        @media(max-width:theme('breakpoints.lg', 'value')) {
+            margin-bottom: .75rem;
+            line-height: 30px;
+
+            .badge {
+                position: absolute;
+                #{theme('direction.right','value')}: 0;
+                bottom: -3px;
+            }
+        }
+
+        .comment {
+            font-size: 0.95rem;
+            color: theme('color.gray.1000');
+            margin-top: .5rem;
+
+            span {
+                color: theme('color.black');
+            }
+        }
+    }
+
+    &__secondary {
+        @media(min-width:theme('breakpoints.lg', 'value')) {
+            max-width: 30%;
+            width: 100%;
+            text-align: #{theme('direction.right','value')};
+        }
+
+        span {
+            color: theme('color.gray.dark');
+            margin-#{theme('direction.left','value')}: .5rem;
+        }
+
+    }
+}
+
+.tag {
+    padding: .25rem .5rem;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    color: theme('color.gray.dark');
+    margin: 0 5px;
+    white-space: nowrap;
+}
+
+.background-gray {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.detail-group-title {
+    margin-bottom: 1rem;
+}
+
+$issue-log: "issue-log";
+
+.#{$issue-log} {
+
+    background-color: theme('color.white');
+    border: 1px solid theme('color.gray.200');
+    border-radius: theme('radius');
+
+    &__item {
+        padding: 1.5rem 1rem;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid theme('color.gray.100');
+        }
+    }
+}
+
+$lessonlist: "lessonlist";
+
+.#{$lessonlist} {
+    &__head {
+        margin-bottom: .75rem;
+    }
+
+    &__item {
+        display: flex;
+
+        &:not(:last-child) {
+            margin-bottom: .5rem;
+        }
+
+        div {
+            &:first-child {
+                font-weight: 600;
+                margin-#{theme('direction.right','value')}: .5rem;
+            }
+        }
+
+    }
+}
+
+$info-panel: "info-panel";
+
+.#{$info-panel} {
+    &__title {
+        margin-bottom: .5rem;
+
+        h4 {
+            font-size: calc(13px + 0.1vw);
+
+            @media(max-width:theme('breakpoints.md', 'value')) {
+                font-size: 15px;
+            }
+        }
+
+        @media(max-width:theme('breakpoints.md', 'value')) {
+            margin-bottom: .75rem;
+        }
+    }
+
+    &__body {
+        @media(min-width:theme('breakpoints.md', 'value')) {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+
+        @media(min-width:theme('breakpoints.md', 'value')) {
+            font-size: 13px;
+
+            &:not(:last-child) {
+                margin-#{theme('direction.right','value')}: 1rem;
+            }
+        }
+
+        @media(max-width:theme('breakpoints.lg', 'value')) {
+            margin-bottom: .75rem;
+        }
+
+        div {
+            &:first-child {
+                font-weight: 600;
+                margin-#{theme('direction.right','value')}: .5rem;
+
+                @media(max-width:theme('breakpoints.md', 'value')) {
+                    width: 40%;
+                }
+            }
+
+            @media(max-width:theme('breakpoints.md', 'value')) {
+                flex: 1;
+                width: 100%;
+            }
+        }
+    }
+
+    &__cover {
+        &:not(:last-child) {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid theme('color.gray.200');
+        }
+    }
+}

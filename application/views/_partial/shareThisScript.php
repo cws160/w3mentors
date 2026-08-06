@@ -1,0 +1,2 @@
+<!-- change it with your own domain specific js url creted over sharethis platform -->
+<script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=<?php echo FatApp::getConfig('CONF_SHARE_THIS_PROPERTY_ID') ?>&product=sop' async='async'></script>

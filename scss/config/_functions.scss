@@ -1,0 +1,80 @@
+
+
+//Get unitless Value
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+// Color contrast
+@function color-yiq($color) {
+  $r: red($color);
+  $g: green($color);
+  $b: blue($color);
+
+  $dark: #000000;
+  $light: #ffffff;
+
+  $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+
+  @if ($yiq >= 150) {
+    @return $dark;
+  } @else {
+    @return $light;
+  }
+}
+
+//
+//
+//
+@function key-get-val($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key); 
+  }
+  
+  // @if type-of($map) == map{ @return nth(map-values($map), 1); } @else{
+    @return $map;
+  // }
+}
+@function key-get-var($map, $keys...) {
+  $map: '-';
+  @each $key in $keys {
+    $map: $map + '-' + $key; 
+  }
+  $map: 'var(' + $map + ')';
+  $map: unquote($map);
+
+  @return $map;
+}
+
+
+@function key-slice($key, $sep) {
+
+  $keys: $key;
+
+  @if str-index($key, $sep){
+    $key-parent: str-slice($key, 0, (str-index($key, $sep) - 1) );
+    $key: str-slice($key, (str-index($key, ".") + 1), str-length($key));
+    
+    $keys: join($key-parent, key-slice($key, $sep));
+  }
+  
+  @return $keys;
+}
+
+@function theme($key, $option: 'variable'){
+  
+  $keys: key-slice($key, '.');
+
+  @if($option == 'variable'){
+    @return key-get-var($theme, $keys...);
+  }
+  @else{
+    @return key-get-val($theme, $keys...);
+  }
+  
+}
+

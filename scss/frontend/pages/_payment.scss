@@ -1,0 +1,485 @@
+@media(min-width:1199px) {
+    body.payment {
+        background-color: theme('color.gray.100');
+    }
+}
+
+.payment-page {
+    height: 100vh;
+    padding: 1.5rem;
+
+    @media(max-width: theme('breakpoints.xl', 'value')) {
+        height: auto;
+    }
+}
+
+.body {
+    padding: 0;
+}
+
+.cc-payment {
+    background: #fff;
+    border: solid 1px #e1dfdf;
+    margin: 0 auto;
+    max-width: 600px;
+    position: relative;
+
+    @media(max-width: theme('breakpoints.xl', 'value')) {
+        margin: 0 auto;
+        border: none;
+        padding-top: 30px;
+    }
+
+    @media (min-width:576px) {
+        min-height: 40rem;
+    }
+}
+
+.max-scroll {
+    border-bottom: 1px solid theme('color.gray.100');
+    margin-bottom: 2rem;
+
+    @media (min-width:576px) {
+        max-height: 300px;
+        overflow: auto;
+    }
+}
+
+.logo-payment {
+    max-width: 200px;
+    text-align: center;
+    margin: 25px auto;
+
+    @media(max-width: theme('breakpoints.xl', 'value')) {
+        margin-top: 0;
+    }
+
+    svg,
+    img {
+        margin: 0 auto;
+        max-width: 100%;
+    }
+}
+
+.reff {
+    @media(max-width: theme('breakpoints.sm', 'value')) {
+        margin: 0;
+    }
+
+    p {
+        padding: 10px 30px;
+
+        @media(max-width: theme('breakpoints.sm', 'value')) {
+            text-align: center;
+            padding: 5px 0;
+            margin: 0;
+        }
+    }
+}
+
+.payment-from {
+    border-top: solid 1px #e1dfdf;
+    display: table;
+    width: 100%;
+    padding: 30px;
+
+    .siteForm {
+        label {
+            text-align: #{theme('direction.left','value')};
+            display: block;
+        }
+
+        input.type-bg {
+            background: url(images/cc-pay.png) no-repeat right center;
+        }
+
+        input.ccCvvBox {
+            width: 119px;
+            margin-#{theme('direction.right','value')}: 10px;
+            float: #{theme('direction.left','value')};
+        }
+    }
+
+    .field {
+        margin-bottom: 15px;
+        text-align: #{theme('direction.left','value')};
+    }
+}
+
+.cvv {
+    float: #{theme('direction.left','value')}
+}
+
+.ccExpiryMonth,
+.ccExpiryYear {
+    float: #{theme('direction.left','value')};
+}
+
+.expiry-wrapper,
+.ccCvvWrapper {
+    float: #{theme('direction.left','value')};
+}
+
+.ccExpiryYear {
+    margin-#{theme('direction.left','value')}: 20px;
+}
+
+.ccCvvWrapper {
+    width: 205px;
+    margin-#{theme('direction.left','value')}: 50px;
+}
+
+.total-pay {
+    margin-bottom: 10px;
+    color: #000;
+    font-size: 16px;
+    font-weight: 600;
+
+    small {
+        font-size: 13px;
+        color: #333;
+    }
+}
+
+@media(max-width: theme('breakpoints.sm', 'value')) {
+    .form {
+        .btn.btn--large {
+            width: 100%;
+            display: block;
+            text-align: center;
+        }
+    }
+}
+
+.payments-container-inactive {
+    position: relative;
+
+    &:before {
+        position: absolute;
+        #{theme('direction.left','value')}: 0;
+        #{theme('direction.right','value')}: 0;
+        top: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.9);
+        content: "";
+        z-index: 1;
+    }
+
+    &.field_label {
+        display: block;
+        width: 100%;
+    }
+}
+
+//NEW CSS FOR PAYMENT 
+.checkout-payment {
+    padding: calc(clamp(3.571rem, 3.185vw + 2.775rem, 7.143rem)) 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.payment-panel {
+    background: #fff;
+    box-shadow: 0px 0px 30px #0000001A;
+    border-radius: theme('radius-lg');
+    max-width: 740px;
+    width: 100%;
+    margin: 0 auto;
+    padding: calc(clamp(1.429rem, 1.592vw + 1.03rem, 3.214rem));
+
+    &__head {
+        text-align: center;
+        padding-bottom: calc(clamp(1.429rem, 1.274vw + 1.11rem, 2.857rem));
+
+        .logo {
+            img {
+                margin: 0 auto;
+                max-height: 80px;
+            }
+        }
+    }
+
+    &__foot {
+        text-align: center;
+        padding-top: calc(clamp(1.429rem, 1.274vw + 1.11rem, 2.857rem));
+    }
+
+    .table--orders {
+        margin: 0;
+    }
+
+    .table-orders {
+        border: 1px solid #E5E2E2;
+        border-radius: theme('radius');
+        overflow: hidden;
+
+        table {
+            thead {
+                display: block;
+                width: 100%;
+
+                @media (max-width:theme('breakpoints.md', 'value')) {
+                    display: none;
+                }
+
+                tr {
+                    display: table;
+                    width: 100%;
+                    table-layout: fixed;
+
+                    th {
+                        padding: calc(clamp(1rem, 0vw + 1rem, 1rem));
+
+                        &:first-child {
+                            width: 90px;
+                        }
+
+                    }
+                }
+            }
+
+            tbody {
+                display: block;
+                max-height: 400px;
+                overflow: auto;
+                width: 100%;
+
+                tr {
+                    @media (min-width:theme('breakpoints.md', 'value')) {
+                        display: table;
+                        width: 100%;
+                        table-layout: fixed;
+                    }
+
+                }
+            }
+
+            th {
+                font-weight: 600;
+                background-color: #F5F6F9;
+                text-align: #{theme('direction.left','value')};
+                border-bottom-color: #E5E2E2;
+            }
+
+            tr {
+
+                &:last-child {
+                    td {
+                        border: none;
+                    }
+                }
+            }
+
+
+            td {
+                vertical-align: middle;
+                padding: calc(clamp(0.714rem, 0.892vw + 0.491rem, 1.714rem)) calc(clamp(1rem, 0vw + 1rem, 1rem));
+
+                @media (max-width:theme('breakpoints.md', 'value')) {
+                    padding: .5rem 0;
+                }
+
+                @media (min-width:theme('breakpoints.md', 'value')) {
+                    &:first-child {
+                        width: 90px;
+                    }
+                }
+
+            }
+
+        }
+
+        .row-num {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            color: theme('color.primary');
+            background-color: #fff;
+            position: relative;
+
+            &::after {
+                content: "";
+                background-color: currentColor;
+                opacity: .15;
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                border-radius: 50%;
+            }
+        }
+    }
+}
+
+.bank-details {
+    background-color: #F5F6F9;
+    border-radius: calc(clamp(0.714rem, 0.637vw + 0.555rem, 1.429rem));
+    padding: calc(clamp(1.429rem, 0.955vw + 1.19rem, 2.5rem));
+    text-align: center;
+    margin-bottom: calc(clamp(1.429rem, 1.274vw + 1.11rem, 2.857rem));
+
+    p {
+        margin: 0;
+        font-size: calc(clamp(1rem, 0.127vw + 0.968rem, 1.143rem));
+    }
+
+    .banking-info {
+        padding-top: calc(clamp(0.714rem, 0.955vw + 0.475rem, 1.786rem));
+    }
+}
+
+.row:last-child {
+    .form-group {
+        margin-bottom: 0;
+    }
+}
+
+.payment-form {
+    .form-group {
+        margin-bottom: calc(clamp(1rem, 1.019vw + 0.745rem, 2.143rem));
+
+        &-label {
+            display: block;
+            margin-bottom: .375rem;
+            font-size: calc(clamp(1rem, 0.127vw + 0.968rem, 1.143rem));
+            font-weight: 600;
+        }
+    }
+
+    input[type=email],
+    input[type=file],
+    input[type=number],
+    input[type=password],
+    input[type=phone],
+    input[type=search],
+    input[type=text],
+    select {
+        border-radius: 10px;
+
+        @media (min-width:theme('breakpoints.md', 'value')) {
+            height: 50px;
+            line-height: 100%;
+        }
+    }
+
+    input[type=file] {
+        height: auto;
+        padding: 15px;
+
+        @media (max-width:theme('breakpoints.md', 'value')) {
+            padding: 6px 10px;
+        }
+    }
+
+    textarea {
+        border-radius: 10px;
+    }
+
+    .choose-file {
+        position: relative;
+        height: 50px;
+        border: 1px solid #d9d9d9;
+        padding: .625rem 1.125rem;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        border-radius: 10px;
+
+        &__label {
+            background: #E4E6EB;
+            border-radius: 5px;
+            padding: 5px 10px;
+        }
+
+        @media (min-width:theme('breakpoints.md', 'value')) {
+            height: 50px;
+            border-radius: 10px;
+        }
+
+        input[type=file] {
+            position: absolute;
+            opacity: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+        }
+    }
+
+    input[type="submit"],
+    input[type="button"] {
+        margin: 0 auto;
+        display: block;
+    }
+}
+
+.payment-order-details {
+    display: flex;
+    justify-content: center;
+    gap: 1rem 0;
+}
+
+.form-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+
+    .btn {
+        min-width: 150px;
+    }
+}
+
+.order-info {
+    padding: 0 calc(clamp(1.429rem, 2.548vw + 0.792rem, 4.286rem));
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+    flex: 0 0 50%;
+    max-width: 50%;
+
+    &:not(:last-child) {
+        border-#{theme('direction.right','value')}: 1px solid #E5E2E2;
+    }
+
+    span {
+        display: block;
+        text-align: center;
+    }
+
+    &__label {
+        font-size: calc(clamp(1rem, 0.127vw + 0.968rem, 1.143rem));
+    }
+
+    &__value {
+        font-size: calc(clamp(1.286rem, 0.255vw + 1.222rem, 1.571rem));
+        font-weight: 700;
+    }
+}
+
+.checkout-thanku {
+    text-align: center;
+    margin-bottom: calc(clamp(0.714rem, 0.637vw + 0.555rem, 1.429rem));
+
+    &__media {
+        @media (max-width:theme('breakpoints.md', 'value')) {
+            max-width: 100px;
+            margin: 0 auto;
+        }
+    }
+
+    h4 {
+        font-size: calc(clamp(1.429rem, 0.764vw + 1.237rem, 2.286rem));
+        font-weight: 500;
+        margin-bottom: calc(clamp(0.714rem, 0.637vw + 0.555rem, 1.429rem));
+    }
+
+    img {
+        margin: 0 auto;
+    }
+}

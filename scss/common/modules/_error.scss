@@ -1,0 +1,67 @@
+$error: "error";
+
+.#{$error} {
+    &__media {
+        @media(min-width: theme('breakpoints.lg', 'value')) {
+            text-align: center;
+        }
+
+        img {
+            margin: 0 auto;
+
+            @media(max-width: theme('breakpoints.md', 'value')) {
+                margin-bottom: 2rem;
+                max-width: 150px;
+            }
+        }
+    }
+
+    &__content {
+        h3 {
+            color: theme('color.dark');
+            font-weight: 700;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: calc(16px + 0.13vw);
+            color: theme('color.dark');
+            margin-bottom: 3.5rem;
+        }
+
+        .list-group {
+            margin-bottom: 3.5rem;
+        }
+    }
+}
+
+
+$list__group: "list-group";
+
+.#{$list__group} {
+    &--line {
+        .#{$list__group} {
+            &--item {
+                position: relative;
+                padding-#{theme('direction.left', 'value')}: 2.5rem;
+                font-size: 15px;
+
+                &::before {
+                    content: '';
+                    width: 16px;
+                    height: 2px;
+                    background-color: theme('color.primary');
+                    display: block;
+                    position: absolute;
+                    top: 20px;
+                    #{theme('direction.left', 'value')}: 0;
+                }
+            }
+        }
+    }
+
+    &--item {
+        line-height: 40px;
+    }
+}

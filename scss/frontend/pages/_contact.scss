@@ -1,0 +1,96 @@
+.contact-wrapper {
+    background-color: #fff;
+    border-radius: theme('radius-lg');
+    padding: calc(clamp(1.429rem, 1.911vw + 0.951rem, 3.571rem));
+}
+
+.contact-info__row {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: calc(clamp(1.143rem, 0.892vw + 0.92rem, 2.143rem));
+    padding-bottom: calc(clamp(1.143rem, 0.892vw + 0.92rem, 2.143rem));
+    border-bottom: 1px solid theme('color.gray.200');
+    gap: calc(clamp(1rem, 0.637vw + 0.841rem, 1.714rem));
+
+    &:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+
+    .contact__icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        color: theme('color.primary');
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &::after {
+            content: "";
+            position: absolute;
+            background-color: currentColor;
+            opacity: .15;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            border-radius: 50%;
+        }
+    }
+
+    .contact__content {
+        h6 {
+            margin-bottom: .5rem;
+        }
+
+        p {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.contact-form {
+    .field-set {
+        margin-bottom: 1.5rem;
+
+        .field-wraper {
+            .field_cover {
+                input {
+                    font-size: calc(13px + 0.1vw);
+                    padding: 0 2rem;
+                    width: 100%;
+                    height: 60px;
+
+                    @media(max-width: theme('breakpoints.xl', 'value')) {
+                        height: 50px;
+                    }
+                }
+
+                textarea {
+                    width: 100%;
+                    height: 115px;
+                    padding: 1.25rem 2rem;
+                }
+            }
+
+            .field_label {
+                @media(max-width: theme('breakpoints.xl', 'value')) {
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+    }
+
+    .row:last-child {
+        .field-set {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.dummy-capcha {
+    margin-bottom: calc(2.5rem - 3px);
+}

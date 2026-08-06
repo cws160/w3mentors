@@ -1,0 +1,60 @@
+.navbar {
+    .nav-item {
+        .nav-link {
+            position: relative;
+            outline: none !important;
+            text-decoration: none;
+            cursor: pointer;
+            padding: 0.75rem 1.25rem;
+            border-radius: 4px;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 1rem;
+            text-transform: initial;
+            color: #ffffff;
+
+            display: flex;
+
+            align-items: center;
+
+            flex-grow: 1;
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+        }
+        &.show {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+    }
+    .la {
+        margin-inline-start: 0.3rem;
+        font-size: inherit;
+    }
+}
+
+@media (max-width: 1024px) {
+    .header .header-menu-holder {
+        margin: 0;
+        background: #fff;
+        display: flex;
+        align-items: flex-start;
+        z-index: 1001;
+        position: fixed;
+        -webkit-overflow-scrolling: touch;
+        top: 0;
+        #{$start-direction}: 0;
+        bottom: 0;
+        overflow-y: auto;
+        -webkit-transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        width: 275px !important;
+        -webkit-transition: left 0.3s ease, right 0.3s ease;
+        transition: left 0.3s ease, right 0.3s ease;
+    }
+    .navbar .nav-item .nav-link {
+        color: $primary-color;
+    }
+}

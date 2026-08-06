@@ -1,0 +1,120 @@
+.aside--on {
+    .wrapper {
+        padding-inline-start: 280px;
+        .aside {
+            left: 0;
+        }
+    }
+}
+
+.aside {
+    background-color: $bg-white;
+    box-shadow: 0px 0px 28px 0px rgba(82, 63, 105, 0.08);
+    z-index: 1001;
+    position: fixed;
+    top: 0;
+    left: -280px;
+    bottom: 0;
+    padding-top: 40px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    width: 280px;
+    transition: left 0.3s ease, right 0.3s ease;
+    &-close {
+        position: absolute;
+        z-index: 1;
+        left: 1rem;
+        top: 1rem;
+    }
+    .aside-menu-wrapper {
+        height: 100%;
+        .aside-menu {
+            height: 100%;
+            max-height: none;
+            overflow-y: auto;
+            .menu__nav {
+                margin: 0;
+                list-style: none;
+                padding: 15px 10px;
+                .menu__item {
+                    display: flex;
+                    flex-direction: column;
+                    .menu__link {
+                        display: flex;
+                        flex-grow: 1;
+                        align-items: center;
+                        margin: 0;
+                        padding: 0.7rem 0.5rem;
+                        text-decoration: none;
+                        position: relative;
+                        outline: none;
+                        color: $txt-body;
+                        font-size: 1.05rem;
+                        font-weight: 400;
+                        .menu__link-icon {
+                            -webkit-box-flex: 0;
+                            -ms-flex: 0 0 35px;
+                            flex: 0 0 35px;
+                            font-size: 1.3rem;
+                            display: flex;
+                            align-items: center;
+                        }
+                        .menu__link-text {
+                            display: flex;
+                            flex-grow: 1;
+                            align-items: center;
+                            font-weight: 500;
+                        }
+                        &:hover {
+                            color: var(--first-color);
+                        }
+                        .menu__ver-arrow {
+                            transform: rotate(90deg);
+                        }
+                        &.collapsed {
+                            .menu__ver-arrow {
+                                transform: rotate(0deg);
+                                transition: all 0.3s ease;
+                            }
+                        }
+                    }
+                    .menu__submenu {
+                        flex-grow: 1;
+                        flex-direction: column;
+                        .menu__link {
+                            &-text {
+                                font-weight: 300;
+                                font-size: 1rem;
+                            }
+                            &-bullet {
+                                vertical-align: middle;
+                                text-align: left;
+                                flex: 0 0 20px;
+                                span {
+                                    background-color: #cacad2;
+                                    width: 4px;
+                                    height: 4px;
+                                    border-radius: 100%;
+                                    vertical-align: middle;
+                                    display: inline-block;
+                                }
+                            }
+                        }
+                    }
+                }
+                .menu__section {
+                    display: flex;
+                    padding: 0 0.5rem;
+                    margin: 20px 0 0 0;
+                    height: 40px;
+                    h4 {
+                        font-size: 0.83rem;
+                        font-weight: 500;
+                        text-transform: uppercase;
+                        letter-spacing: 0.3px;
+                    }
+                }
+            }
+        }
+    }
+}

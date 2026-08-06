@@ -1,0 +1,21 @@
+$bg: "bg";
+
+.#{$bg} {
+    @each $color, $value in map-get($theme, 'color') {
+        @if type-of($value)==map {
+            @each $c, $v in $value {
+                &-#{$color}-#{$c} {
+                    color: color-yiq($v);
+                    background-color: var(--color-#{$color}-#{$c}) !important;
+                }
+            }
+        }
+
+        @else {
+            &-#{$color} {
+                color: color-yiq($value);
+                background-color: var(--color-#{$color}) !important;
+            }
+        }
+    }
+}

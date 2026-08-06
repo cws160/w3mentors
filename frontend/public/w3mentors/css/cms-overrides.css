@@ -1,0 +1,15 @@
+/* CMS blocks injected via dangerouslySetInnerHTML */
+.cta-card__media img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.cms-block__media .media img,
+.flex-layout__media img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}

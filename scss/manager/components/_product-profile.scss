@@ -1,0 +1,155 @@
+$product-profile: "product-profile";
+
+.product-profile {
+    $self: &;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    /*max-width: 300px;*/
+    min-width: 200px;
+    // @include media-breakpoint-down(md) {
+    //     max-width: 80%;
+    //     margin-bottom: 1rem;
+    // }
+    &__thumbnail {
+        // --aspect-ratio1: 1/1;
+        // --aspect-ratio2: 4/3;
+        // --aspect-ratio3: 3/4;
+        // --aspect-ratio4: 16/9;
+        width: 100%;
+        max-width: 60px;
+        height: 60px;
+        margin-#{$end-direction}: 1rem;
+        position: relative;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        background: $bg-placeholder;
+        box-shadow: $shadow4;
+        // @include placeholder;
+        // &[data-ratio="1:1"] {
+        //     padding-bottom: calc(100%/(var(--aspect-ratio1)));
+        // }
+        // &[data-ratio="4:3"] {
+        //     padding-bottom: calc(100%/(var(--aspect-ratio2)));
+        // }
+        // &[data-ratio="3:4"] {
+        //     padding-bottom: calc(100%/(var(--aspect-ratio3)));
+        // }
+        // &[data-ratio="16:9"] {
+        //     padding-bottom: calc(100%/(var(--aspect-ratio4)));
+        // }
+        img {
+            margin: auto;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            #{$start-direction}: 0;
+            #{$end-direction}: 0;
+            max-height: 100%;
+            //mix-blend-mode: multiply;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            border-radius: $common-radius;
+            //border: $border;
+            border: none;
+        }
+        .product-qty {
+            font-size: 0.7rem;
+            font-weight: 500;
+            line-height: 1rem;
+            white-space: nowrap;
+            text-align: center;
+            border-radius: 1.75rem;
+            background-color: rgba(114, 114, 114, 0.9);
+            color: #fff;
+            min-width: 1rem;
+            height: 1rem;
+            padding: 0 0.1rem;
+            position: absolute;
+            #{$end-direction}: -0.25rem;
+            top: -0.25rem;
+            z-index: 1;
+        }
+    }
+    &__data {
+        flex: 1;
+        min-width: 0px;
+
+        .invoice-number {
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        .title {
+            font-weight: 500;
+            //font-size: 0.88rem;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: $txt-body;
+            a {
+                color: $txt-body;
+            }
+        }
+        .sub_title {
+            color: $txt-gray;
+        }
+        .options {
+            font-size: 0.75rem;
+            color: $txt-gray;
+        }
+    }
+    &__btn {
+        margin-top: 5px;
+        font-size: 0.8rem;
+    }
+    .list-options {
+        display: flex;
+        &--horizontal {
+            flex-direction: row;
+            li {
+                line-height: 1;
+                + li {
+                    margin-#{$start-direction}: 0.5rem;
+                    padding-#{$start-direction}: 0.5rem;
+                    border-#{$start-direction}: 1px solid $border-color;
+                }
+            }
+        }
+        &--vertical {
+            flex-direction: column;
+        }
+        li {
+            list-style: none;
+            color: $txt-gray;
+        }
+    }
+    &-sm {
+        #{ $self }__thumbnail {
+            width: 40px;
+            height: 40px;
+        }
+    }
+}
+
+.sold_by {
+    background-color: lighten($success-color, 49);
+    color: $success-color;
+    //border: dashed 1px darken($bg-light, 10);
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    max-width: 200px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    .svg {
+        width: 14px;
+        height: 14px;
+        margin-#{$end-direction}: 0.3rem;
+    }
+}

@@ -1,0 +1,131 @@
+$login: "login";
+.#{$login} {
+    display: flex;
+    height: 100%;
+    &__wrapper {
+        display: flex;
+        flex: 1 0 auto;
+    }
+    &-aside {
+        padding: 3rem 3.5rem;
+        display: flex;
+        flex-direction: column;
+        align-content: stretch;
+        justify-content: space-between;
+        background: $brand-color;
+        max-width: 25%;
+        flex: 0 0 25%;
+    }
+    &-aside__logo {
+        display: flex;
+        max-width: 50px;
+        img {
+            max-width: 50px;
+        }
+    }
+    &-aside__content {
+        h2 {
+            font-size: 4.5rem;
+            color: #ffffff;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+        h3 {
+            color: #ffffff;
+            font-size: 1.4rem;
+            font-weight: 400;
+        }
+        p {
+            font-size: 1.2rem;
+            font-weight: 200;
+            color: rgba(255, 255, 255, 0.7);
+        }
+    }
+    &-main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1 0 auto;
+        padding: 3rem 3rem;
+        &__body {
+            flex: 1 0 auto;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            .login_add_content {
+                position: absolute;
+                top: 30px;
+                right: 50px;
+            }
+        }
+        .form--login {
+            width: 100%;
+            max-width: 400px;
+            .form-control {
+                height: calc(2em + 2.3rem + 2px);
+            }
+        }
+    }
+}
+
+.#{$login}-v5 {
+    .#{$login}-logo {
+        max-width: 100%;
+    }
+    .#{$login}-aside {
+        flex: 0 0 32%;
+        max-width: 32%;
+        box-shadow: 0 0 18px 6px rgba(0, 0, 0, 0.24);
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+}
+
+.#{$login}-v6 {
+    .#{$login}-logo {
+        max-width: 100%;
+    }
+    .#{$login}-aside {
+        flex: 0 0 32%;
+        max-width: 32%;
+        box-shadow: 0 0 18px 6px rgba(0, 0, 0, 0.24);
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+    .#{$login}-main {
+        .#{$login}-main__body {
+            .login_add_content {
+                left: 30px;
+                right: auto;
+            }
+        }
+    }
+}
+
+@media (max-width: 1025px) {
+    .login__wrapper {
+        flex-direction: column-reverse;
+        flex: auto;
+        .login-aside {
+            max-width: none;
+            align-items: center;
+            text-align: center;
+            flex: auto;
+        }
+        .login-main,
+        .login-main__body {
+            flex: auto;
+        }
+        .login-aside__content {
+            padding: 4rem 2rem 0;
+            text-align: center;
+            h3.text-lg-login {
+                font-size: 2rem !important;
+            }
+        }
+    }
+}

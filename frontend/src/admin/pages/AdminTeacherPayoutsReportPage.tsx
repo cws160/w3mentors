@@ -1,0 +1,214 @@
+import { type FormEvent, useCallback, useEffect, useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useSite } from '../../w3mentors/context/SiteContext';
+import { adminApi } from '../api/adminClient';
+import { useAdminPageMeta } from '../context/AdminPageMetaContext';
+import { AdminModuleSearchForm } from '../components/AdminModuleSearchForm';
+import { AdminLegacyPagination } from '../components/AdminLegacyPagination';
+import type { AdminModuleConfig } from '../config/adminModuleTypes';
+
+type Row = {
+  id: number;
+  user_id: number;
+  user_name: string;
+  total_amount: string;
+};
+
+const searchConfig: AdminModuleConfig = {
+  module: 'teacher-payouts-report',
+  pageLangKey: 'teacher-payouts-report',
+  titleKey: 'LBL_TEACHER_PAYOUTS_REPORT',
+  titleFallback: 'Teacher payouts report',
+  searchSubmitCol: 3,
+  searchFields: [
+    { name: 'keyword', labelKey: 'LBL_TEACHER', labelFallback: 'Teacher', type: 'text' },
+    { name: 'fromDate', labelKey: 'LBL_DATE_FROM', labelFallback: 'Date from', type: 'date' },
+    { name: 'toDate', labelKey: 'LBL_DATE_TO', labelFallback: 'Date to', type: 'date' },
+  ],
+  columns: [],
+};
+
+export function AdminTeacherPayoutsReportPage() {
+  const { lbl } = useSite();
+  const { setMeta, clearMeta } = useAdminPageMeta();
+
+  const [rows, setRows] = useState<Row[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
+  const [filterOpen, setFilterOpen] = useState(false);
+  const [draft, setDraft] = useState<Record<string, string>>({});
+  const [filters, setFilters] = useState<Record<string, string>>({});
+  const [pagination, setPagination] = useState({ current_page: 1, per_page: 10, total: 0, last_page: 1 });
+
+  const columns = useMemo(
+    () => [
+      { key: 'user_name', label: lbl('LBL_TEACHER_NAME', 'Teacher name') },
+      { key: 'total_amount', label: lbl('LBL_AMOUNT_PAID', 'Amount paid') },
+    ],
+    [lbl],
+  );
+
+  const load = useCallback(() => {
+    setLoading(true);
+    void adminApi
+      .moduleList('teacher-payouts-report', { page, ...filters })
+      .then((res) => {
+        setRows((res.data.data ?? []) as Row[]);
+        setPagination(res.data.meta ?? { current_page: 1, per_page: 10, total: 0, last_page: 1 });
+      })
+      .catch(() => setRows([]))
+      .finally(() => setLoading(false));
+  }, [filters, page]);
+
+  useEffect(() => {
+    load();
+  }, [load]);
+
+  useEffect(() => {
+    void adminApi.pageText('teacher-payouts-report').then((res) => {
+      const pageText = res.data.data ?? {};
+      setMeta({
+        title: pageText.title || lbl('LBL_TEACHER_PAYOUTS_REPORT', 'Teacher payouts report'),
+        summary: pageText.summary,
+        warning: pageText.warning,
+        recommendations: pageText.recommendations,
+        helpingText: pageText.helping_text,
+        plangId: pageText.plang_id,
+      });
+    });
+
+    return () => clearMeta();
+  }, [clearMeta, lbl, setMeta]);
+
+  const onSearch = (e: FormEvent) => {
+    e.preventDefault();
+    setFilters({ ...draft });
+    setPage(1);
+  };
+
+  const onClear = () => {
+    setDraft({});
+    setFilters({});
+    setPage(1);
+  };
+
+  const onExport = () => {
+    const headers = [
+      lbl('LBL_USER_ID', 'User ID'),
+      lbl('LBL_TEACHER_NAME', 'Teacher name'),
+      lbl('LBL_AMOUNT_PAID', 'Amount paid'),
+    ];
+    const lines = rows.map((row) =>
+      [String(row.user_id), `"${row.user_name.replace(/"/g, '""')}"`, `"${row.total_amount.replace(/"/g, '""')}"`].join(
+        ',',
+      ),
+    );
+    const csv = [headers.join(','), ...lines].join('\n');
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'teacher-payouts-report.csv';
+    link.click();
+    URL.revokeObjectURL(link.href);
+  };
+
+  const colSpan = 1 + columns.length;
+
+  return (
+    <main className="main">
+      <div className="container">
+        <div className="breadcrumb-wrap">
+          <ul className="breadcrumb">
+            <li className="breadcrumb-item">
+              <Link to="/admin">{lbl('LBL_Home', 'Home')}</Link>
+            </li>
+            <li className="breadcrumb-item">{lbl('LBL_TEACHER_PAYOUTS_REPORT', 'Teacher payouts report')}</li>
+          </ul>
+          <div className="action-toolbar">
+            <a href="javascript:void(0)" className="btn btn-primary" onClick={onExport}>
+              {lbl('LBL_EXPORT', 'Export')}
+            </a>
+          </div>
+        </div>
+
+        <div className="card">
+          <div
+            className={`card-head js--filter-trigger${filterOpen ? ' active' : ''}`}
+            onClick={() => setFilterOpen((v) => !v)}
+          >
+            <h4>{lbl('LBL_Search...', 'Search...')}</h4>
+          </div>
+          <div className="card-body js--filter-target" style={{ display: filterOpen ? 'block' : 'none' }}>
+            <AdminModuleSearchForm
+              config={searchConfig}
+              draft={draft}
+              lbl={lbl}
+              onDraftChange={setDraft}
+              onSearch={onSearch}
+              onClear={onClear}
+            />
+          </div>
+        </div>
+
+        <div className="card">
+          <div className="card-table">
+            <div className="table-responsive" id="listing">
+              {loading ? (
+                <div className="table-processing loaderJs">
+                  <div className="spinner spinner--sm spinner--brand" />
+                </div>
+              ) : (
+                <table className="table table--hovered" width="100%">
+                  <thead>
+                    <tr>
+                      <th>{lbl('LBL_SRNO', 'Sr no')}</th>
+                      {columns.map((col) => (
+                        <th key={col.key}>{col.label}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {rows.length === 0 ? (
+                      <tr>
+                        <td colSpan={colSpan} className="text-center">
+                          {lbl('LBL_NO_RECORDS_FOUND', 'No records found')}
+                        </td>
+                      </tr>
+                    ) : (
+                      rows.map((row, index) => (
+                        <tr key={row.id}>
+                          <td>{(page - 1) * pagination.per_page + index + 1}</td>
+                          <td>
+                            {row.user_name}
+                            <br />
+                            <small>
+                              {lbl('LBL_USER_ID', 'User ID')}: {row.user_id}
+                            </small>
+                          </td>
+                          <td>{row.total_amount}</td>
+                        </tr>
+                      ))
+                    )}
+                  </tbody>
+                </table>
+              )}
+              <AdminLegacyPagination
+                page={page}
+                lastPage={pagination.last_page}
+                perPage={pagination.per_page}
+                total={pagination.total}
+                onPageChange={setPage}
+                labels={{
+                  showing: lbl('LBL_Showing', 'Showing'),
+                  to: lbl('LBL_to', 'to'),
+                  of: lbl('LBL_of', 'of'),
+                  entries: lbl('LBL_Entries', 'Entries'),
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+}

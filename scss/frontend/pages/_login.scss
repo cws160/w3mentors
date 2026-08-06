@@ -1,0 +1,187 @@
+.section--affiliate {
+    padding: calc(clamp(4.286rem, 2.548vw + 3.649rem, 7.143rem)) 0;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+
+    &::after {
+        content: "";
+        background-color: theme('color.primary');
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        opacity: .05;
+        z-index: -1;
+    }
+}
+
+.cms-form {
+
+    h2,
+    h3 {
+        font-size: calc(clamp(1.571rem, 2.42vw + 0.966rem, 4.286rem));
+        font-weight: 800;
+        line-height: 1.2;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+
+        li {
+            font-size: calc(clamp(1rem, 0.255vw + 0.936rem, 1.286rem));
+            padding: 0;
+            line-height: 1.5;
+            gap: 1rem;
+            display: flex;
+
+            &::before {
+                --size: 1.5rem;
+                content: "✓";
+                width: var(--size);
+                height: var(--size);
+                flex: 0 0 var(--size);
+                max-width: var(--size);
+                border-radius: 100%;
+                background-color: #000;
+                color: #fff;
+                font-size: 14px;
+                text-align: center;
+                transform: rotate(6deg);
+                display: block;
+                line-height: 1.4;
+                position: relative;
+                top: 0;
+                background-color: theme('color.primary');
+                color: theme('color.primary-inverse');
+                margin-top: 4px;
+            }
+        }
+    }
+}
+
+.card-form {
+    background: #fff;
+    color: #000;
+    box-shadow: 0px 0px 80px #D3CFE8;
+    border-radius: calc(clamp(0.714rem, 0.637vw + 0.555rem, 1.429rem));
+    padding: calc(clamp(1.429rem, 0.955vw + 1.19rem, 2.5rem)) calc(clamp(1.429rem, 1.911vw + 0.951rem, 3.571rem));
+    position: relative;
+
+    &-cap {
+        position: absolute;
+        #{theme('direction.right','value')}: -50px;
+        top: -40px;
+
+        svg {
+            fill: theme('color.primary');
+        }
+    }
+
+    &__head {
+        padding-bottom: 1.5rem;
+
+        h2 {
+            font-size: calc(clamp(1.286rem, 0.892vw + 1.063rem, 2.286rem));
+            font-weight: 700;
+        }
+    }
+
+    &__footer {
+        p {
+            font-size: calc(clamp(1rem, 0.127vw + 0.968rem, 1.143rem));
+        }
+    }
+
+    .form {
+        .field_label {
+            font-size: 1rem;
+            font-weight: 500;
+            display: flex;
+
+            .link {
+                margin-#{theme('direction.left','value')}: auto;
+            }
+        }
+
+        .checkbox {
+            min-width: 24px;
+            min-height: 24px;
+            padding-#{theme('direction.left','value')}: 38px;
+
+            input {
+                width: 24px;
+                height: 24px;
+            }
+
+            .input-helper {
+                width: 24px;
+                height: 24px;
+                border-radius: 4px;
+                border-width: 1px;
+
+                &::before {
+                    left: 5px;
+                    bottom: 9px;
+                }
+
+                &::after {
+                    left: 8px;
+                    bottom: 5px;
+                }
+            }
+        }
+
+        input[type="submit"].btn--lg,
+        input[type="button"].btn--lg {
+            height: 3.25rem;
+            line-height: 100%;
+        }
+
+        .errorlist {
+            padding: 4px 0 0 0;
+            background-color: transparent;
+        }
+
+    }
+
+    .link {
+        font-size: inherit;
+        font-weight: inherit;
+    }
+}
+
+@media (min-width:theme('breakpoints.lg', 'value')) {
+    .circle-shapes {
+        &:after {
+            content: "";
+            width: calc(clamp(35.714rem, 14.286vw + 30.612rem, 45rem));
+            height: calc(clamp(35.714rem, 14.286vw + 30.612rem, 45rem));
+            background: theme('color.primary');
+            position: absolute;
+            display: block;
+            bottom: -10vw;
+            border-radius: 100%;
+            #{theme('direction.right','value')}: 16vw;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        &:before {
+            content: "";
+            width: calc(clamp(17.857rem, 17.857vw + 11.48rem, 30rem));
+            height: calc(clamp(17.857rem, 17.857vw + 11.48rem, 30rem));
+            background: theme('color.primary');
+            position: absolute;
+            display: block;
+            bottom: -12vw;
+            border-radius: 100%;
+            #{theme('direction.right','value')}: 5vw;
+            opacity: 0.2;
+            z-index: -1;
+        }
+    }
+}

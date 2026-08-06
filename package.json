@@ -1,0 +1,44 @@
+{
+  "name": "html",
+  "version": "1.0.0",
+  "description": "using for HTML and CSS",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "dev": "npm run dev --prefix frontend",
+    "dev:legacy-php": "php -S localhost:8090 -t public public/router.php",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev:gulp": "gulp",
+    "build:frontend": "npm run build --prefix frontend",
+    "watch": "gulp watch",
+    "build:scss": "sass scss/common.scss application/views/css/common.css --style=compressed --no-source-map && sass scss/themes/onlinetutoring/frontend.scss application/views/css/themes/onlinetutoring/frontend.css --style=compressed --no-source-map && sass scss/forum.scss application/views/css/forum.css --style=compressed --no-source-map && node -e \"const fs=require('fs');const cp=(s,d)=>{fs.mkdirSync(require('path').dirname(d),{recursive:true});fs.copyFileSync(s,d);};cp('application/views/css/common.css','frontend/public/w3mentors/css/common.css');cp('application/views/css/themes/onlinetutoring/frontend.css','frontend/public/w3mentors/css/themes/onlinetutoring/frontend.css');cp('application/views/css/forum.css','frontend/public/w3mentors/css/forum.css');\"",
+    "server": "live-server"
+  },
+  "keywords": [
+    "html"
+  ],
+  "author": "W3Mentors",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.17",
+    "bootstrap": "^5.3.0-alpha1",
+    "gulp": "^5.0.0",
+    "gulp-autoprefixer": "^9.0.0",
+    "gulp-cli": "^3.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify": "^3.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-svg-sprite": "^2.0.3",
+    "gulp-uglify": "^3.0.2",
+    "gulp-watch": "^4.0.1"
+  },
+  "browserslist": [
+    "last 10 versions"
+  ],
+  "dependencies": {
+    "latest-version": "^9.0.0",
+    "sass": "^1.75.0",
+    "scss": "^0.2.4"
+  }
+}

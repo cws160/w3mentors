@@ -1,0 +1,136 @@
+$badge: "badge";
+
+.#{$badge} {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: .25rem 0;
+  padding: .5rem .75rem;
+  overflow: hidden;
+  position: relative;
+  line-height: 100%;
+  font-weight: 500;
+  text-align: center;
+  font-size: 85%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  user-select: none;
+  transition: all 0.4s;
+
+  >svg,
+  >img {
+    &:first-child:not(:last-child) {
+      margin-#{theme('direction.right','value')}: .5rem;
+    }
+
+    &:last-child:not(:first-child) {
+      margin-#{theme('direction.left','value')}: .5rem;
+    }
+  }
+
+  &[data-count]:after {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.5em;
+    height: 1.5em;
+    border-radius: 1.5em;
+    padding-#{theme('direction.left','value')}: 1.25rem;
+    padding-#{theme('direction.right','value')}: 1.25rem;
+    margin-#{theme('direction.left','value')}: .5rem;
+    content: attr(data-count);
+    font-size: 18px;
+    line-height: 1.5em;
+    background-color: theme('colors.gray.900');
+    color: theme('colors.white');
+    pointer-events: none;
+  }
+
+  &:not(:first-child) {
+    margin-#{theme('direction.right','value')}: .25rem
+  }
+
+  &:before {
+    background-color: currentColor;
+    position: absolute;
+    #{theme('direction.left','value')}: 0;
+    #{theme('direction.right','value')}: 0;
+    top: 0;
+    bottom: 0;
+    content: "";
+    pointer-events: none;
+    opacity: 0.15;
+    transition: all 0.4s;
+  }
+
+  @media (min-width: theme("breakpoints.sm", "value")) {
+    &:hover:before {
+      opacity: 0.14;
+    }
+  }
+
+
+  &--curve {
+    border-radius: theme('radius-sm');
+  }
+
+  &--round {
+    border-radius: 100px;
+  }
+
+  &--equal {
+    padding: 0;
+    min-width: 1.7em;
+    min-height: 1.7em;
+    line-height: 1.7em;
+  }
+
+  &--xsmall {
+    font-size: 10px;
+    font-weight: normal;
+    padding: 1px 5px 2px;
+    min-height: 12px;
+  }
+
+  &--small {
+    font-size: 75%;
+    font-weight: normal;
+    padding: .25rem .75rem;
+    min-height: 18px;
+  }
+
+  &--large {
+
+    font-weight: normal;
+    padding: .5rem 1rem;
+    min-height: 24px;
+  }
+
+  &--block {
+    display: block;
+    margin-bottom: .5rem;
+  }
+
+  &--removable {
+    padding-#{theme('direction.right','value')}: 30px;
+    position: relative;
+    ;
+    cursor: pointer;
+
+    &:after {
+      content: "+";
+      font-size: 1.25rem;
+      position: absolute;
+      transform: rotate(45deg) translate(0, -50%);
+      #{theme('direction.right','value')}: 15px;
+      top: 45%;
+      transform-origin: center center;
+    }
+  }
+
+  &--bordered {
+    border: 1px solid currentColor;
+  }
+
+}

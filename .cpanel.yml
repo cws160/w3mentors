@@ -1,0 +1,45 @@
+---
+deployment:
+  tasks:
+    - export REPOSITORY_PATH=/home/cynorwebsolution/cwswebsite
+    - export APP_DEPLOY_PATH=/home/cynorwebsolution/public_html/w3mentors
+    - export FRONTEND_DEPLOY_PATH=/home/cynorwebsolution/public_html/w3mentors/frontend
+    - export API_APP_PATH=/home/cynorwebsolution/public_html/w3mentors/backend
+
+    # w3mentors.com document root should point to $APP_DEPLOY_PATH.
+    # Root .htaccess serves React from /frontend and Laravel API from /api.
+    - export VITE_BASE_PATH=/frontend/
+    - export VITE_API_URL=/api/v1
+
+    # Prepare deploy folders.
+    - /bin/mkdir -p $APP_DEPLOY_PATH
+    - /bin/mkdir -p $FRONTEND_DEPLOY_PATH
+    - /bin/mkdir -p $API_APP_PATH
+
+    # Deploy legacy/root application files to /public_html/w3mentors.
+    - /usr/bin/rsync -a --delete --exclude='.git' --exclude='.agents' --exclude='.codex' --exclude='.cpanel.yml' --exclude='.env' --exclude='node_modules' --exclude='vendor' --exclude='frontend' --exclude='backend' --exclude='user-uploads' --exclude='restore' --exclude='conf' --exclude='public/cache' --exclude='public/caching' --exclude='*.log' ./ $APP_DEPLOY_PATH/
+
+    # Install root legacy PHP dependencies because public/application-top.php loads vendor/autoload.php.
+    - cd $APP_DEPLOY_PATH && composer install --no-dev --optimize-autoloader
+
+    # Deploy Laravel backend source without local runtime/dependency files.
+    - /usr/bin/rsync -a --delete --exclude='.env' --exclude='vendor' --exclude='storage/logs/*' --exclude='storage/framework/cache/*' --exclude='storage/framework/sessions/*' --exclude='storage/framework/views/*' backend/ $API_APP_PATH/
+
+    # Install Laravel production dependencies.
+    - cd $API_APP_PATH && composer install --no-dev --optimize-autoloader
+
+    # Create .env once. Update real production values in cPanel File Manager or Terminal one time.
+    - if [ ! -f $API_APP_PATH/.env ]; then /bin/cp $API_APP_PATH/.env.example $API_APP_PATH/.env; fi
+    - if ! /bin/grep -q '^APP_KEY=base64:' $API_APP_PATH/.env; then cd $API_APP_PATH && php artisan key:generate --force; fi
+
+    # Laravel writable folders and production cache.
+    - /bin/mkdir -p $API_APP_PATH/storage/app/public $API_APP_PATH/storage/framework/cache $API_APP_PATH/storage/framework/sessions $API_APP_PATH/storage/framework/views $API_APP_PATH/storage/logs $API_APP_PATH/bootstrap/cache
+    - /bin/chmod -R 775 $API_APP_PATH/storage $API_APP_PATH/bootstrap/cache
+    - cd $API_APP_PATH && php artisan config:cache
+    - cd $API_APP_PATH && php artisan route:cache
+    - cd $API_APP_PATH && php artisan view:cache
+
+    # Build React frontend on cPanel and deploy static files.
+    - cd frontend && VITE_API_URL=$VITE_API_URL npm ci
+    - cd frontend && VITE_API_URL=$VITE_API_URL npm run build -- --base=$VITE_BASE_PATH
+    - /usr/bin/rsync -a --delete frontend/dist/ $FRONTEND_DEPLOY_PATH/

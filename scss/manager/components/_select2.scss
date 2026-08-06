@@ -1,0 +1,132 @@
+.select2-container--default {
+    .select2-selection--single {
+        border: none;
+        height: auto;
+        .select2-selection__clear {
+            background-color: transparent;
+            border: none;
+            font-size: 1em;
+            margin-#{$end-direction}: 20px;
+            .main[dir="rtl"] & {
+                float: #{$start-direction};
+            }
+        }
+        .select2-selection__placeholder {
+            color: $txt-gray;
+        }
+        .select2-selection__arrow {
+            display: none;
+        }
+        .select2-selection__rendered {
+            border: $input-border;
+            background-color: $input-bg;
+            color: $input-color;
+            height: $input-height;
+            width: 100%;
+            padding: 0.6rem 0.75rem;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            padding-#{$end-direction}: 35px;
+            background-image: url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMzA2cHgiIGhlaWdodD0iMzA2cHgiIHZpZXdCb3g9IjAgMCAzMDYgMzA2IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAzMDYgMzA2OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQoJPGc+DQoJCTxnIGlkPSJleHBhbmQtbW9yZSI+DQoJCQk8cG9seWdvbiBwb2ludHM9IjI3MC4zLDU4LjY1IDE1MywxNzUuOTUgMzUuNyw1OC42NSAwLDk0LjM1IDE1MywyNDcuMzUgMzA2LDk0LjM1IiAvPg0KCQk8L2c+DQoJPC9nPg0KDQo8L3N2Zz4NCg==");
+            background-size: 10px;
+            background-repeat: no-repeat;
+            background-position: calc(100% - 12px) center;
+            &:hover {
+                cursor: pointer;
+            }
+            .main[dir="rtl"] & {
+                padding-#{$start-direction}: 35px;
+                padding-#{$end-direction}: 0.75rem;
+                text-align: #{$end-direction};
+            }
+            .main[dir="ltr"] & {
+                padding-#{$start-direction}: 35px;
+                padding-#{$end-direction}: 0.75rem;
+                background-position: calc(100% - 12px) center;
+            }
+            [dir="rtl"] & {
+                background-position: calc(0% - -12px) center;
+            }
+        }
+    }
+    .select2-selection--multiple {
+        border-color: $border-color !important;
+        &:focus {
+            outline: 0;
+        }
+        &.select2-selection--clearable {
+            padding-#{$end-direction}: 25px;
+        }
+        .select2-selection__choice {
+            background-color: $bg-gray;
+            border: 0;
+            border-radius: $common-radius;
+            margin-#{$end-direction}: 5px;
+            padding: 5px;
+            font-size: 0.85rem;
+            padding-#{$start-direction}: 20px;
+            &__display {
+                font-size: 0.85rem;
+            }
+        }
+        .select2-selection__choice__remove {
+            border-#{$end-direction}: 0;
+            color: $txt-gray;
+            height: 100%;
+            line-height: 2;
+            #{$start-direction}: 0 !important;
+            &:hover,
+            &:focus {
+                background-color: #f1f1f1;
+                color: $txt-body;
+                outline: none;
+            }
+        }
+        .select2-search {
+            display: block;
+            color: $input-color;
+            height: $input-height;
+            width: 100%;
+            padding: 0.25rem 0.35rem;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+        .select2-search__field {
+            width: 100% !important;
+            font-size: 0.85rem;
+            font-family: inherit;
+            &:hover,
+            &:focus {
+                background: transparent;
+            }
+        }
+    }
+    .select2-search__field {
+        font-size: 0.85rem;
+        &:focus {
+            outline: 0;
+        }
+    }
+}
+
+.select2-container {
+    flex: 1 1 auto;
+    width: 1%;
+    .select2-dropdown {
+        border: $border;
+        box-shadow: 0px 0px 50px 0px $shadow-rgb;
+        .select2-results__option {
+            font-size: 0.875rem;
+        }
+    }
+    &:focus-visible,
+    & *:focus-visible {
+        outline: $focus-outline !important;
+    }
+}
+
+.select2-container--focus {
+    .select2-selection--multiple {
+        border-color: $brand-color !important;
+    }
+}

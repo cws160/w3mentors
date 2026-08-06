@@ -1,0 +1,853 @@
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    font-weight: 600;
+    line-height: 1.4;
+    color: inherit;
+}
+
+.h1,
+h1 {
+    font-size: 2.2rem;
+}
+
+.h2,
+h2 {
+    font-size: 2rem;
+}
+
+.h3,
+h3 {
+    font-size: 1.5rem;
+}
+
+.h4,
+h4 {
+    font-size: 1.3rem;
+}
+
+.h5,
+h5 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.h6,
+h6 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    color: inherit;
+    line-height: 1.8;
+    color: #000;
+}
+
+$page: "page";
+
+.#{$page} {
+    @media (min-width: theme("breakpoints.xl", "value")) {
+        position: relative;
+        max-width: 1920px;
+        margin: 0 auto;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+$flex-layout: "flex-layout";
+
+.#{$flex-layout} {
+    @media (min-width: theme("breakpoints.lg", "value")) {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+
+        &__large {
+            width: calc(100% - 390px);
+
+            &:only-child {
+                width: 100%;
+            }
+        }
+
+        &__small {
+            width: 360px;
+            order: 2;
+        }
+    }
+
+    @media (min-width: theme("breakpoints.xl", "value")) {
+        &__sticky {
+            position: sticky;
+            top: 6rem;
+        }
+    }
+
+    @media (max-width: theme("breakpoints.lg", "value")) {
+        &__small {
+            padding-top: 1rem;
+        }
+    }
+}
+
+$page-body: "page-body";
+
+.#{$page-body} {
+    padding: 1.25rem 0;
+
+    @media (min-width: theme("breakpoints.sm", "value")) {
+        padding: 3rem 0;
+    }
+}
+
+
+$box-view: "box-view";
+
+.#{$box-view} {
+    width: 100%;
+    background-color: theme('color.white');
+    border: 1px solid theme('color.gray.200');
+
+    &--space {
+        padding: 1rem;
+
+        @media (min-width: theme("breakpoints.sm", "value")) {
+            padding: 2.5rem;
+        }
+    }
+
+    &__body {
+        @media (min-width: theme("breakpoints.xl", "value")) {
+            min-height: 24rem;
+        }
+    }
+
+    &__footer {
+        padding-top: 2.5rem;
+    }
+
+    &__head {
+        & small {
+            opacity: 1;
+            font-size: 90%;
+            margin: 0 0 10px;
+        }
+
+        & p {
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+$box-flex: "box-flex";
+
+.#{$box-flex} {
+    @media (min-width: theme("breakpoints.lg", "value")) {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        .#{$box-view} {
+            &__footer {
+                margin-top: auto;
+            }
+        }
+    }
+}
+
+$timer: "timer";
+
+.#{$timer} {
+    color: theme('color.black');
+
+    &__media {
+        display: flex;
+        align-items: center;
+    }
+
+    &__controls {
+        font-weight: 700;
+        color: #E20000;
+    }
+}
+
+$page-meta: "page-meta";
+
+.#{$page-meta} {
+    @media (min-width: theme("breakpoints.sm", "value")) {
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+
+        &__item {
+            position: relative;
+
+            &:not(:first-child) {
+                padding-#{theme('direction.left','value')}: 2rem;
+
+                &:before {
+                    content: "|";
+                    position: absolute;
+                    #{theme('direction.left','value')}: 1rem;
+                    top: 0;
+                }
+            }
+        }
+    }
+
+    @media (max-width: theme("breakpoints.sm", "value")) {
+        &__item-second {
+            float: #{theme('direction.right','value')};
+        }
+
+        .#{$timer} {
+            background-color: theme('color.white');
+            padding: .75rem;
+            border: 1px solid theme('color.gray.200');
+            border-radius: theme('radius-sm');
+            margin: .75rem 0;
+        }
+    }
+}
+
+.style-italic {
+    font-style: italic;
+}
+
+$flex-header: "flex-header";
+
+.#{$flex-header} {
+    padding: 1rem 0;
+}
+
+$page-progress: "page-progress";
+
+.#{$page-progress} {
+    display: flex;
+    align-items: center;
+    max-width: 350px;
+
+    &__content {
+        flex: 1;
+        padding: 0 .5rem;
+    }
+
+    @media (max-width: theme("breakpoints.sm", "value")) {
+        background-color: theme('color.white');
+        padding: 1rem;
+        border: 1px solid theme('color.gray.200');
+        border-radius: theme('radius-sm');
+        margin: .75rem 0;
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+
+.btn--sm-block {
+    @media (max-width: theme("breakpoints.sm", "value")) {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.is-disabled {
+    cursor: not-allowed !important;
+    opacity: 0.5;
+}
+
+
+$option: "option";
+
+.#{$option} {
+    position: relative;
+    width: 100%;
+    display: block;
+
+    &__icon {
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: absolute;
+        #{theme('direction.left','value')}: 1.25rem;
+        top: 1rem;
+        opacity: 0.15;
+        transition: all 0.2s;
+
+        @media (min-width: theme("breakpoints.sm", "value")) {
+            top: 1.25rem;
+        }
+    }
+
+    &__item {
+        position: relative;
+        width: 100%;
+        border-radius: theme('radius');
+        min-height: 50px;
+        padding: .5rem;
+        padding-#{theme('direction.left','value')}: 4rem;
+        display: flex;
+        flex-wrap: wrap;
+        overflow: hidden;
+        transition: all 0.2s;
+
+        &:before {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            content: "";
+            pointer-events: none;
+            background-color: theme('color.black');
+            opacity: 0.06;
+            transition: all 0.2s;
+        }
+
+        @media (min-width: theme("breakpoints.sm", "value")) {
+            padding: 1.25rem;
+            padding-#{theme('direction.left','value')}: 4rem;
+            min-height: 60px;
+        }
+
+    }
+
+    &__input {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+
+        &:checked+.#{$option} {
+            &__item {
+                color: theme('color.primary');
+
+                &:before {
+                    background-color: currentColor;
+                }
+
+                .#{$option} {
+                    &__icon {
+                        opacity: 1;
+
+                        & svg {
+                            fill: theme('color.primary');
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+    &__value {
+        align-self: center;
+        word-break: break-word;
+        line-height: 1.6;
+        min-height: 24px;
+    }
+
+    &__badge {
+        align-self: center;
+        line-height: 14px;
+        min-height: 24px;
+        padding-top: 0;
+        padding-bottom: 0;
+        text-transform: uppercase;
+        font-size: 70%;
+
+        &:before {
+            opacity: 0.1;
+        }
+    }
+
+    & .icon-incorrect {
+        display: none;
+    }
+
+    &-view {
+        pointer-events: none;
+    }
+
+    &-correct {
+        .#{$option} {
+            &__item {
+                color: #008C25;
+
+                &:before {
+                    background-color: currentColor;
+                }
+
+                .#{$option} {
+                    &__icon {
+                        opacity: 1;
+
+                        & svg {
+                            fill: #12D26B;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+    &-wrong {
+        .#{$option} {
+            &__item {
+                color: #E20000;
+
+                &:before {
+                    background-color: currentColor;
+                }
+
+                .#{$option} {
+                    &__icon {
+                        opacity: 1;
+
+                        & svg {
+                            fill: #E20000;
+                        }
+
+                        .icon-incorrect {
+                            display: block;
+                        }
+
+                        .icon-correct {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+$option-list: "option-list";
+
+.#{$option-list} {
+    .#{$option} {
+        margin-top: 1rem;
+        cursor: pointer;
+    }
+}
+
+$box-actions: "box-actions";
+
+.#{$box-actions} {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__cell-left {
+        margin-#{theme('direction.right','value')}: auto;
+    }
+
+    &__cell-right {
+        margin-#{theme('direction.left','value')}: auto;
+    }
+}
+
+$attempt-action: "attempt-action";
+
+.#{$attempt-action} {
+    width: 100%;
+    height: 42px;
+    border: 1px solid theme('color.gray.200');
+    border-radius: theme('radius-sm');
+    display: block;
+    line-height: 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+$attempt-list: "attempt-list";
+
+.#{$attempt-list} {
+    & ul {
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(6, 1fr);
+        grid-gap: 0.5rem;
+
+        & li {
+            &:hover {
+                @media (min-width: theme("breakpoints.xl", "value")) {
+                    .#{$attempt-action} {
+                        color: theme('color.primary');
+                        border-color: theme('color.primary');
+                    }
+                }
+            }
+
+            &.is-visited {
+                .#{$attempt-action} {
+                    border-color: #12D26B;
+                    color: #12D26B;
+                    font-weight: 600;
+
+                    &:before {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        bottom: 0;
+                        right: 0;
+                        content: "";
+                        background-color: currentColor;
+                        pointer-events: none;
+                        opacity: 0.04;
+                    }
+                }
+            }
+
+            &.is-skip {
+                .#{$attempt-action} {
+                    border-color: theme('color.gray.200');
+                    color: theme('color.black');
+                    font-weight: 600;
+
+                    &:before {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        bottom: 0;
+                        right: 0;
+                        content: "";
+                        background-color: currentColor;
+                        pointer-events: none;
+                        opacity: 0.06;
+                    }
+                }
+            }
+
+            &.is-correct {
+                .#{$attempt-action} {
+                    border-color: #12D26B;
+                    color: #12D26B;
+                    font-weight: 600;
+
+                    &:before {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        bottom: 0;
+                        right: 0;
+                        content: "";
+                        background-color: currentColor;
+                        pointer-events: none;
+                        opacity: 0.04;
+                    }
+                }
+            }
+
+            &.is-wrong {
+                .#{$attempt-action} {
+                    border-color: #E20000;
+                    color: #E20000;
+                    font-weight: 600;
+
+                    &:before {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        bottom: 0;
+                        right: 0;
+                        content: "";
+                        background-color: currentColor;
+                        pointer-events: none;
+                        opacity: 0.04;
+                    }
+                }
+            }
+
+            &.is-current {
+                .#{$attempt-action} {
+                    border-width: 2px;
+                    font-weight: 700;
+                    border-color: currentColor;
+                }
+            }
+        }
+    }
+}
+
+$legend-list: "legend-list";
+
+.#{$legend-list} {
+    & li {
+        margin-top: 1rem;
+
+        &.is-current {
+            .#{$legend-list} {
+                &__item:before {
+                    background-color: theme('color.primary');
+                }
+            }
+        }
+
+        &.is-answered {
+            .#{$legend-list} {
+                &__item:before {
+                    background-color: #12D26B;
+                }
+            }
+        }
+
+        &.is-correct {
+            .#{$legend-list} {
+                &__item:before {
+                    background-color: #12D26B;
+                }
+            }
+        }
+
+        &.is-wrong {
+            .#{$legend-list} {
+                &__item:before {
+                    background-color: #E20000;
+                }
+            }
+        }
+    }
+
+    &__item {
+        position: relative;
+        padding-#{theme('direction.left','value')}: 2rem;
+
+        &:before {
+            width: 14px;
+            height: 14px;
+            position: absolute;
+            #{theme('direction.left','value')}: 1px;
+            top: 0.25rem;
+            border-radius: theme('radius-sm');
+            content: "";
+            background-color: #ddd;
+            display: block;
+            pointer-events: none;
+        }
+    }
+}
+
+$inline-meta: "inline-meta";
+
+.#{$inline-meta} {
+    width: 100%;
+
+    @media (min-width: theme("breakpoints.sm", "value")) {
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        justify-content: center;
+
+        &__item {
+            position: relative;
+            margin: .5rem;
+
+            &:not(:first-child) {
+                padding-#{theme('direction.left','value')}: 1rem;
+
+                &:before {
+                    content: "|";
+                    position: absolute;
+                    #{theme('direction.left','value')}: 0;
+                    top: 0;
+                }
+            }
+        }
+    }
+
+    @media (max-width: theme("breakpoints.sm", "value")) {
+        border: 1px solid theme('color.gray.200');
+        padding: .5rem;
+        background-color: rgba(0, 0, 0, 0.03);
+
+        &__item {
+            display: block;
+            width: 100%;
+            margin: .25rem 0;
+            padding: .75rem;
+        }
+    }
+}
+
+$check-list: 'check-list';
+
+.#{$check-list} {
+    position: relative;
+    width: 100%;
+
+    & ul {
+        & li {
+            position: relative;
+            padding-#{theme('direction.left','value')}: 2.5rem;
+            margin-bottom: .5rem;
+            line-height: 1.8;
+
+            @media(min-width: theme('breakpoints.xl', 'value')) {
+                margin-bottom: 1rem;
+            }
+
+            &:before {
+                position: absolute;
+                #{theme('direction.left','value')}: 5px;
+                top: 0.4rem;
+                content: "";
+                width: 8px;
+                height: 14px;
+                border-bottom: 0.12rem solid theme('color.primary');
+                border-right: 0.12rem solid theme('color.primary');
+                transform: rotate(45deg);
+            }
+        }
+    }
+
+    &--half {
+        @media(min-width: theme('breakpoints.sm', 'value')) {
+            & ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+
+                & li {
+                    flex: 0 0 44%;
+                }
+            }
+        }
+    }
+}
+
+.height-100 {
+    height: 100%;
+}
+
+$option-hint: 'option-hint';
+
+.#{$option-hint} {
+    position: relative;
+    width: 100%;
+    font-size: 96%;
+    color: theme('color.black');
+    margin: 2.5rem 0;
+}
+
+$option-manual: 'option-manual';
+
+.#{$option-manual} {
+    position: relative;
+    width: 100%;
+
+    & textarea {
+        height: 250px;
+    }
+}
+
+.answer-view {
+    background-color: theme('color.gray.100');
+    border-radius: theme('radius-sm');
+    border: 1px solid theme('color.gray.200');
+    padding: 1.25rem 2rem;
+
+    & p {
+        margin: 0;
+    }
+}
+
+$repeat-items: 'repeat-items';
+
+.#{$repeat-items} {
+    position: relative;
+    width: 100%;
+    display: flex;
+    border: 1px solid theme('color.gray.200');
+    padding: 1.5rem;
+    padding-bottom: 0;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+    & .repeat-element {
+        flex: 0 0 50%;
+        padding: 0 0 1.6rem 0;
+
+        @media(min-width: theme('breakpoints.sm', 'value')) {
+            flex: 0 0 33.3%;
+        }
+
+        &__title {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+    }
+}
+
+//THEME SPECIFIC CSS START
+
+[theme=wellness] {
+
+    .btn,
+    .form input[type="submit"],
+    .form input[type="button"],
+    .form input[type="reset"],
+    .option__item {
+        border-radius: calc(clamp(1.143rem, 0.255vw + 1.079rem, 1.429rem)) 0;
+    }
+
+    .btn.btn--small,
+    .btn--equal,
+    .attempt-action {
+        border-radius: calc(clamp(0.571rem, 0.382vw + 0.476rem, 1rem)) 0;
+    }
+
+    .box-view,
+    .repeat-items,
+    .message-display {
+        border-radius: calc(clamp(1.786rem, 1.592vw + 1.388rem, 3.571rem)) 0;
+    }
+
+}
+
+[theme=business] {
+
+    .btn,
+    .form input[type="submit"],
+    .form input[type="button"],
+    .form input[type="reset"],
+    .option__item,
+    .btn.btn--small,
+    .btn--equal,
+    .attempt-action,
+    .box-view,
+    .repeat-items,
+    .message-display {
+        border-radius: 0;
+    }
+
+}

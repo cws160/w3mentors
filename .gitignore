@@ -1,0 +1,82 @@
+# Dependencies
+/node_modules/
+/frontend/node_modules/
+/vendor/
+/backend/vendor/
+
+# Build output
+/frontend/dist/
+/dist/
+/dist-ssr/
+
+# Environment / local config
+/.env
+/.env.*
+/backend/.env
+/backend/.env.*
+/frontend/.env
+/frontend/.env.*
+!.env.example
+!/backend/.env.example
+!/frontend/.env.example
+/public/config.js
+/public/settings.php
+/conf/
+
+# Runtime uploads and generated files
+/user-uploads/
+/restore/user-uploads/
+/restore/database/
+/public/cache/
+/public/caching/
+/public/error_log
+/robots.txt
+/sitemap.xml
+/license.txt
+
+# Laravel runtime files
+/backend/storage/app/*
+!/backend/storage/app/.gitignore
+!/backend/storage/app/.gitkeep
+!/backend/storage/app/public/
+/backend/storage/app/public/*
+!/backend/storage/app/public/.gitignore
+!/backend/storage/app/public/.gitkeep
+/backend/storage/framework/cache/*
+!/backend/storage/framework/cache/.gitignore
+!/backend/storage/framework/cache/.gitkeep
+/backend/storage/framework/sessions/*
+!/backend/storage/framework/sessions/.gitignore
+!/backend/storage/framework/sessions/.gitkeep
+/backend/storage/framework/views/*
+!/backend/storage/framework/views/.gitignore
+!/backend/storage/framework/views/.gitkeep
+/backend/storage/logs/*
+!/backend/storage/logs/.gitignore
+!/backend/storage/logs/.gitkeep
+/backend/bootstrap/cache/*
+!/backend/bootstrap/cache/.gitignore
+!/backend/bootstrap/cache/.gitkeep
+
+# Legacy generated/private folders
+/library/core/
+
+# Logs
+*.log
+/mbs-errors.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor / OS files
+/.vscode/
+/nbproject/
+/.idea/
+.DS_Store
+Thumbs.db
+.sass-cache/
+
+# Local Codex/agent metadata
+/.agents/
+/.codex/

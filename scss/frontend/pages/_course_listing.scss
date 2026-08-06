@@ -1,0 +1,344 @@
+.style-italic {
+    font-style: italic;
+}
+
+$mark-option: "mark-option";
+
+.#{$mark-option} {
+    width: 36px;
+    height: 36px;
+    position: relative;
+    display: flex;
+    color: #000;
+    align-items: center;
+    justify-content: center;
+    border-radius: theme('radius.round');
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+
+    &.is-active {
+        background-color: theme('color.primary');
+
+        & svg {
+            fill: #fff;
+        }
+    }
+}
+
+.btn--favorite {
+    border-color: currentColor;
+    color: theme('color.gray.900');
+
+    &.is-active {
+        background-color: theme('color.secondary');
+        border-color: theme('color.secondary');
+        color: theme('color.secondary-inverse');
+    }
+}
+
+$course-card: "course-card";
+
+.#{$course-card} {
+    .#{$mark-option} {
+        position: absolute;
+        #{theme('direction.left','value')}: 1.6rem;
+        top: 1.6rem;
+
+        @media (max-width:theme('breakpoints.sm', 'value')) {
+            #{theme('direction.left','value')}: 1rem;
+            top: 1rem;
+            z-index: 1;
+        }
+    }
+
+    background-color: #fff;
+    box-shadow: 0px 0px 40px #E0E3EC;
+    border-radius: theme('radius');
+    width: 100%;
+    margin-bottom: 2rem;
+    transition: all 0.4s;
+    position: relative;
+
+    &__label {
+        display: block;
+        font-size: 13px;
+
+        @media (max-width:theme('breakpoints.sm', 'value')) {
+            font-size: 0.95rem;
+        }
+    }
+
+    &__title {
+        display: block;
+        word-wrap: break-word;
+        font-size: calc(clamp(1rem, 0.127vw + 0.968rem, 1.143rem));
+
+        @media (max-width:theme('breakpoints.lg', 'value')) {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        @media (max-width:theme('breakpoints.md', 'value')) {
+            font-size: 15px;
+        }
+
+        @media (max-width:theme('breakpoints.sm', 'value')) {
+            overflow: visible;
+            text-overflow: unset;
+            white-space: normal;
+        }
+    }
+
+    &__subtitle {
+        display: block;
+
+        @media (max-width:theme('breakpoints.sm', 'value')) {
+            & {
+                display: none;
+            }
+        }
+    }
+
+    @media (min-width:theme('breakpoints.xl', 'value')) {
+        &:hover {
+            box-shadow: theme('boxShadow.vertical');
+        }
+    }
+
+    .rating {
+        &__media {
+            width: 12px;
+            height: 12px;
+        }
+
+        &__value {
+            font-size: 13px;
+            line-height: 1;
+        }
+
+        &__count {
+            font-size: 12px;
+        }
+    }
+
+    .profile-meta {
+        &__details {
+            font-size: 13px;
+
+            span {
+                font-weight: 600;
+            }
+        }
+    }
+
+    .course-media {
+        border-radius: theme('radius');
+        overflow: hidden;
+
+        .course-preview {
+            &__action {
+                span {
+                    border-radius: 50%;
+                    background-color: transparent;
+                    color: #fff;
+                    border: 2px solid currentColor;
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+}
+
+$course-grid: "course-grid";
+
+.#{$course-grid} {
+    padding: calc(clamp(1rem, 1.656vw + 0.586rem, 2.857rem));
+
+    @media (min-width:theme('breakpoints.md', 'value')) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: calc(clamp(1rem, 1.656vw + 0.586rem, 2.857rem));
+    }
+
+    @media (max-width:theme('breakpoints.lg', 'value')) {
+        align-items: flex-start;
+    }
+
+    &__head {
+        position: relative;
+
+        @media (min-width:theme('breakpoints.md', 'value')) {
+            flex: 0 0 45%;
+            max-width: 45%;
+        }
+
+        @media (min-width:theme('breakpoints.xxl', 'value')) {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+
+    &__body {
+        flex: 1;
+        min-width: 0;
+
+        @media (max-width:theme('breakpoints.md', 'value')) {
+            margin-top: 1.25rem;
+        }
+    }
+}
+
+$course-stats: "course-stats";
+
+.#{$course-stats} {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .5rem 0;
+
+    &__item {
+        font-size: 13px;
+
+        span {
+            line-height: 1;
+            display: block;
+        }
+
+        &:not(:last-child) {
+            padding-#{theme('direction.right','value')}: .75rem;
+            margin-#{theme('direction.right','value')}: .75rem;
+            border-#{theme('direction.right','value')}: 1px solid;
+        }
+    }
+}
+
+$course-actions: "course-actions";
+
+.#{$course-actions} {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    @media (max-width:theme('breakpoints.sm', 'value')) {
+        margin-top: 1rem;
+    }
+
+    &__grid {
+        @media (max-width:theme('breakpoints.sm', 'value')) {
+            flex: 0 0 100%;
+        }
+    }
+}
+
+$course-controls: "course-controls";
+
+.#{$course-controls} {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75rem;
+
+    .btn {
+        border-width: 2px;
+    }
+
+    @media (max-width:theme('breakpoints.sm', 'value')) {
+        &__item {
+            flex: 1;
+
+            & .btn {
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+}
+
+$snakeline-hover: "snakeline-hover";
+
+.#{$snakeline-hover} {
+    text-decoration: none;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor));
+    background-image: -o-linear-gradient(currentColor, currentColor);
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size .3s;
+
+    @media (min-width: theme("breakpoints.xl", "value")) {
+        &:hover {
+            background-size: 100% 1px;
+            color: theme('color.primary');
+        }
+    }
+}
+
+$course-tag: "course-tag";
+
+.#{$course-tag} {
+    position: absolute;
+    #{theme('direction.right','value')}: 1rem;
+    top: 1rem;
+    padding: .25rem .75rem;
+    color: theme('color.secondary');
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    & svg {
+        color: currentColor;
+    }
+
+    @media (max-width: theme("breakpoints.md", "value")) {
+        background-color: #fff;
+        border-radius: theme('radius.round');
+        padding: .25rem .75rem;
+        padding-#{theme('direction.right','value')}: 1rem;
+        font-size: 12px;
+        #{theme('direction.right','value')}: 2rem;
+        top: 2rem;
+
+        & .icon {
+            width: 22px;
+            height: 22px;
+        }
+    }
+}
+
+.course-media {
+    .course-preview__action {
+        justify-content: flex-end;
+        align-items: flex-end;
+
+        span {
+            width: 40px;
+            height: 40px;
+            margin: 1rem;
+            position: relative;
+
+            &:before {
+                border-top: 7px solid transparent;
+                border-bottom: 7px solid transparent;
+                border-#{theme('direction.left','value')}: 12px solid currentColor;
+                margin-#{theme('direction.left','value')}: 2px;
+            }
+        }
+
+        @media(min-width: theme('breakpoints.xl', 'value')) {
+            &:hover {
+                & span {
+                    background-color: rgba(255, 255, 255, 1);
+                    color: #000;
+                }
+            }
+        }
+    }
+}

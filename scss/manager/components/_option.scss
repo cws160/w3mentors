@@ -1,0 +1,137 @@
+.option {
+    display: flex;
+    margin: 0;
+    position: relative;
+    align-items: center;
+    cursor: pointer;
+    input {
+        position: absolute;
+        top: 0;
+        opacity: 0;
+        #{$end-direction}: 0;
+        width: 100%;
+        height: 100%;
+        visibility: hidden;
+        &:checked {
+            ~.option__title {
+                // background-color: $brand-color;
+        // color:  lighten($brand-color, 55%); 
+        @include bg-brand();
+                //color:$brand-color-inverse;
+                &:before {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    .option__title {
+        font-size: 1rem;
+        font-weight: 400;
+        color: $txt-body;
+        font-style: normal;
+        padding: 0.5rem 1rem;
+        border: 1px solid #ebedf2;
+        border-radius: 4px;
+        display: block;
+        width: 100%;
+        white-space: nowrap;
+        &:before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            display: inline-block;
+            // background-color: $brand-color;
+        // color:  lighten($brand-color, 55%); 
+        @include bg-brand();
+            margin-#{$end-direction}: 4px;
+            border-radius: 50%;
+            opacity: 0;
+        }
+    }
+    .option__control {
+        width: 2.7rem;
+        padding-top: 0.1rem;
+        .radio {
+            display: block;
+        }
+    }
+    .option__label {
+        width: 100%;
+        .option__head {
+            display: flex;
+            justify-content: space-between;
+            .option__title {
+                font-size: 1.1rem;
+                font-weight: 400;
+                color: $txt-body;
+            }
+            .option__focus {
+                font-size: 1.1rem;
+                font-weight: 500;
+                color: #464457;
+            }
+        }
+        .option__body {
+            display: block;
+            padding-top: 0.7rem;
+            font-size: 0.9rem;
+            color: #a7abc3;
+        }
+    }
+}
+
+.option.option--plain {
+    border: 0;
+    padding: 0;
+    margin-top: -0.2rem;
+    margin-bottom: 2rem;
+    align-items: center;
+    .option__control {
+        vertical-align: middle;
+        width: 2.7rem;
+        .radio {
+            margin-bottom: 1.6rem;
+        }
+    }
+    .option__label {
+        .option__body {
+            padding-top: 0.2rem;
+        }
+    }
+}
+
+.is-valid {
+    .option {
+        border-color: $success-color;
+    }
+}
+
+.is-invalid {
+    .option {
+        border-color: $danger-color;
+    }
+}
+
+.has-success {
+    .option {
+        .option__label {
+            .option__head {
+                .option__title {
+                    color: $success-color;
+                }
+            }
+        }
+    }
+}
+
+.has-error {
+    .option {
+        .option__label {
+            .option__head {
+                .option__title {
+                    color: $warning-color;
+                }
+            }
+        }
+    }
+}

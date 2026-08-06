@@ -1,0 +1,165 @@
+.infobox {
+    padding: 1.5rem;
+
+    .infobox__title {
+        font-size: 2rem;
+        color: #48465b;
+    }
+
+    .infobox__subtitle {
+        font-size: 1.3rem;
+        font-weight: 400;
+        color: #48465b;
+        margin-bottom: 1.2rem;
+    }
+
+    .infobox__header {
+        margin-bottom: 2rem;
+
+        display: flex;
+
+        align-items: center;
+
+        .infobox__badge {
+            margin: auto 0 auto auto;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            color: $brand-color;
+            background-color: rgba(54, 108, 243, 0.15);
+        }
+    }
+
+    .infobox__body {
+        .infobox__section {
+            margin-bottom: 2rem;
+
+            .infobox__content {
+                font-weight: 400;
+                color: #9392a0;
+                font-size: 1.15rem;
+                line-height: 2rem;
+
+                .table {
+                    font-size: 1rem;
+
+                    thead {
+                        th {
+                            padding-top: 0.8rem;
+                            padding-bottom: 0.8rem;
+                        }
+                    }
+                }
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        .nav {
+            .nav__item {
+                .nav__link {
+                    .nav__link-text {
+                        font-size: 1.25rem;
+                    }
+                }
+            }
+        }
+
+        .accordion {
+            .card {
+                .card-header {
+                    .card-title {
+                        font-size: 1.25rem;
+                        font-weight: 400;
+                    }
+                }
+
+                .card-body {
+                    font-size: 1.15rem;
+                    line-height: 2rem;
+                    font-weight: 400;
+                    color: #9392a0;
+                }
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+.infobox--brand {
+    .infobox__header {
+        .infobox__badge {
+            color: $brand-color;
+            background-color: rgba(54, 108, 243, 0.15);
+        }
+    }
+}
+
+.infobox--light {
+    .infobox__header {
+        .infobox__badge {
+            color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+    }
+}
+
+.infobox--dark {
+    .infobox__header {
+        .infobox__badge {
+            color: $dark-color;
+            background-color: rgba(40, 42, 60, 0.15);
+        }
+    }
+}
+
+.infobox--primary {
+    .infobox__header {
+        .infobox__badge {
+            color: $primary-color;
+            background-color: rgba(88, 103, 221, 0.15);
+        }
+    }
+}
+
+.infobox--success {
+    .infobox__header {
+        .infobox__badge {
+            color: $success-color;
+            background-color: rgba(29, 201, 183, 0.15);
+        }
+    }
+}
+
+.infobox--info {
+    .infobox__header {
+        .infobox__badge {
+            color: $info-color;
+            background-color: rgba(85, 120, 235, 0.15);
+        }
+    }
+}
+
+.infobox--warning {
+    .infobox__header {
+        .infobox__badge {
+            color: $warning-color;
+            background-color: rgba(255, 184, 34, 0.15);
+        }
+    }
+}
+
+.infobox--danger {
+    .infobox__header {
+        .infobox__badge {
+            color: $danger-color;
+            background-color: rgba(253, 57, 122, 0.15);
+        }
+    }
+}

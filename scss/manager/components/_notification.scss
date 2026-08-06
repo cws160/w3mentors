@@ -1,0 +1,143 @@
+.notification {
+    .notification {
+        &__item {
+            display: flex;
+            align-items: center;
+            padding: 1.1rem 1.5rem;
+            border-bottom: $border;
+            transition: background-color .3s ease;
+            &:last-child {
+                border-bottom: 1px solid transparent;
+            }
+            .notification__item-icon {
+                display: flex;
+                flex: 0 0 2.5rem;
+                align-items: center;
+                i {
+                    font-size: 1.4rem;
+                    color: $brand-color;
+                }
+                svg {
+                    height: 24px;
+                    width: 24px;
+                    margin-#{$start-direction}: -4px;
+                }
+            }
+            .notification__item-details {
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+                .notification__item-title {
+                    transition: color .3s ease;
+                    font-size: 1rem;
+                    font-weight: 400;
+                    color: $txt-body;
+                }
+                .notification__item-time {
+                    font-size: 1rem;
+                    font-weight: 300;
+                    color: $txt-gray;
+                }
+            }
+            &:hover {
+                transition: background-color .3s ease;
+                text-decoration: none;
+                background-color: #f7f8fa;
+                .notification__item-details .notification__item-title {
+                    transition: color .3s ease;
+                    color: $brand-color;
+                }
+            }
+            &.notification__item--read {
+                opacity: .5;
+            }
+            &:after {
+                border: 0;
+                font-family: LineAwesome;
+                text-decoration: inherit;
+                text-rendering: optimizeLegibility;
+                text-transform: none;
+                content: "\f112";
+                font-size: .8rem;
+                line-height: 0;
+                position: relative;
+                color: $txt-gray;
+            }
+        }
+        &__custom {
+            display: flex;
+            align-items: center;
+            border-top: $border;
+            padding: 1.6rem 1.5rem;
+        }
+        &--fit {
+            .notification__item {
+                padding: .55rem 0;
+                &:hover {
+                    background-color: transparent;
+                    .notification__item-title {
+                        color: $brand-color;
+                    }
+                }
+            }
+        }
+    }
+    &-item-padding-x {
+        padding-#{$start-direction}: 1.5rem !important;
+        padding-#{$end-direction}: 1.5rem !important;
+    }
+    &-item-margin-x {
+        margin-#{$start-direction}: 1.5rem !important;
+        margin-#{$end-direction}: 1.5rem !important;
+    }
+    &-v2 {
+        margin: 0;
+        .notification-v2__item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            text-decoration: none;
+            transition: all .3s;
+            .notification-v2 {
+                &__item-icon {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: #f7f8fa;
+                    height: 50px;
+                    width: 50px;
+                    min-width: 50px;
+                    border-radius: 50%;
+                    i {
+                        font-size: 1.5rem;
+                    }
+                }
+                &__itek-wrapper {
+                    padding-#{$start-direction}: 1.5rem;
+                    flex: 1 1 auto;
+                    .notification-v2__item- {
+                        &title {
+                            font-size: 1.1rem;
+                            font-weight: 500;
+                            color: #5d5b6f;
+                        }
+                        &desc {
+                            font-size: 1rem;
+                            font-weight: 300;
+                            color: #b3b1c2;
+                        }
+                    }
+                }
+            }
+            &:hover {
+                background-color: #f7f8fa;
+                border-radius: 5px;
+                transition: all .3s;
+                .notification-v2__item-icon {
+                    background-color: #ebedf2;
+                    transition: all .3s;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" theme="onlinetutoring" data-kit="F!YC">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, maximum-scale=2, user-scalable=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <script>
+      (function () {
+        var p = location.pathname;
+        var isDashboard =
+          p === '/dashboard' ||
+          p.indexOf('/dashboard/teacher') === 0 ||
+          p.indexOf('/dashboard/learner') === 0 ||
+          /^\/admin\/courses\/\d+\/preview/.test(p);
+        var marketing = [
+          ['/w3mentors/css/common.css', 'w3mentors-common-css'],
+          ['/w3mentors/css/themes/onlinetutoring/frontend.css', 'w3mentors-frontend-theme-css'],
+          ['/w3mentors/css/forum.css', 'w3mentors-forum-css'],
+          ['/w3mentors/css/cms-overrides.css', 'w3mentors-cms-css'],
+        ];
+        var dashboard = [
+          ['/w3mentors/css/dashboard-common.css', 'w3mentors-dashboard-common-css'],
+          ['/w3mentors/css/dashboard.css', 'w3mentors-dashboard-css'],
+          ['/w3mentors/css/dashboard-fixes.css', 'w3mentors-dashboard-fixes-css'],
+        ];
+        var coursePreview = [
+          ['/w3mentors/css/course-personal.css', 'w3mentors-course-personal-css'],
+        ];
+        function removeSheet(href, id) {
+          var el = document.getElementById(id) || document.querySelector('link[href="' + href + '"]');
+          if (el) el.parentNode.removeChild(el);
+        }
+        function addSheet(href, id) {
+          if (document.getElementById(id)) return;
+          var link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = href;
+          link.id = id;
+          document.head.appendChild(link);
+        }
+        if (isDashboard) {
+          document.body.classList.add('is-dashboard-route');
+          if (/^\/admin\/courses\/\d+\/preview/.test(p)) {
+            document.body.classList.add('course-leaner');
+          }
+          marketing.forEach(function (pair) {
+            removeSheet(pair[0], pair[1]);
+          });
+          dashboard.forEach(function (pair) {
+            addSheet(pair[0], pair[1]);
+          });
+          if (/^\/admin\/courses\/\d+\/preview/.test(p)) {
+            coursePreview.forEach(function (pair) {
+              addSheet(pair[0], pair[1]);
+            });
+          }
+          if (!document.getElementById('w3mentors-dashboard-root-vars')) {
+            var rootStyle = document.createElement('style');
+            rootStyle.id = 'w3mentors-dashboard-root-vars';
+            rootStyle.textContent =
+              ':root { --color-primary: #0c9331; --color-primary-inverse: #fff; --color-secondary: #087028; --color-secondary-inverse: #fff; --color-third: #10a83a; --color-green: #0c9331; --radius: 24px; --radius-sm: 12px; --radius-md: 24px; --radius-lg: 30px; --radius-xl: 70px; --radius-xxxl: 40px; } body.is-dashboard-route #root { display: block; }';
+            document.head.appendChild(rootStyle);
+          }
+        }
+      })();
+    </script>
+    <title>w3mentors</title>
+  </head>
+  <body class="home index">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

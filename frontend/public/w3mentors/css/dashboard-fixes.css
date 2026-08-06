@@ -1,0 +1,595 @@
+/**
+ * React dashboard — overrides marketing-site CSS (Bootstrap nav, #body wrapper, etc.)
+ */
+
+body.dashboard-teacher,
+body.dashboard-learner {
+  height: 100%;
+  margin: 0;
+  --color-primary: #0c9331;
+  --color-primary-inverse: #fff;
+  --color-secondary: #087028;
+  --color-secondary-inverse: #fff;
+  --color-third: #10a83a;
+  --color-green: #0c9331;
+  /* Fallback until /api/v1/site/bootstrap theme_css loads (onlinetutoring rounded borders) */
+  --radius: 24px;
+  --radius-sm: 12px;
+  --radius-md: 24px;
+  --radius-lg: 30px;
+  --radius-xl: 70px;
+  --radius-xxxl: 40px;
+}
+
+body.dashboard-teacher .site,
+body.dashboard-learner .site {
+  min-height: 100vh;
+  width: 100%;
+}
+
+body.dashboard-teacher .tab-switch__item,
+body.dashboard-learner .tab-switch__item {
+  border: none;
+  background: transparent;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+body.dashboard-teacher .availability-setting-calendar .fc,
+body.dashboard-learner .availability-setting-calendar .fc {
+  min-height: 360px;
+}
+
+body.dashboard-teacher .page-content .course-group,
+body.dashboard-learner .page-content .course-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+body.dashboard-teacher .search-filter .form-control,
+body.dashboard-learner .search-filter .form-control {
+  width: 100%;
+}
+
+body.dashboard-teacher .buttons-group .btn,
+body.dashboard-learner .buttons-group .btn {
+  white-space: nowrap;
+}
+
+body.dashboard-teacher .dashboard-panel-tab,
+body.dashboard-learner .dashboard-panel-tab {
+  border: none;
+  background: transparent;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+body.dashboard-teacher .tabs.tabs--line ul,
+body.dashboard-learner .tabs.tabs--line ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 1199px) {
+  body.dashboard-teacher .site,
+  body.dashboard-learner .site {
+    display: flex;
+  }
+
+  body.dashboard-teacher .sidebar,
+  body.dashboard-learner .sidebar {
+    display: flex;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 3;
+  }
+
+  body.dashboard-teacher .sidebar__primary,
+  body.dashboard-learner .sidebar__primary {
+    display: flex;
+    flex-direction: column;
+    width: 17rem;
+    min-width: 17rem;
+  }
+
+  body.dashboard-teacher .menu-offset,
+  body.dashboard-learner .menu-offset {
+    position: relative;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    width: auto;
+    height: 100%;
+  }
+
+  body.dashboard-teacher main.page,
+  body.dashboard-learner main.page {
+    padding-left: 300px;
+  }
+}
+
+/* Bootstrap styles all <nav> as flex rows — legacy dashboard menus are block lists */
+body.dashboard-teacher .sidebar nav.menu--primary,
+body.dashboard-learner .sidebar nav.menu--primary,
+body.dashboard-teacher .sidebar nav.menu--secondary,
+body.dashboard-learner .sidebar nav.menu--secondary {
+  display: block;
+}
+
+body.dashboard-teacher .menu--primary > ul,
+body.dashboard-learner .menu--primary > ul,
+body.dashboard-teacher .menu--secondary > ul,
+body.dashboard-learner .menu--secondary > ul {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+body.dashboard-teacher .menu--primary > ul > li,
+body.dashboard-learner .menu--primary > ul > li {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  flex: none;
+}
+
+body.dashboard-teacher .menu--primary .menu__item > a,
+body.dashboard-learner .menu--primary .menu__item > a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+  white-space: normal;
+}
+
+body.dashboard-teacher .menu--primary .menu__item > a span,
+body.dashboard-learner .menu--primary .menu__item > a span {
+  flex: 1;
+  min-width: 0;
+}
+
+body.dashboard-teacher .menu-group h6,
+body.dashboard-learner .menu-group h6 {
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+body.dashboard-teacher .menu--primary .icon,
+body.dashboard-learner .menu--primary .icon {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Account panel tabs (React buttons styled like legacy anchors) */
+body.dashboard-teacher .dashboard-panel-tab,
+body.dashboard-learner .dashboard-panel-tab {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: calc(10px + 0.3vw) 1.5rem;
+  padding-right: 3rem;
+  border: none;
+  background: transparent;
+  text-align: left;
+  font: inherit;
+  font-weight: 500;
+  color: inherit;
+  cursor: pointer;
+  position: relative;
+}
+
+body.dashboard-teacher nav.menu--vertical > ul > li > button,
+body.dashboard-learner nav.menu--vertical > ul > li > button {
+  display: block;
+  width: 100%;
+}
+
+/* Full-width panel when there is no left step menu */
+@media (min-width: 1199px) {
+  body.dashboard-teacher .dashboard-panel--solo .page-panel__large,
+  body.dashboard-learner .dashboard-panel--solo .page-panel__large {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+body.dashboard-teacher .content-panel__head h5,
+body.dashboard-learner .content-panel__head h5 {
+  margin: 0;
+}
+
+body.dashboard-teacher .content-panel__body .page-container,
+body.dashboard-learner .content-panel__body .page-container {
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* Account settings panel: match legacy (no extra inner padding on body) */
+body.dashboard-teacher .page-panel .content-panel__body,
+body.dashboard-learner .page-panel .content-panel__body {
+  padding: 0;
+}
+
+body.dashboard-teacher .page-panel .content-panel__head,
+body.dashboard-learner .page-panel .content-panel__head {
+  padding: 1.25rem 1.5rem;
+  border-bottom: none;
+}
+
+body.dashboard-teacher .page-panel .content-panel__head.content-panel__head--divider,
+body.dashboard-learner .page-panel .content-panel__head.content-panel__head--divider {
+  border-bottom: 1px solid var(--color-gray-200, #e9ecef);
+  margin-bottom: 1rem;
+}
+
+/* form__actions spacing comes from dashboard.css (padding 1.5rem, no top border) */
+
+/* Speak-language proficiency row */
+body.dashboard-teacher .selection__target {
+  padding: 0 1.5rem 1rem;
+}
+
+body.dashboard-teacher .selection__target .form-control {
+  width: 100%;
+}
+
+/* Subject tree (multilevel-dropdown lives in common.scss; reincluded for dashboard bundle) */
+body.dashboard-teacher .multilevel-dropdown > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body.dashboard-teacher .multilevel-dropdown > ul > li {
+  background-color: #f2f2f2;
+  border-radius: var(--radius-sm, 6px);
+  padding: 0 1rem;
+  font-size: 1.125rem;
+  line-height: 1.2;
+}
+
+body.dashboard-teacher .multilevel-dropdown ul li ul li {
+  font-size: 1rem;
+}
+
+body.dashboard-teacher .multilevel-dropdown ul li ul li ul li {
+  font-size: 12px;
+  font-weight: normal;
+}
+
+body.dashboard-teacher .multilevel-dropdown ul li {
+  border-bottom: 1px solid #d4d4d4;
+}
+
+body.dashboard-teacher .multilevel-dropdown ul li:last-child {
+  border-bottom: none;
+}
+
+body.dashboard-teacher .multilevel-dropdown .accordion-trigger {
+  padding: 0.75rem 0;
+  display: block;
+  position: relative;
+  margin: 0;
+  cursor: pointer;
+}
+
+body.dashboard-teacher .multilevel-dropdown .accordion-trigger input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  cursor: pointer;
+  z-index: 1;
+  margin: 0;
+}
+
+body.dashboard-teacher .multilevel-dropdown .accordion-trigger-action {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+}
+
+body.dashboard-teacher .multilevel-dropdown .accordion-trigger-icon {
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  border-radius: 100%;
+  background-color: #fff;
+  border: 1px solid #7b7b7b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body.dashboard-teacher .multilevel-dropdown .accordion-trigger-icon::before {
+  width: 9px;
+  height: 5px;
+  display: block;
+  border-left: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  content: "";
+  transform: rotate(-45deg);
+  margin-top: -1px;
+}
+
+body.dashboard-teacher .multilevel-dropdown .accordion-trigger input:checked ~ .accordion-trigger-action .accordion-trigger-icon {
+  background-color: #000;
+  border-color: #000;
+  color: #fff;
+}
+
+body.dashboard-teacher .multilevel-dropdown .is-dropdown {
+  padding-left: 0.75rem;
+  list-style: none;
+  margin: 0;
+}
+
+body.dashboard-teacher .multilevel-dropdown li.is-child > span.trigger {
+  padding: 0.75rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+body.dashboard-teacher .multilevel-dropdown li.is-child > span.trigger::after {
+  content: "";
+  width: 9px;
+  height: 9px;
+  flex: 0 0 9px;
+  border-right: 2px solid #707070;
+  border-bottom: 2px solid #707070;
+  transform: rotate(45deg);
+  margin-right: 5px;
+}
+
+body.dashboard-teacher .multilevel-dropdown li.is-child > span.trigger.is-active::after {
+  transform: rotate(-135deg);
+  margin-top: 3px;
+}
+
+body.dashboard-teacher .page-panel .content-panel__body .list-group-item {
+  border-radius: var(--radius-sm, 6px);
+}
+
+body.dashboard-teacher .page-panel .content-panel__body .account-personal-form {
+  padding: 1.5rem;
+}
+
+/* Experience / qualifications table (styles from common tables, not on dashboard bundle) */
+body.dashboard-teacher .table-scroll {
+  overflow: auto;
+}
+
+body.dashboard-teacher .table.table--bordered {
+  width: 100%;
+  border-top: 1px solid var(--color-gray-200, #e9ecef);
+}
+
+body.dashboard-teacher .table.table--bordered th,
+body.dashboard-teacher .table.table--bordered td {
+  padding: 1rem 1.5rem;
+  vertical-align: top;
+  text-align: left;
+  line-height: 1.4;
+  border-bottom: 1px solid var(--color-gray-200, #e9ecef);
+}
+
+body.dashboard-teacher .table.table--bordered th {
+  font-weight: 600;
+  background-color: #e1e3e7;
+}
+
+body.dashboard-teacher .table.table--responsive .flex-cell__label {
+  display: none;
+}
+
+body.dashboard-teacher .actions-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+body.dashboard-teacher .modal-body .field_label {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+body.dashboard-teacher .modal-body .field-set {
+  margin-bottom: 20px;
+}
+
+/* Skills preferences checklist (from common _lists.scss) */
+body.dashboard-teacher .list-onethird {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+body.dashboard-teacher .list-onethird li {
+  display: inline-block;
+  vertical-align: top;
+  padding: 10px 20px 10px 0;
+  margin: 0 -4px 0 0;
+  width: 33.3%;
+}
+
+body.dashboard-teacher .list-onethird li label {
+  margin: 0;
+  line-height: 1.6;
+  font-weight: normal;
+}
+
+body.dashboard-teacher .list-onethird.list-onethird--bg {
+  background: rgba(0, 0, 0, 0.02);
+  padding: 20px;
+  border-radius: var(--radius-sm, 6px);
+}
+
+body.dashboard-teacher .page-panel .checkbox {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  padding-left: 30px;
+  min-width: 20px;
+  min-height: 20px;
+}
+
+body.dashboard-teacher .page-panel .checkbox .input-helper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 1px var(--color-gray-300, #dee2e6);
+}
+
+body.dashboard-teacher .page-panel .checkbox input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 1;
+  margin: 0;
+}
+
+body.dashboard-teacher .page-panel .checkbox input:checked + .input-helper {
+  box-shadow: none;
+  border: 2px solid var(--color-secondary, #087028);
+}
+
+@media (max-width: 991px) {
+  body.dashboard-teacher .list-onethird li {
+    width: 50%;
+  }
+}
+
+@media (max-width: 576px) {
+  body.dashboard-teacher .list-onethird li {
+    width: 100%;
+  }
+
+  body.dashboard-teacher .list-onethird.list-onethird--bg {
+    max-height: 350px;
+    overflow: auto;
+  }
+}
+
+body.dashboard-teacher .page-panel .content-panel__body .padding-6 {
+  padding: 1.5rem;
+}
+
+/* Legacy #w3mentorsModal (dashboard/views/common-js/w3mentors-modal.js) */
+#w3mentorsModal.modal-form .modal-dialog {
+  max-width: 560px;
+}
+
+#w3mentorsModal.modal-form .modal-content {
+  border-radius: 0;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+#w3mentorsModal.modal-form .modal-header,
+#w3mentorsModal.modal-form .modal-body {
+  background-color: #fff;
+}
+
+#w3mentorsModal.modal-form .modal-dialog .modal-content.contentBodyJs {
+  border-radius: var(--radius-md, 24px);
+  overflow: hidden;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+body.dashboard-teacher #w3mentorsModal.modal-form .modal-header,
+body.dashboard-learner #w3mentorsModal.modal-form .modal-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--color-gray-200, #e9ecef);
+}
+
+body.dashboard-teacher #w3mentorsModal.modal-form .modal-header h4,
+body.dashboard-teacher #w3mentorsModal.modal-form .modal-header h5,
+body.dashboard-learner #w3mentorsModal.modal-form .modal-header h4,
+body.dashboard-learner #w3mentorsModal.modal-form .modal-header h5 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+body.dashboard-teacher #w3mentorsModal.modal-form .modal-body,
+body.dashboard-learner #w3mentorsModal.modal-form .modal-body {
+  padding: 1.5rem;
+}
+
+body.dashboard-teacher #w3mentorsModal.modal-form .modal-body .field_label,
+body.dashboard-learner #w3mentorsModal.modal-form .modal-body .field_label {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+body.dashboard-teacher #w3mentorsModal.modal-form .modal-body .field-set,
+body.dashboard-learner #w3mentorsModal.modal-form .modal-body .field-set {
+  margin-bottom: 20px;
+}
+
+body.dashboard-teacher #w3mentorsModal.modal-form .btn.btn--primary,
+body.dashboard-learner #w3mentorsModal.modal-form .btn.btn--primary {
+  background-color: var(--color-primary, #0c9331);
+  border-color: var(--color-primary, #0c9331);
+  color: var(--color-primary-inverse, #fff);
+}
+
+body.dashboard-teacher #w3mentorsModal.modal-form .btn.btn--primary:hover,
+body.dashboard-learner #w3mentorsModal.modal-form .btn.btn--primary:hover {
+  background-color: var(--color-secondary, #087028);
+  border-color: var(--color-secondary, #087028);
+  color: #fff;
+}
+
+#w3mentorsModal.modal-lg .modal-dialog {
+  max-width: 950px;
+}
+
+#w3mentorsModal.modal-xl .modal-dialog {
+  max-width: 1140px;
+}
+
+@media (min-width: 992px) {
+  #w3mentorsModal.modal-lg .modal-dialog,
+  #w3mentorsModal.modal-xl .modal-dialog {
+    max-width: 800px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #w3mentorsModal.modal-lg .modal-dialog {
+    max-width: 950px;
+  }
+
+  #w3mentorsModal.modal-xl .modal-dialog {
+    max-width: 1140px;
+  }
+}

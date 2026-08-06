@@ -1,0 +1,29 @@
+$bg-brand: $brand-color;
+
+.bg-shape {
+    border-radius: 0;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    @include bg-brand;
+
+    &:before,
+    &:after {
+        z-index: -1;
+        position: absolute;
+        content: "";
+        border-radius: 50%;
+        height: 12.5rem;
+        width: 12.5rem;
+    }
+    &:before {
+        left: 2.125rem;
+        top: 1.188rem;
+        background-image: #{linear-gradient(-45deg, lighten($bg-brand, 10), $bg-brand)};
+    }
+    &:after {
+        right: -6.25rem;
+        top: -7.938rem;
+        background-image: #{linear-gradient(-45deg, lighten($bg-brand, 10), lighten($bg-brand, 15))};
+    }
+}

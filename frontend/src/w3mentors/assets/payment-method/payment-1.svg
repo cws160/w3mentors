@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="23" viewBox="0 0 36 23">
+  <g id="Vector_Smart_Object" data-name="Vector Smart Object" transform="translate(-0.425 0.352)">
+    <path id="Path_21" data-name="Path 21" d="M33.425-.352h-31c-1.628,0-2,1.372-2,3v17c0,1.628.468,3,2,3h31a3.037,3.037,0,0,0,3-3v-17A3.1,3.1,0,0,0,33.425-.352Z" opacity="0.07" style="mix-blend-mode: normal;isolation: isolate"/>
+    <path id="Path_22" data-name="Path 22" d="M33.468.69a2.069,2.069,0,0,1,2,2v17a2.069,2.069,0,0,1-2,2h-31c-1.054,0-1-.946-1-2v-17c0-1.054-.054-2,1-2h31" transform="translate(-0.042 -0.042)" fill="#fff"/>
+    <path id="Path_23" data-name="Path 23" d="M23.016,7.859c.192-.958.575-1.425,0-2a3.908,3.908,0,0,0-3-1h-4c-.287,0-.9.713-1,1l-1,9c0,.192-.192,1,0,1h3v-4l2-2Z" transform="translate(-0.591 -0.211)" fill="#003087"/>
+    <path id="Path_24" data-name="Path 24" d="M23.126,8h0c-.479,2.682-1.7,4-4,4h-1c-.287,0-.9.713-1,1v3l-1,1a2.512,2.512,0,0,0,1,1h2c.287,0,0-.808,0-1h0l1-2h0c0-.192-.192-1,0-1h0c2.011,0,3.617-.7,4-3,.192-.958.479-1.425,0-2C24.03,8.52,23.318,8.095,23.126,8Z" transform="translate(-0.701 -0.35)" fill="#3086c8"/>
+    <path id="Path_25" data-name="Path 25" d="M23.16,7.978c-.1-.1.1,0,0,0s-.9.1-1,0a3.48,3.48,0,0,0-1,0h-3c-.1,0,0-.1,0,0-.192.1,0-.192,0,0l-1,5h0a1.717,1.717,0,0,1,1-1h1c2.394,0,3.521-1.318,4-4h0c-.1-.1.192,0,0,0Z" transform="translate(-0.735 -0.329)" fill="#012169"/>
+  </g>
+</svg>

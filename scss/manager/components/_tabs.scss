@@ -1,0 +1,161 @@
+.nav-tabs {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+
+  .nav-item {
+    +.nav-item {
+      padding-#{$start-direction}: 2rem;
+    }
+  }
+
+  .nav-link {
+    background-position: 50% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size 0.3s;
+    border: transparent;
+    position: relative;
+    color: $txt-body;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 1.5rem 0;
+    margin: 0 1rem;
+    top: 1px;
+    white-space: nowrap;
+
+    &.active {
+      color: $brand-color;
+      background-image: linear-gradient(currentColor, currentColor);
+      text-decoration: none;
+      background-size: 100% 1px;
+      text-decoration: none;
+    }
+
+    &:first-child {
+      margin-#{$start-direction}: 0;
+    }
+
+    &:last-child {
+      margin-#{$end-direction}: 0;
+    }
+  }
+
+  &.dropdown-menu {
+    display: none;
+
+    &.show {
+      display: block;
+    }
+  }
+}
+
+.tab {
+  ul {
+    list-style: none;
+
+    li {
+      a {
+        color: #000;
+        display: block;
+      }
+    }
+  }
+
+  &.tab-vertical {
+    ul {
+      @include media-breakpoint-down(xl) {
+        display: flex;
+        overflow: auto;
+      }
+
+      li {
+        &:not(:last-child) {
+          @include media-breakpoint-up(xl) {
+            border-bottom: $border;
+          }
+        }
+
+        a {
+          padding: 10px 1rem;
+
+          @include media-breakpoint-down(xl) {
+            white-space: nowrap;
+          }
+
+          &.is-active,
+          &.active {
+            background-color: $brand-color-100;
+            color: $brand-color;
+            position: relative;
+
+            &::after {
+              position: absolute;
+              content: "";
+              background-color: $brand-color;
+              width: 2px;
+              top: 0;
+              left: 0;
+              bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.tab-inline {
+    ul {
+      display: flex;
+      overflow: hidden;
+      overflow-x: auto;
+
+      li {
+        padding: 0 1.4rem;
+
+        &:first-child {
+          padding-#{$start-direction}: 0;
+        }
+
+        &.is-inactive,
+        &.inactive {
+          cursor: no-drop;
+          opacity: 0.5;
+
+          a {
+            cursor: no-drop;
+          }
+        }
+
+        a {
+          padding: 10px 0;
+
+          &.is-inactive,
+          &.inactive {
+            cursor: no-drop;
+            opacity: 0.5;
+          }
+
+          &.is-active,
+          &.active {
+            color: $brand-color;
+            position: relative;
+
+            &::after {
+              position: absolute;
+              content: "";
+              background-color: $brand-color;
+              height: 2px;
+              right: 0;
+              left: 0;
+              bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
