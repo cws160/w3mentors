@@ -1,10 +1,10 @@
 ---
 deployment:
   tasks:
-    - export REPOSITORY_PATH=/home/cynorwebsolution/cwswebsite
-    - export APP_DEPLOY_PATH=/home/cynorwebsolution/public_html/w3mentors
-    - export FRONTEND_DEPLOY_PATH=/home/cynorwebsolution/public_html/w3mentors/frontend
-    - export API_APP_PATH=/home/cynorwebsolution/public_html/w3mentors/backend
+    - export REPOSITORY_PATH=/home/w3mentors/repositories/w3mentors
+    - export APP_DEPLOY_PATH=/home/w3mentors/public_html
+    - export FRONTEND_DEPLOY_PATH=/home/w3mentors/public_html/frontend
+    - export API_APP_PATH=/home/w3mentors/public_html/backend
 
     # w3mentors.com document root should point to $APP_DEPLOY_PATH.
     # Root .htaccess serves React from /frontend and Laravel API from /api.
@@ -16,7 +16,7 @@ deployment:
     - /bin/mkdir -p $FRONTEND_DEPLOY_PATH
     - /bin/mkdir -p $API_APP_PATH
 
-    # Deploy legacy/root application files to /public_html/w3mentors.
+    # Deploy legacy/root application files to /public_html.
     - /usr/bin/rsync -a --delete --exclude='.git' --exclude='.agents' --exclude='.codex' --exclude='.cpanel.yml' --exclude='.env' --exclude='node_modules' --exclude='vendor' --exclude='frontend' --exclude='backend' --exclude='user-uploads' --exclude='restore' --exclude='conf' --exclude='public/cache' --exclude='public/caching' --exclude='*.log' ./ $APP_DEPLOY_PATH/
 
     # Install root legacy PHP dependencies because public/application-top.php loads vendor/autoload.php.
